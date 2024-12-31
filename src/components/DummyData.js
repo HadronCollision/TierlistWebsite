@@ -3,6 +3,7 @@ export const playerData = {
     { ign: "HabibiHadron", rank: "high", country: "pk" },
     { ign: "HabibiBread", rank: "high", country: "pk" },
     { ign: "HabibiJod", rank: "low", country: "pk" },
+    { ign: "YTMee", rank: "low", country: "pk" },
   ],
   tier2s: [
     { ign: "Kyssta", rank: "high", country: "pk" },
@@ -18,10 +19,9 @@ export const playerData = {
     { ign: "Duazy", rank: "low", country: "in" },
     { ign: "Nigger", rank: "low", country: "pk" },
   ],
-  tier4s: [{ ign: "GeneralAsimMunir", rank: "high", country: "pk" }],
   tier4s: [
+    { ign: "GeneralAsimMunir", rank: "high", country: "pk" },
     { ign: "DrPuuuu", rank: "high", country: "pk" },
-    { ign: "Ryuk65", rank: "high", country: "pk" },
     { ign: "a", rank: "high", country: "pk" },
     { ign: "b", rank: "high", country: "pk" },
     { ign: "c", rank: "high", country: "pk" },
@@ -39,11 +39,8 @@ export const playerData = {
     { ign: "o", rank: "high", country: "pk" },
   ],
   tier5s: [
-    { ign: "R3hmanXD", rank: "high", country: "pk" },
     { ign: "xUltimate_", rank: "high", country: "pk" },
     { ign: "Kyssta", rank: "high", country: "pk" },
     { ign: "Boltness", rank: "high", country: "pk" },
-    { ign: "GeneralAsimMunir", rank: "high", country: "pk" },
-    { ign: "YTMee", rank: "high", country: "pk" },
   ],
 };

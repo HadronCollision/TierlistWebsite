@@ -5,9 +5,10 @@ import TierColumn from "./components/TierColumn";
 import { playerData } from "./components/DummyData";
 import { Color } from "./constants/Color";
 import TierDetailsModal from "./components/TierModal";
+import { ModalProvider, useModal } from "./context/modalContext";
 
 const App = () => {
-  const [showModal, setShowModal] = useState(false);
+  const { modalState, setModalState } = useModal();
 
   const styles = {
     container: {
@@ -23,17 +24,17 @@ const App = () => {
     <div>
       <TierHeader />
       <div style={styles.container}>
-        <TierColumn onShowModal={setShowModal} players={playerData.tier1s} />
+        <TierColumn players={playerData.tier1s} />
         <div style={styles.border} />
-        <TierColumn onShowModal={setShowModal} players={playerData.tier2s} />
+        <TierColumn players={playerData.tier2s} />
         <div style={styles.border} />
-        <TierColumn onShowModal={setShowModal} players={playerData.tier3s} />
+        <TierColumn players={playerData.tier3s} />
         <div style={styles.border} />
-        <TierColumn onShowModal={setShowModal} players={playerData.tier4s} />
+        <TierColumn players={playerData.tier4s} />
         <div style={styles.border} />
-        <TierColumn onShowModal={setShowModal} players={playerData.tier5s} />
+        <TierColumn players={playerData.tier5s} />
       </div>
-      {showModal && <TierDetailsModal onShowModal={setShowModal} />}
+      {modalState.show && <TierDetailsModal />}
     </div>
   );
 };

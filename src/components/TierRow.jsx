@@ -1,6 +1,14 @@
 import { Color } from "../constants/Color";
+import { useModal } from "../context/modalContext";
 
-const TierRow = ({ ign, rank, country, onShowModal }) => {
+const TierRow = ({ player }) => {
+  const { modalState, setModalState } = useModal();
+  const { ign, rank, country } = player;
+
+  const handleModal = (player) => {
+    setModalState({ show: true, player: player });
+  };
+
   const styles = {
     width: "15vw",
     backgroundColor: rank === "high" ? Color.highTier : Color.lowTier,
@@ -13,7 +21,7 @@ const TierRow = ({ ign, rank, country, onShowModal }) => {
   };
 
   return (
-    <div style={styles} onClick={() => onShowModal((val) => !val)}>
+    <div style={styles} onClick={() => handleModal(player)}>
       {ign}
     </div>
   );
