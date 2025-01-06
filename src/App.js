@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import TierHeader from "./components/TierHeader";
 import TierColumn from "./components/TierColumn";
 import { playerData } from "./components/DummyData";
 import { Color } from "./constants/Color";
 import TierDetailsModal from "./components/TierModal";
-import { ModalProvider, useModal } from "./context/modalContext";
+import { useModal } from "./context/modalContext";
 
 const App = () => {
-  const { modalState, setModalState } = useModal();
+  const { modalState } = useModal();
 
   const styles = {
     container: {
@@ -17,7 +17,11 @@ const App = () => {
       backgroundColor: Color.backgroundColor,
       height: "100%",
     },
-    border: { border: `2px solid ${Color.headerColor}`, margin: 0, padding: 0 },
+    border: {
+      border: `2px solid ${Color.headerColor}`,
+      margin: 0,
+      padding: 0,
+    },
   };
 
   return (

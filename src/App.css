@@ -18,3 +18,17 @@
   font-weight: 400;
   font-style: normal;
 }
+
+.loader {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+/* prettier-ignore */
+@keyframes l5 {
+  0%  {box-shadow: 20px 0 #666, -20px 0 #6662; background: #666;}
+  33% {box-shadow: 20px 0 #666, -20px 0 #6662; background: #6662;}
+  66% {box-shadow: 20px 0 #6662, -20px 0 #666; background: #6662;}
+  100% {box-shadow: 20px 0 #6662, -20px 0 #666; background: #666;}
+}
