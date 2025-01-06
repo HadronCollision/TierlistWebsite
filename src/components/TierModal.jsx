@@ -15,55 +15,6 @@ function TierModal() {
     });
   }, []);
 
-  const styles = {
-    modalOverlay: {
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      color: "white",
-      height: "100vh",
-      width: "100vw",
-      position: "fixed",
-      top: 0,
-      left: 0,
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-    },
-    modalBody: {
-      height: "500px",
-      width: "500px",
-      borderRadius: "250px",
-      backgroundColor: Color.lowTier,
-      display: "flex",
-      flexDirection: "column",
-      justifyContent: "center",
-      alignItems: "center",
-      boxShadow: `inset 0 0px 10px ${Color.highTier}`,
-      border: `4px solid ${Color.lowTier}`,
-    },
-    skinImage: {
-      backgroundColor: Color.lowTier,
-      width: "158px",
-      height: "256px",
-    },
-    ignText: {
-      backgroundColor: Color.lowTier,
-      fontSize: "24px",
-      fontWeight: "bold",
-    },
-    countryText: {
-      backgroundColor: Color.lowTier,
-      color: "#7a7a7a",
-    },
-    loaderWrapper: {
-      height: "256px",
-      width: "158px",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      backgroundColor: Color.lowTier,
-    },
-  };
-
   return (
     <div style={styles.modalOverlay} onClick={closeModal}>
       <div style={styles.modalBody} onClick={(e) => e.stopPropagation()}>
@@ -87,5 +38,54 @@ function TierModal() {
     </div>
   );
 }
+
+const styles = {
+  modalOverlay: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    color: "white",
+    height: "100vh",
+    width: "100vw",
+    position: "fixed",
+    top: 0,
+    left: 0,
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+  modalBody: {
+    height: "500px",
+    width: "500px",
+    borderRadius: "250px",
+    backgroundColor: Color.lowTier,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    boxShadow: `inset 0 0px 10px ${Color.highTier}`,
+    border: `4px solid ${Color.lowTier}`,
+  },
+  skinImage: {
+    backgroundColor: Color.lowTier,
+    width: "158px",
+    height: "256px",
+  },
+  ignText: {
+    backgroundColor: Color.lowTier,
+    fontSize: "24px",
+    fontWeight: "bold",
+  },
+  countryText: {
+    backgroundColor: Color.lowTier,
+    color: "#7a7a7a",
+  },
+  loaderWrapper: {
+    height: "256px",
+    width: "158px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: Color.lowTier,
+  },
+};
 
 export default TierModal;

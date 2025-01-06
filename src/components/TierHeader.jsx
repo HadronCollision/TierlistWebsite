@@ -3,15 +3,6 @@ import { Color } from "../constants/Color";
 import TierHeading from "./TierHeading";
 
 const TierHeader = () => {
-  const styles = {
-    header: {
-      display: "flex",
-      justifyContent: "space-evenly",
-      backgroundColor: Color.headerColor,
-      padding: "16px 0",
-    },
-  };
-
   return (
     <div style={styles.header}>
       <TierHeading>Tier 1</TierHeading>
@@ -25,6 +16,15 @@ const TierHeader = () => {
       <TierHeading>Tier 5</TierHeading>
     </div>
   );
+};
+
+const styles = {
+  header: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    backgroundColor: Color.headerColor,
+    padding: "16px 0",
+  },
 };
 
 export default TierHeader;

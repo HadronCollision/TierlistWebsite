@@ -2,10 +2,8 @@ import React from "react";
 import TierRow from "./TierRow";
 
 const TierColumn = ({ players }) => {
-  const styles = {};
-
   return (
-    <div style={styles}>
+    <div>
       {players.map((player) => (
         <TierRow player={player} key={player.ign} />
       ))}

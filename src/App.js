@@ -10,20 +10,6 @@ import { useModal } from "./context/modalContext";
 const App = () => {
   const { modalState } = useModal();
 
-  const styles = {
-    container: {
-      display: "flex",
-      justifyContent: "space-evenly",
-      backgroundColor: Color.backgroundColor,
-      height: "100%",
-    },
-    border: {
-      border: `2px solid ${Color.headerColor}`,
-      margin: 0,
-      padding: 0,
-    },
-  };
-
   return (
     <div>
       <TierHeader />
@@ -41,6 +27,20 @@ const App = () => {
       {modalState.show && <TierDetailsModal />}
     </div>
   );
+};
+
+const styles = {
+  container: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    backgroundColor: Color.backgroundColor,
+    height: "100%",
+  },
+  border: {
+    border: `2px solid ${Color.headerColor}`,
+    margin: 0,
+    padding: 0,
+  },
 };
 
 export default App;
