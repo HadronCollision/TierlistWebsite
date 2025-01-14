@@ -4,14 +4,16 @@ import TierHeader from "./components/TierHeader";
 import TierColumn from "./components/TierColumn";
 import { playerData } from "./components/DummyData";
 import { Color } from "./constants/Color";
-import TierDetailsModal from "./components/TierModal";
+import TierDetailsModal from "./components/modal/TierModal";
 import { useModal } from "./context/modalContext";
+import GamemodeHeader from "./components/GamemodeHeader";
 
 const App = () => {
   const { modalState } = useModal();
 
   return (
     <div>
+      <GamemodeHeader />
       <TierHeader />
       <div style={styles.container}>
         <TierColumn players={playerData.tier1s} />

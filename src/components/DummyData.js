@@ -4,6 +4,7 @@ export const playerData = {
     { ign: "HabibiBread", rank: "high", country: "pk" },
     { ign: "HabibiJod", rank: "low", country: "pk" },
     { ign: "YTMee", rank: "low", country: "pk" },
+    { ign: "Kyssta", rank: "low", country: "pk" },
   ],
   tier2s: [
     { ign: "Kyssta", rank: "high", country: "pk" },
@@ -40,7 +41,6 @@ export const playerData = {
   ],
   tier5s: [
     { ign: "xUltimate_", rank: "high", country: "pk" },
-    { ign: "Kyssta", rank: "high", country: "pk" },
     { ign: "Boltness", rank: "high", country: "pk" },
   ],
 };

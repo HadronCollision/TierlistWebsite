@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Color } from "../constants/Color";
-import { useModal } from "../context/modalContext";
+import { Color } from "../../constants/Color";
+import { useModal } from "../../context/modalContext";
+import TierDisplayBox from "./TierDisplayBox";
 
 function TierModal() {
   const { modalState, setModalState } = useModal();
@@ -34,6 +35,16 @@ function TierModal() {
             <div className="loader"></div>
           </div>
         )}
+        {/* prettier-ignore */}
+        <div style={styles.tierContainer}>
+          <TierDisplayBox type="tier-sword" tier="HT4"/>
+          <TierDisplayBox type="tier-nethpot" tier="HT3"/>
+          <TierDisplayBox type="tier-crystal" tier="LT4"/>
+          <TierDisplayBox type="tier-diapot" tier="HT5"/>
+          <TierDisplayBox type="tier-axe" orientation="left" tier="LT5"/>
+          <TierDisplayBox type="tier-uhc" orientation="left" tier="HT4"/>
+          <TierDisplayBox type="tier-smp" orientation="left" tier="HT4"/>
+        </div>
       </div>
     </div>
   );
@@ -56,26 +67,26 @@ const styles = {
     height: "500px",
     width: "500px",
     borderRadius: "250px",
-    backgroundColor: Color.lowTier,
+    backgroundColor: Color.highTier,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    boxShadow: `inset 0 0px 10px ${Color.highTier}`,
-    border: `4px solid ${Color.lowTier}`,
+    boxShadow: `inset 0px 0px 50px ${Color.lowTier}`,
+    border: `4px solid #333`,
   },
   skinImage: {
-    backgroundColor: Color.lowTier,
+    backgroundColor: Color.highTier,
     width: "158px",
     height: "256px",
   },
   ignText: {
-    backgroundColor: Color.lowTier,
+    backgroundColor: Color.highTier,
     fontSize: "24px",
     fontWeight: "bold",
   },
   countryText: {
-    backgroundColor: Color.lowTier,
+    backgroundColor: Color.highTier,
     color: "#7a7a7a",
   },
   loaderWrapper: {
@@ -84,7 +95,14 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Color.lowTier,
+    backgroundColor: Color.highTier,
+  },
+  tierContainer: {
+    position: "absolute",
+    transform: "translate(-60px, -30px)",
+  },
+  tierBox: {
+    position: "absolute",
   },
 };
 
