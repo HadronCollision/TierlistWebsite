@@ -42,5 +42,6 @@ export const playerData = {
   tier5s: [
     { ign: "xUltimate_", rank: "high", country: "pk" },
     { ign: "Boltness", rank: "high", country: "pk" },
+    { ign: "Grvo", rank: "low", country: "pk" },
   ],
 };
