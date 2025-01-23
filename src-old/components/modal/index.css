@@ -1,0 +1,53 @@
+.loader {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+/* prettier-ignore */
+@keyframes l5 {
+    0%  {box-shadow: 20px 0 #666, -20px 0 #6662; background: #666;}
+    33% {box-shadow: 20px 0 #666, -20px 0 #6662; background: #6662;}
+    66% {box-shadow: 20px 0 #6662, -20px 0 #666; background: #6662;}
+    100% {box-shadow: 20px 0 #6662, -20px 0 #666; background: #666;}
+  }
+
+.tier-sword {
+  transform: translate(200px, -80px);
+}
+.tier-nethpot {
+  transform: translate(220px, 20px);
+}
+.tier-crystal {
+  transform: translate(200px, 120px);
+}
+.tier-diapot {
+  transform: translate(0px, 220px);
+}
+.tier-axe {
+  transform: translate(-180px, 120px);
+}
+.tier-uhc {
+  transform: translate(-220px, 20px);
+}
+.tier-smp {
+  transform: translate(-180px, -80px);
+}
+
+.gamemode-button {
+  position: relative;
+  overflow: hidden;
+}
+.gamemode-button:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #999;
+  transition: width 0.25s ease;
+}
+.gamemode-button:hover:after {
+  width: 100%;
+}

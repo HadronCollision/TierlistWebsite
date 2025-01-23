@@ -4,13 +4,9 @@ import TierRow from "./TierRow";
 const TierColumn = ({ players }) => {
   return (
     <div>
-      {players && (
-        <>
-          {players.map((player) => (
-            <TierRow player={player} key={player.ign} />
-          ))}
-        </>
-      )}
+      {players.map((player) => (
+        <TierRow player={player} key={player.ign} />
+      ))}
     </div>
   );
 };
