@@ -3,9 +3,10 @@ import { Color } from "../constants/color";
 import TierColumn from "./TierColumn";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTierData } from "../api/players";
+import { useParams } from "react-router";
 
 function TierColumnContainer({ selectedMode }) {
-  const { data: playerData, isLoading } = useQuery({
+  const { data: playerData } = useQuery({
     queryFn: () => fetchTierData(selectedMode),
     queryKey: ["players", selectedMode],
     staleTime: 0,
@@ -13,15 +14,15 @@ function TierColumnContainer({ selectedMode }) {
 
   return (
     <div style={styles.container}>
-      <TierColumn players={playerData?.tier1s} loading={isLoading} />
+      <TierColumn players={playerData?.tier1s} />
       <div style={styles.border} />
-      <TierColumn players={playerData?.tier2s} loading={isLoading} />
+      <TierColumn players={playerData?.tier2s} />
       <div style={styles.border} />
-      <TierColumn players={playerData?.tier3s} loading={isLoading} />
+      <TierColumn players={playerData?.tier3s} />
       <div style={styles.border} />
-      <TierColumn players={playerData?.tier4s} loading={isLoading} />
+      <TierColumn players={playerData?.tier4s} />
       <div style={styles.border} />
-      <TierColumn players={playerData?.tier5s} loading={isLoading} />
+      <TierColumn players={playerData?.tier5s} />
     </div>
   );
 }

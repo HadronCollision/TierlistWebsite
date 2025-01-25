@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Color } from "../constants/color";
+import { NavLink } from "react-router";
+import { motion } from "motion/react";
 
 //prettier-ignore
 const gamemodes = [
@@ -12,19 +14,33 @@ const gamemodes = [
   { src: "https://mctiers.com/assets/smp-72ce94df.svg", label: "SMP Kit", id: "smp"},
 ];
 
-const GamemodeHeader = ({ setSelectedMode }) => {
+const GamemodeHeader = ({ selectedMode, setSelectedMode }) => {
   return (
     <div style={styles.container}>
       {gamemodes.map((gamemode, index) => (
-        <div
-          key={index}
-          className="gamemode-button"
-          style={styles.button}
-          onClick={() => setSelectedMode(gamemode.id)}
+        <motion.div
+          style={
+            selectedMode === gamemode.id
+              ? { transform: "translateY(-3px)", transition: "0.1s" }
+              : { transform: "translateY(0px)", transition: "0.1s" }
+          }
+          key={gamemode.id}
         >
-          <img src={gamemode.src} style={styles.icon} alt="icon" />
-          {gamemode.label}
-        </div>
+          <NavLink
+            className="gamemode-button"
+            style={{
+              ...styles.button,
+              backgroundColor:
+                selectedMode === gamemode.id ? "a55" : Color.lowTier,
+            }}
+            onClick={() => setSelectedMode(gamemode.id)}
+            to={`/tiers/${gamemode.id}`}
+            key={index}
+          >
+            <img src={gamemode.src} style={styles.icon} alt="icon" />
+            {gamemode.label}
+          </NavLink>
+        </motion.div>
       ))}
     </div>
   );
@@ -35,10 +51,11 @@ const styles = {
     display: "flex",
     justifyContent: "space-evenly",
     backgroundColor: Color.backgroundColor,
-    margin: "10px 0",
+    margin: "20px 0",
   },
   button: {
     cursor: "pointer",
+    textDecoration: "none",
     backgroundColor: Color.lowTier,
     height: "48px",
     width: "200px",

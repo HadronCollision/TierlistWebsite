@@ -33,21 +33,3 @@
 .tier-smp {
   transform: translate(-180px, -80px);
 }
-
-.gamemode-button {
-  position: relative;
-  overflow: hidden;
-}
-.gamemode-button:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: #999;
-  transition: width 0.25s ease;
-}
-.gamemode-button:hover:after {
-  width: 100%;
-}

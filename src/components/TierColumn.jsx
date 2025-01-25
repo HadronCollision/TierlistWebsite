@@ -1,23 +1,21 @@
 import React from "react";
 import TierRow from "./TierRow";
 import { BeatLoader } from "react-spinners";
+import { motion } from "motion/react";
 
-const TierColumn = ({ players, loading }) => {
+const TierColumn = ({ players }) => {
   return (
     <>
-      {!loading && (
-        <div>
+      {players ? (
+        <motion.ul initial={{ opacity: 1 }} transition={{ duration: 1 }}>
           {players?.map((player) => (
             <TierRow player={player} key={player.ign} />
           ))}
           <div style={styles.placeholder}></div>
-        </div>
+        </motion.ul>
+      ) : (
+        <BeatLoader color="#aaa" style={{ marginTop: "50px" }} />
       )}
-      <BeatLoader
-        color="#aaa"
-        style={{ marginTop: "50px" }}
-        loading={loading}
-      />
     </>
   );
 };
