@@ -1,20 +1,17 @@
-import { Color } from "../constants/Color";
+import Font from "react-font";
+import { Color } from "../constants/color";
 
 const TierHeading = ({ children }) => {
-  const styles = {
-    width: "15vw",
-    textAlign: "center",
-    borderRadius: "5px",
-    backgroundColor: Color.headerColor,
-    fontSize: "36px",
-    fontWeight: "bold",
-  };
+  return <div style={styles}>{children}</div>;
+};
 
-  return (
-    <div style={styles} className="audiowide-regular">
-      {children}
-    </div>
-  );
+const styles = {
+  width: "15vw",
+  textAlign: "center",
+  borderRadius: "5px",
+  backgroundColor: Color.headerColor,
+  fontSize: "36px",
+  fontWeight: "bold",
 };
 
 export default TierHeading;

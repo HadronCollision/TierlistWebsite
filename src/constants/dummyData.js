@@ -3,7 +3,7 @@ export const playerData = {
     { ign: "HabibiHadron", rank: "high", country: "pk" },
     { ign: "HabibiBread", rank: "high", country: "pk" },
     { ign: "HabibiJod", rank: "low", country: "pk" },
-    { ign: "YTMee", rank: "low", country: "pk" },
+    { ign: "YTMe_", rank: "low", country: "pk" },
     { ign: "Kyssta", rank: "low", country: "pk" },
   ],
   tier2s: [
@@ -12,11 +12,11 @@ export const playerData = {
     { ign: "Yeti", rank: "low", country: "in" },
   ],
   tier3s: [
-    { ign: "R3hmanXD", rank: "high", country: "pk" },
+    { ign: "xeob", rank: "high", country: "pk" },
     { ign: "PookieMall", rank: "high", country: "in" },
     { ign: "xThunder_", rank: "high", country: "in" },
     { ign: "GeneralAsimMunir", rank: "low", country: "pk" },
-    { ign: "YTMee", rank: "low", country: "pk" },
+    { ign: "YTMe_", rank: "low", country: "pk" },
     { ign: "Duazy", rank: "low", country: "in" },
     { ign: "Nigger", rank: "low", country: "pk" },
   ],

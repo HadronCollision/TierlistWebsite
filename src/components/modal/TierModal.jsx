@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Color } from "../../constants/Color";
-import { useModal } from "../../context/modalContext";
+import React, { useEffect } from "react";
+import { Color } from "../../constants/color";
 import TierDisplayBox from "./TierDisplayBox";
+import { useTierModal } from "../../hooks/useTierModal";
+import { BeatLoader } from "react-spinners";
 
 function TierModal() {
-  const { modalState, setModalState } = useModal();
-  const { ign, rank, country } = modalState.player;
-  const [imageLoading, setImageLoading] = useState(true);
+  //prettier-ignore
+  const { ign, rank, country, imageLoading, setImageLoading, closeModal } = useTierModal();
 
-  const closeModal = () => setModalState({ ...modalState, show: false });
+  const countryTwo = country === "pk" ? "Pakistan" : "India";
+  const skinTwo = imageLoading ? { display: "none" } : styles.skinImage;
 
   useEffect(() => {
     window.addEventListener("keydown", (e) => {
@@ -20,21 +21,24 @@ function TierModal() {
     <div style={styles.modalOverlay} onClick={closeModal}>
       <div style={styles.modalBody} onClick={(e) => e.stopPropagation()}>
         <p style={styles.ignText}>{ign}</p>
-        <p style={styles.countryText}>
-          Country: {country === "pk" ? "Pakistan" : "India"}
-        </p>
+        <p style={styles.countryText}>Country: {countryTwo}</p>
 
         <img
           src={`https://render.crafty.gg/3d/full/${ign}`}
           alt="Player Skin"
-          style={imageLoading ? { display: "none" } : styles.skinImage}
+          style={skinTwo}
           onLoad={() => setImageLoading(false)}
         />
+
         {imageLoading && (
           <div style={styles.loaderWrapper}>
-            <div className="loader"></div>
+            <BeatLoader
+              color="#aaa"
+              style={{ backgroundColor: Color.highTier }}
+            />
           </div>
         )}
+
         {/* prettier-ignore */}
         <div style={styles.tierContainer}>
           <TierDisplayBox type="tier-sword" tier="HT4"/>

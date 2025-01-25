@@ -1,4 +1,4 @@
-import { Color } from "../constants/Color";
+import { Color } from "../constants/color";
 import { useModal } from "../context/modalContext";
 
 const TierRow = ({ player }) => {
@@ -11,6 +11,7 @@ const TierRow = ({ player }) => {
 
   const styles = {
     width: "15vw",
+    minWidth: "240px",
     backgroundColor: rank === "high" ? Color.highTier : Color.lowTier,
     margin: "8px 0",
     padding: "8px",
