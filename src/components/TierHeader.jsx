@@ -23,7 +23,7 @@ const styles = {
     display: "flex",
     justifyContent: "space-evenly",
     backgroundColor: Color.headerColor,
-    padding: "16px 0",
+    padding: "12px 0",
     cusor: "pointer",
   },
 };

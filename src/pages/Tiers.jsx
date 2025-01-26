@@ -11,22 +11,16 @@ import { useSelectedMode } from "../context/selectedModeContext";
 
 const Tiers = () => {
   const { modalState } = useModal();
-  const { mode } = useParams();
-  // const [selectedMode, setSelectedMode] = useState(mode);
   const { selectedMode, setSelectedMode } = useSelectedMode();
+  const { mode } = useParams();
 
   useEffect(() => {
     setSelectedMode(mode);
   }, [mode]);
 
   return (
-    <div style={{ minWidth: "1200px" }}>
+    <div style={{ width: "100vw", minWidth: "1200px" }}>
       <Font family="Roboto">
-        <GamemodeHeader
-          selectedMode={selectedMode}
-          setSelectedMode={setSelectedMode}
-        />
-
         <Font family="Audiowide">
           <TierHeader />
         </Font>

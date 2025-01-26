@@ -1,6 +1,7 @@
 import React from "react";
 import { Color } from "../constants/color";
-import { NavLink } from "react-router";
+import { NavLink, Outlet } from "react-router";
+import { useSelectedMode } from "../context/selectedModeContext";
 
 //prettier-ignore
 const gamemodes = [
@@ -14,7 +15,9 @@ const gamemodes = [
   { src: "https://mctiers.com/assets/smp-72ce94df.svg", label: "SMP Kit", id: "smp"},
 ];
 
-const GamemodeHeader = ({ selectedMode, setSelectedMode }) => {
+const GamemodeHeader = () => {
+  const { selectedMode, setSelectedMode } = useSelectedMode();
+
   const animationStyles = {
     modal: { transform: "translateY(-3px)", transition: "0.25s" },
     button: {
@@ -25,25 +28,30 @@ const GamemodeHeader = ({ selectedMode, setSelectedMode }) => {
 
   return (
     <div style={styles.container}>
-      {gamemodes.map((gamemode, index) => {
-        const isSelected = selectedMode === gamemode.id;
-        return (
-          <div
-            style={isSelected ? animationStyles.modal : {}}
-            key={gamemode.id}
-          >
-            <NavLink
-              style={isSelected ? animationStyles.button : styles.button}
-              onClick={() => setSelectedMode(gamemode.id)}
-              to={`/tiers/${gamemode.id}`}
-              key={index}
+      <div style={{ ...styles.subContainer, margin: "10px" }}>
+        {gamemodes.map((gamemode, index) => {
+          const isSelected = selectedMode === gamemode.id;
+          return (
+            <div
+              style={isSelected ? animationStyles.modal : {}}
+              key={gamemode.id}
             >
-              <img src={gamemode.src} style={styles.icon} alt="icon" />
-              {/* {gamemode.label} */}
-            </NavLink>
-          </div>
-        );
-      })}
+              <NavLink
+                style={isSelected ? animationStyles.button : styles.button}
+                onClick={() => setSelectedMode(gamemode.id)}
+                to={`/tiers/${gamemode.id}`}
+                key={index}
+              >
+                <img src={gamemode.src} style={styles.icon} alt="icon" />
+                {/* {gamemode.label} */}
+              </NavLink>
+            </div>
+          );
+        })}
+      </div>
+      <div style={styles.subContainer}>
+        <Outlet />
+      </div>
     </div>
   );
 };
@@ -53,7 +61,11 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     backgroundColor: Color.backgroundColor,
-    margin: "10px 0",
+    flexDirection: "column",
+  },
+  subContainer: {
+    display: "flex",
+    flexDirection: "row",
   },
   button: {
     cursor: "pointer",
