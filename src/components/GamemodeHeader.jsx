@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Color } from "../constants/color";
 import { NavLink } from "react-router";
-import { motion } from "motion/react";
 
 //prettier-ignore
 const gamemodes = [
+  { src: "https://mctiers.com/assets/overall-ca77dd12.svg", label: "Overall", id: "overall" },
   { src: "https://mctiers.com/assets/sword-9023278f.svg", label: "Sword", id: "sword" },
   { src: "https://mctiers.com/assets/neth_pot-07e18fb6.svg", label: "Netherite Pot", id: "nethpot"},
   { src: "https://mctiers.com/assets/vanilla-38455c89.svg", label: "Crystal", id: "crystal" },
@@ -15,33 +15,35 @@ const gamemodes = [
 ];
 
 const GamemodeHeader = ({ selectedMode, setSelectedMode }) => {
+  const animationStyles = {
+    modal: { transform: "translateY(-3px)", transition: "0.25s" },
+    button: {
+      ...styles.button,
+      backgroundColor: "#555",
+    },
+  };
+
   return (
     <div style={styles.container}>
-      {gamemodes.map((gamemode, index) => (
-        <motion.div
-          style={
-            selectedMode === gamemode.id
-              ? { transform: "translateY(-3px)", transition: "0.1s" }
-              : { transform: "translateY(0px)", transition: "0.1s" }
-          }
-          key={gamemode.id}
-        >
-          <NavLink
-            className="gamemode-button"
-            style={{
-              ...styles.button,
-              backgroundColor:
-                selectedMode === gamemode.id ? "a55" : Color.lowTier,
-            }}
-            onClick={() => setSelectedMode(gamemode.id)}
-            to={`/tiers/${gamemode.id}`}
-            key={index}
+      {gamemodes.map((gamemode, index) => {
+        const isSelected = selectedMode === gamemode.id;
+        return (
+          <div
+            style={isSelected ? animationStyles.modal : {}}
+            key={gamemode.id}
           >
-            <img src={gamemode.src} style={styles.icon} alt="icon" />
-            {gamemode.label}
-          </NavLink>
-        </motion.div>
-      ))}
+            <NavLink
+              style={isSelected ? animationStyles.button : styles.button}
+              onClick={() => setSelectedMode(gamemode.id)}
+              to={`/tiers/${gamemode.id}`}
+              key={index}
+            >
+              <img src={gamemode.src} style={styles.icon} alt="icon" />
+              {/* {gamemode.label} */}
+            </NavLink>
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -49,21 +51,22 @@ const GamemodeHeader = ({ selectedMode, setSelectedMode }) => {
 const styles = {
   container: {
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "center",
     backgroundColor: Color.backgroundColor,
-    margin: "20px 0",
+    margin: "10px 0",
   },
   button: {
     cursor: "pointer",
     textDecoration: "none",
     backgroundColor: Color.lowTier,
     height: "48px",
-    width: "200px",
+    width: "80px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "24px",
     fontSize: "18px",
+    margin: "0 10px",
   },
   icon: {
     height: "80%",

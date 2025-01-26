@@ -4,78 +4,93 @@ import TierDisplayBox from "./TierDisplayBox";
 import { useTierModal } from "../../hooks/useTierModal";
 import { BeatLoader } from "react-spinners";
 import { AnimatePresence, motion } from "motion/react";
+import { fetchPlayerData } from "../../api/players";
+import { useQuery } from "@tanstack/react-query";
 
 function TierModal() {
   //prettier-ignore
   const { ign, rank, country, imageLoading, setImageLoading, closeModal } = useTierModal();
   const [isVisible, setIsVisible] = useState(true);
+  const skin = imageLoading ? { display: "none" } : styles.skinImage;
 
-  const countryTwo = country === "pk" ? "Pakistan" : "India";
-  const skinTwo = imageLoading ? { display: "none" } : styles.skinImage;
+  const { data: player } = useQuery({
+    queryFn: () => fetchPlayerData(ign),
+    queryKey: ["player", ign],
+    staleTime: 60 * 1000,
+  });
 
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         setIsVisible(false);
-        setTimeout(() => closeModal(), 250);
+        setTimeout(() => closeModal(), 100);
       }
     };
-
     window.addEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
     <AnimatePresence>
       {isVisible && (
-        <div
+        <motion.div
           style={styles.modalOverlay}
           onClick={() => {
             setIsVisible(false);
-            setTimeout(() => closeModal(), 250);
+            setTimeout(() => closeModal(), 100);
           }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.1 }}
         >
           <motion.div
             style={styles.modalBody}
             onClick={(e) => e.stopPropagation()}
-            initial={{ opacity: 0, y: "10px" }}
+            initial={{ opacity: 0, y: "5px" }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "-10px" }}
-            transition={{ duration: 0.15 }}
+            exit={{ opacity: 0, y: "-5px" }}
+            transition={{ duration: 0.1 }}
           >
             <p style={styles.ignText}>{ign}</p>
-            <p style={styles.countryText}>Country: {countryTwo}</p>
-
+            <p style={styles.countryText}>Country: {country}</p>
             <img
               src={`https://render.crafty.gg/3d/full/${ign}`}
               alt="Player Skin"
-              style={skinTwo}
+              style={skin}
               onLoad={() => setImageLoading(false)}
             />
 
-            {imageLoading && (
-              <div style={styles.loaderWrapper}>
-                <BeatLoader
-                  color="#aaa"
-                  style={{ backgroundColor: Color.highTier }}
-                />
-              </div>
-            )}
+            {imageLoading && <Loader />}
 
-            <div style={styles.tierContainer}>
-              <TierDisplayBox type="tier-sword" tier="HT4" />
-              <TierDisplayBox type="tier-nethpot" tier="HT3" />
-              <TierDisplayBox type="tier-crystal" tier="LT4" />
-              <TierDisplayBox type="tier-diapot" tier="HT5" />
-              <TierDisplayBox type="tier-axe" orientation="left" tier="LT5" />
-              <TierDisplayBox type="tier-uhc" orientation="left" tier="HT4" />
-              <TierDisplayBox type="tier-smp" orientation="left" tier="HT4" />
-            </div>
+            {player && <TiersDisplayBoxContainer rank={player.rank} />}
           </motion.div>
-        </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );
 }
+
+const Loader = () => (
+  <div style={styles.loaderWrapper}>
+    <BeatLoader color="#aaa" style={{ backgroundColor: Color.highTier }} />
+  </div>
+);
+
+const TiersDisplayBoxContainer = ({ rank }) => {
+  const modes = ["sword", "nethpot", "crystal", "diapot", "axe", "uhc", "smp"];
+  const formatTier = (tier) => {
+    if (!tier.pos) return "-";
+    return `${tier.pos.slice(0, 1).toUpperCase()}T${tier.tier}`;
+  };
+  //prettier-ignore
+  return (
+    <div style={styles.tierContainer}>
+      {modes.map((mode, index) => (
+        <TierDisplayBox type={`tier-${mode}`} tier={formatTier(rank[mode])} key={index} />
+      ))}
+    </div>
+  );
+};
 
 const styles = {
   modalOverlay: {

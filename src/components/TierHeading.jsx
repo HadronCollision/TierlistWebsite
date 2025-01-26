@@ -1,4 +1,3 @@
-import Font from "react-font";
 import { Color } from "../constants/color";
 
 const TierHeading = ({ children }) => {
@@ -12,6 +11,8 @@ const styles = {
   backgroundColor: Color.headerColor,
   fontSize: "36px",
   fontWeight: "bold",
+  cursor: "default",
+  userSelect: "none",
 };
 
 export default TierHeading;

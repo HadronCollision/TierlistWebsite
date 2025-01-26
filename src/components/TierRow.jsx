@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Color } from "../constants/color";
 import { useModal } from "../context/modalContext";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 
 const TierRow = ({ player }) => {
   const { setModalState } = useModal();
@@ -16,8 +16,8 @@ const TierRow = ({ player }) => {
   const styles = {
     width: "15vw",
     minWidth: "240px",
-    backgroundColor: rank === "high" ? Color.highTier : Color.lowTier,
-    margin: "8px 0",
+    backgroundColor: rank.pos === "high" ? Color.highTier : Color.lowTier,
+    margin: "4px 0",
     padding: "8px",
     borderRadius: "2px",
     cursor: "pointer",
@@ -34,7 +34,6 @@ const TierRow = ({ player }) => {
       whileTap={{ scale: 0.98 }}
       onHoverStart={() => setHover(true)}
       onHoverEnd={() => setHover(false)}
-      transition={{ duration: 1 }}
     >
       {ign}
     </motion.li>

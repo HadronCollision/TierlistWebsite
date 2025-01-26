@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
-import "./App.css";
-import TierHeader from "./components/TierHeader";
-import GamemodeHeader from "./components/GamemodeHeader";
-import TierColumnContainer from "./components/TierColumnContainer";
-import { useModal } from "./context/modalContext";
+import "../index.css";
+import TierHeader from "../components/TierHeader";
+import GamemodeHeader from "../components/GamemodeHeader";
+import TierColumnContainer from "../components/TierColumnContainer";
+import { useModal } from "../context/modalContext";
 import Font from "react-font";
-import TierModal from "./components/modal/TierModal";
+import TierModal from "../components/modal/TierModal";
 import { useParams } from "react-router";
+import { useSelectedMode } from "../context/selectedModeContext";
 
-const App = () => {
+const Tiers = () => {
   const { modalState } = useModal();
-  const [selectedMode, setSelectedMode] = useState("sword");
   const { mode } = useParams();
+  // const [selectedMode, setSelectedMode] = useState(mode);
+  const { selectedMode, setSelectedMode } = useSelectedMode();
 
   useEffect(() => {
     setSelectedMode(mode);
@@ -24,14 +26,17 @@ const App = () => {
           selectedMode={selectedMode}
           setSelectedMode={setSelectedMode}
         />
+
         <Font family="Audiowide">
           <TierHeader />
         </Font>
+
         <TierColumnContainer selectedMode={selectedMode} />
+
         {modalState.show && <TierModal />}
       </Font>
     </div>
   );
 };
 
-export default App;
+export default Tiers;

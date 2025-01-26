@@ -24,6 +24,7 @@ const styles = {
     justifyContent: "space-evenly",
     backgroundColor: Color.headerColor,
     padding: "16px 0",
+    cusor: "pointer",
   },
 };
 

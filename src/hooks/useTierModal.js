@@ -5,8 +5,16 @@ export const useTierModal = () => {
   const { modalState, setModalState } = useModal();
   const { ign, rank, country } = modalState.player;
   const [imageLoading, setImageLoading] = useState(true);
+  const countryTwo = country === "pk" ? "Pakistan" : "India";
 
   const closeModal = () => setModalState({ ...modalState, show: false });
 
-  return { ign, rank, country, imageLoading, setImageLoading, closeModal };
+  return {
+    ign,
+    rank,
+    country: countryTwo,
+    imageLoading,
+    setImageLoading,
+    closeModal,
+  };
 };

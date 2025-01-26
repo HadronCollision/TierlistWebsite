@@ -3,13 +3,12 @@ import { Color } from "../constants/color";
 import TierColumn from "./TierColumn";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTierData } from "../api/players";
-import { useParams } from "react-router";
 
 function TierColumnContainer({ selectedMode }) {
   const { data: playerData } = useQuery({
     queryFn: () => fetchTierData(selectedMode),
     queryKey: ["players", selectedMode],
-    staleTime: 0,
+    staleTime: 60 * 1000,
   });
 
   return (
