@@ -13,14 +13,14 @@ const gamemodes = [
   // { src: "https://mctiers.com/assets/axe-09fbd7d8.svg", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
   // { src: "https://mctiers.com/assets/uhc-05be850e.svg", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
   // { src: "https://mctiers.com/assets/smp-72ce94df.svg", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
-  { src: "https://picsum.photos/48/48", label: "Overall", id: "overall", route: "/ranking/overall" },
-  { src: "https://picsum.photos/48/48", label: "Sword", id: "sword", route: "/tiers/sword" },
-  { src: "https://picsum.photos/48/48", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
-  { src: "https://picsum.photos/48/48", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
-  { src: "https://picsum.photos/48/48", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
-  { src: "https://picsum.photos/48/48", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
-  { src: "https://picsum.photos/48/48", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
-  { src: "https://picsum.photos/48/48", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
+  { src: "https://cdn.discordapp.com/emojis/1292906955924570258.webp?size=56", label: "Overall", id: "overall", route: "/ranking/overall" },
+  { src: "https://cdn.discordapp.com/emojis/1294297243280478319.webp?size=56", label: "Sword", id: "sword", route: "/tiers/sword" },
+  { src: "https://cdn.discordapp.com/emojis/1294297210741194843.webp?size=56", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
+  { src: "https://cdn.discordapp.com/emojis/1294297146916470870.webp?size=56", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
+  { src: "https://cdn.discordapp.com/emojis/1294297183906041968.webp?size=56", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
+  { src: "https://cdn.discordapp.com/emojis/1294297267565498368.webp?size=56", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
+  { src: "https://cdn.discordapp.com/emojis/1294297290986750054.webp?size=56", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
+  { src: "https://cdn.discordapp.com/emojis/1294297325665255516.webp?size=56", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
 ];
 
 const GamemodeHeader = () => {
@@ -65,7 +65,7 @@ const GamemodeHeader = () => {
             onClick={() => setSelectedMode("subhuman")}
             to={`/ranking/subhuman`}
           >
-            <img src="http://localhost:5173/crystal-icon.jpg" style={styles.icon} alt="icon" />
+            <img src="https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48" style={styles.icon} alt="icon" />
           </NavLink>
         </div>
       </div>
