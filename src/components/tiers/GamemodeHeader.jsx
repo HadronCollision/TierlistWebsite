@@ -5,14 +5,14 @@ import { useSelectedMode } from "../../context/selectedModeContext";
 
 //prettier-ignore
 const gamemodes = [
-  { src: "https://mctiers.com/assets/overall-ca77dd12.svg", label: "Overall", id: "overall" },
-  { src: "https://mctiers.com/assets/sword-9023278f.svg", label: "Sword", id: "sword" },
-  { src: "https://mctiers.com/assets/neth_pot-07e18fb6.svg", label: "Netherite Pot", id: "nethpot"},
-  { src: "https://mctiers.com/assets/vanilla-38455c89.svg", label: "Crystal", id: "crystal" },
-  { src: "https://mctiers.com/assets/pot-5ade81ba.svg", label: "Diamond Pot", id: "diapot" },
-  { src: "https://mctiers.com/assets/axe-09fbd7d8.svg", label: "Axe & Shield", id: "axe" },
-  { src: "https://mctiers.com/assets/uhc-05be850e.svg", label: "UHC Kit", id: "uhc" },
-  { src: "https://mctiers.com/assets/smp-72ce94df.svg", label: "SMP Kit", id: "smp"},
+  { src: "https://mctiers.com/assets/overall-ca77dd12.svg", label: "Overall", id: "overall", route: "/ranking/overall" },
+  { src: "https://mctiers.com/assets/sword-9023278f.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
+  { src: "https://mctiers.com/assets/neth_pot-07e18fb6.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
+  { src: "https://mctiers.com/assets/vanilla-38455c89.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
+  { src: "https://mctiers.com/assets/pot-5ade81ba.svg", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
+  { src: "https://mctiers.com/assets/axe-09fbd7d8.svg", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
+  { src: "https://mctiers.com/assets/uhc-05be850e.svg", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
+  { src: "https://mctiers.com/assets/smp-72ce94df.svg", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
 ];
 
 const GamemodeHeader = () => {
@@ -34,12 +34,12 @@ const GamemodeHeader = () => {
           return (
             <div
               style={isSelected ? animationStyles.modal : {}}
-              key={gamemode.id}
+              key={gamemode.route}
             >
               <NavLink
                 style={isSelected ? animationStyles.button : styles.button}
                 onClick={() => setSelectedMode(gamemode.id)}
-                to={`/tiers/${gamemode.id}`}
+                to={gamemode.route}
                 key={index}
               >
                 <img src={gamemode.src} style={styles.icon} alt="icon" />
@@ -49,26 +49,15 @@ const GamemodeHeader = () => {
           );
         })}
       </div>
-      <div style={styles.hackingContainer}>
-        <div
-          style={
-            selectedMode === "hacking" ? animationStyles.modal : styles.modal
-          }
-        >
+      {/* prettier-ignore */}
+      <div style={styles.subhumanContainer}>
+        <div style={selectedMode === "subhuman" ? animationStyles.modal : styles.modal}>
           <NavLink
-            style={
-              selectedMode === "hacking"
-                ? animationStyles.button
-                : styles.button
-            }
-            onClick={() => setSelectedMode("hacking")}
-            // to={`/hacking`}
+            style={selectedMode === "subhuman" ? animationStyles.button : styles.button}
+            onClick={() => setSelectedMode("subhuman")}
+            to={`/ranking/subhuman`}
           >
-            <img
-              src="https://picsum.photos/48/48"
-              style={styles.icon}
-              alt="icon"
-            />
+            <img src="https://picsum.photos/48/48" style={styles.icon} alt="icon" />
           </NavLink>
         </div>
       </div>
@@ -87,7 +76,7 @@ const styles = {
     margin: "8px 0",
     flexDirection: "row",
   },
-  hackingContainer: {
+  subhumanContainer: {
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",

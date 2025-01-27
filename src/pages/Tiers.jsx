@@ -3,11 +3,11 @@ import "../index.css";
 import TierHeader from "../components/tiers/TierHeader";
 import TierColumnContainer from "../components/tiers/TierColumnContainer";
 import { useModal } from "../context/modalContext";
-import Font from "react-font";
 import TierModal from "../components/modal/TierModal";
 import { useParams } from "react-router";
 import { useSelectedMode } from "../context/selectedModeContext";
 import GamemodeHeader from "../components/tiers/GamemodeHeader";
+import { GamemodeList } from "../constants/gamemode";
 
 const Tiers = () => {
   const { modalState } = useModal();
@@ -18,14 +18,16 @@ const Tiers = () => {
     setSelectedMode(mode);
   }, [mode]);
 
+  if (!GamemodeList.includes(mode)) return;
+
   return (
-    <Font family="Roboto" style={{ width: "100vw", minWidth: "1200px" }}>
+    <div style={{ width: "100vw", minWidth: "1200px" }}>
       <GamemodeHeader />
       <TierHeader />
       <TierColumnContainer selectedMode={selectedMode} />
 
       {modalState.show && <TierModal />}
-    </Font>
+    </div>
   );
 };
 

@@ -25,6 +25,7 @@ const styles = {
     fontSize: "32px",
     color: "#fff",
     cursor: "pointer",
+    userSelect: "none",
   },
 };
 

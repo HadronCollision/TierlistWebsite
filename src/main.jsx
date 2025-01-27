@@ -10,6 +10,8 @@ import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import Header from "./components/Header";
 import Overall from "./pages/Overall";
+import Subhuman from "./pages/Subhuman";
+import Font from "react-font";
 
 const queryClient = new QueryClient();
 
@@ -19,22 +21,24 @@ createRoot(document.getElementById("root")).render(
       <SelectedModeProvider>
         <ModalProvider>
           <BrowserRouter>
-            <Routes>
-              <Route element={<Header />}>
-                <Route path="tiers">
-                  <Route path=":mode" element={<Tiers />} />
+            <Font family="Roboto">
+              <Routes>
+                <Route element={<Header />}>
+                  <Route path="tiers">
+                    <Route path=":mode" element={<Tiers />} />
+                  </Route>
+                  <Route path="ranking">
+                    <Route path="overall" element={<Overall />} />
+                    <Route path="topten" element={<Overall />} />
+                    <Route path="subhuman" element={<Subhuman />} />
+                  </Route>
+                  <Route path="admin">
+                    <Route path="login" element={<AdminLogin />} />
+                    <Route path="dashboard" element={<AdminDashboard />} />
+                  </Route>
                 </Route>
-                <Route path="ranking">
-                  <Route path="overall" element={<Overall />} />
-                  <Route path="topten" element={<Overall />} />
-                  <Route path="hacking" element={<Overall />} />
-                </Route>
-                <Route path="admin">
-                  <Route path="login" element={<AdminLogin />} />
-                  <Route path="dashboard" element={<AdminDashboard />} />
-                </Route>
-              </Route>
-            </Routes>
+              </Routes>
+            </Font>
           </BrowserRouter>
         </ModalProvider>
       </SelectedModeProvider>

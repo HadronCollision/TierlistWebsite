@@ -6,6 +6,7 @@ import { BeatLoader } from "react-spinners";
 import { AnimatePresence, motion } from "motion/react";
 import { fetchPlayerData } from "../../api/players";
 import { useQuery } from "@tanstack/react-query";
+import { GamemodeList } from "../../constants/gamemode";
 
 function TierModal() {
   //prettier-ignore
@@ -77,7 +78,6 @@ const Loader = () => (
 );
 
 const TiersDisplayBoxContainer = ({ rank }) => {
-  const modes = ["sword", "nethpot", "crystal", "diapot", "axe", "uhc", "smp"];
   const formatTier = (tier) => {
     if (!tier.pos) return "-";
     return `${tier.pos.slice(0, 1).toUpperCase()}T${tier.tier}`;
@@ -85,7 +85,7 @@ const TiersDisplayBoxContainer = ({ rank }) => {
   //prettier-ignore
   return (
     <div style={styles.tierContainer}>
-      {modes.map((mode, index) => (
+      {GamemodeList.map((mode, index) => (
         <TierDisplayBox type={`tier-${mode}`} tier={formatTier(rank[mode])} key={index} />
       ))}
     </div>
