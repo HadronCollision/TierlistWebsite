@@ -3,7 +3,7 @@ import { useModal } from "../context/modalContext";
 
 export const useTierModal = () => {
   const { modalState, setModalState } = useModal();
-  const { ign, rank, country } = modalState.player;
+  const { ign, country } = modalState.player;
   const [imageLoading, setImageLoading] = useState(true);
   const countryTwo = country === "pk" ? "Pakistan" : "India";
 

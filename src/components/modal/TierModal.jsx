@@ -10,7 +10,7 @@ import { GamemodeList } from "../../constants/gamemode";
 
 function TierModal() {
   //prettier-ignore
-  const { ign, rank, country, imageLoading, setImageLoading, closeModal } = useTierModal();
+  const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
   const [isVisible, setIsVisible] = useState(true);
   const skin = imageLoading ? { display: "none" } : styles.skinImage;
 
