@@ -11,7 +11,6 @@ export const useTierModal = () => {
 
   return {
     ign,
-    rank,
     country: countryTwo,
     imageLoading,
     setImageLoading,
