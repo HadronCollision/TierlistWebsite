@@ -65,7 +65,7 @@ const GamemodeHeader = () => {
             onClick={() => setSelectedMode("subhuman")}
             to={`/ranking/subhuman`}
           >
-            <img src="https://picsum.photos/48/48" style={styles.icon} alt="icon" />
+            <img src="http://localhost:5173/crystal-icon.jpg" style={styles.icon} alt="icon" />
           </NavLink>
         </div>
       </div>
