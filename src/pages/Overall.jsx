@@ -4,10 +4,10 @@ import Font from "react-font";
 
 function Overall() {
   return (
-    <Font family="Roboto">
+    <div>
       <GamemodeHeader />
       <div>MANGO</div>
-    </Font>
+    </div>
   );
 }
 
