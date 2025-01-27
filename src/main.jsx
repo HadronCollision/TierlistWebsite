@@ -5,12 +5,11 @@ import Tiers from "./pages/Tiers";
 import { ModalProvider } from "./context/modalContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router";
-import Overall from "./pages/Overall";
 import { SelectedModeProvider } from "./context/selectedModeContext";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
-import GamemodeHeader from "./components/GamemodeHeader";
 import Header from "./components/Header";
+import Overall from "./pages/Overall";
 
 const queryClient = new QueryClient();
 
@@ -22,9 +21,13 @@ createRoot(document.getElementById("root")).render(
           <BrowserRouter>
             <Routes>
               <Route element={<Header />}>
-                <Route path="tiers" element={<GamemodeHeader />}>
-                  <Route path="overall" element={<Overall />} />
+                <Route path="tiers">
                   <Route path=":mode" element={<Tiers />} />
+                </Route>
+                <Route path="ranking">
+                  <Route path="overall" element={<Overall />} />
+                  <Route path="topten" element={<Overall />} />
+                  <Route path="hacking" element={<Overall />} />
                 </Route>
                 <Route path="admin">
                   <Route path="login" element={<AdminLogin />} />

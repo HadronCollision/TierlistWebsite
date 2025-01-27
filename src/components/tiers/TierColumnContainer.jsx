@@ -1,8 +1,8 @@
 import React from "react";
-import { Color } from "../constants/color";
+import { Color } from "../../constants/color";
 import TierColumn from "./TierColumn";
 import { useQuery } from "@tanstack/react-query";
-import { fetchTierData } from "../api/players";
+import { fetchTierData } from "../../api/players";
 
 function TierColumnContainer({ selectedMode }) {
   const { data: playerData } = useQuery({

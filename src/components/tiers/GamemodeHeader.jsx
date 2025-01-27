@@ -1,7 +1,7 @@
 import React from "react";
-import { Color } from "../constants/color";
+import { Color } from "../../constants/color";
 import { NavLink, Outlet } from "react-router";
-import { useSelectedMode } from "../context/selectedModeContext";
+import { useSelectedMode } from "../../context/selectedModeContext";
 
 //prettier-ignore
 const gamemodes = [
@@ -28,7 +28,7 @@ const GamemodeHeader = () => {
 
   return (
     <div style={styles.container}>
-      <div style={{ ...styles.subContainer, margin: "10px" }}>
+      <div style={styles.gamemodeContainer}>
         {gamemodes.map((gamemode, index) => {
           const isSelected = selectedMode === gamemode.id;
           return (
@@ -49,8 +49,28 @@ const GamemodeHeader = () => {
           );
         })}
       </div>
-      <div style={styles.subContainer}>
-        <Outlet />
+      <div style={styles.hackingContainer}>
+        <div
+          style={
+            selectedMode === "hacking" ? animationStyles.modal : styles.modal
+          }
+        >
+          <NavLink
+            style={
+              selectedMode === "hacking"
+                ? animationStyles.button
+                : styles.button
+            }
+            onClick={() => setSelectedMode("hacking")}
+            // to={`/hacking`}
+          >
+            <img
+              src="https://picsum.photos/48/48"
+              style={styles.icon}
+              alt="icon"
+            />
+          </NavLink>
+        </div>
       </div>
     </div>
   );
@@ -59,13 +79,20 @@ const GamemodeHeader = () => {
 const styles = {
   container: {
     display: "flex",
+  },
+  gamemodeContainer: {
+    display: "flex",
     justifyContent: "center",
     backgroundColor: Color.backgroundColor,
-    flexDirection: "column",
-  },
-  subContainer: {
-    display: "flex",
+    margin: "8px 0",
     flexDirection: "row",
+  },
+  hackingContainer: {
+    display: "flex",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    width: "100%",
+    margin: "0 10px",
   },
   button: {
     cursor: "pointer",

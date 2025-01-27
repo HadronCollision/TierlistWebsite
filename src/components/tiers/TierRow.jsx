@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Color } from "../constants/color";
-import { useModal } from "../context/modalContext";
+import { Color } from "../../constants/color";
+import { useModal } from "../../context/modalContext";
 import { motion } from "motion/react";
 
 const TierRow = ({ player }) => {

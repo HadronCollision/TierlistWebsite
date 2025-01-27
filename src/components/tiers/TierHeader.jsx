@@ -1,5 +1,5 @@
 import React from "react";
-import { Color } from "../constants/color";
+import { Color } from "../../constants/color";
 import TierHeading from "./TierHeading";
 
 const TierHeader = () => {

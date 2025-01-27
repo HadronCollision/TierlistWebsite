@@ -1,7 +1,12 @@
-import { Color } from "../constants/color";
+import { Text } from "react-font";
+import { Color } from "../../constants/color";
 
 const TierHeading = ({ children }) => {
-  return <div style={styles}>{children}</div>;
+  return (
+    <Text family="Audiowide" style={styles}>
+      {children}
+    </Text>
+  );
 };
 
 const styles = {
