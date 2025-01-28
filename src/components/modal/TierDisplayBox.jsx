@@ -2,20 +2,13 @@ import React from "react";
 import { Color } from "../../constants/color";
 
 const iconUrls = {
-  // sword: "https://mctiers.com/assets/sword-9023278f.svg",
-  // nethpot: "https://mctiers.com/assets/neth_pot-07e18fb6.svg",
-  // crystal: "https://mctiers.com/assets/vanilla-38455c89.svg",
-  // diapot: "https://mctiers.com/assets/pot-5ade81ba.svg",
-  // axe: "https://mctiers.com/assets/axe-09fbd7d8.svg",
-  // uhc: "https://mctiers.com/assets/uhc-05be850e.svg",
-  // smp: "https://mctiers.com/assets/smp-72ce94df.svg",
-  sword: "https://picsum.photos/48/48",
-  nethpot: "https://picsum.photos/48/48",
-  crystal: "https://picsum.photos/48/48",
-  diapot: "https://picsum.photos/48/48",
-  axe: "https://picsum.photos/48/48",
-  uhc: "https://picsum.photos/48/48",
-  smp: "https://picsum.photos/48/48",
+  sword: "https://mctiers.io/assets/sword-9023278f.svg",
+  nethpot: "https://mctiers.io/assets/neth_pot-07e18fb6.svg",
+  crystal: "https://mctiers.io/assets/vanilla-38455c89.svg",
+  diapot: "https://mctiers.io/assets/pot-5ade81ba.svg",
+  axe: "https://mctiers.io/assets/axe-09fbd7d8.svg",
+  uhc: "https://mctiers.io/assets/uhc-05be850e.svg",
+  smp: "https://mctiers.io/assets/smp-72ce94df.svg",
 };
 
 const TierDisplayBox = ({ type, orientation, tier }) => {
