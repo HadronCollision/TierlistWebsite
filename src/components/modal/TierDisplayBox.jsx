@@ -40,7 +40,7 @@ const TierDisplayBox = ({ type, orientation, tier }) => {
 
 const IconWrapper = ({ iconUrl }) => (
   <div style={styles.iconWrapper}>
-    <img src={iconUrl} alt="icon" style={styles.icon} />
+    <img src={iconUrl} style={styles.icon} />
   </div>
 );
 const TextWrapper = ({ tier }) => (

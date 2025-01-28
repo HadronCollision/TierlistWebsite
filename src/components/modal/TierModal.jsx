@@ -56,7 +56,6 @@ function TierModal() {
             <p style={styles.countryText}>Country: {country}</p>
             <img
               src={`https://render.crafty.gg/3d/full/${ign}`}
-              alt="Player Skin"
               style={skin}
               onLoad={() => setImageLoading(false)}
             />
