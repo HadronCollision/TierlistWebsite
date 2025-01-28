@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Color } from "../../constants/color";
-import { NavLink, Outlet } from "react-router";
+import { NavLink, useLocation } from "react-router";
 import { useSelectedMode } from "../../context/selectedModeContext";
 
 //prettier-ignore
@@ -16,10 +16,16 @@ const gamemodes = [
 ];
 
 const GamemodeHeader = () => {
+  const { pathname } = useLocation();
+
   const { selectedMode, setSelectedMode } = useSelectedMode();
 
+  useEffect(() => {
+    setSelectedMode(pathname.split("/")[2] || "overall");
+  }, []);
+
   const animationStyles = {
-    modal: { transform: "translateY(-3px)", transition: "0.25s" },
+    modal: { transform: "translateY(-3px)", transition: "0.3s" },
     button: {
       ...styles.button,
       backgroundColor: "#555",
@@ -51,7 +57,7 @@ const GamemodeHeader = () => {
       </div>
       {/* prettier-ignore */}
       <div style={styles.subhumanContainer}>
-        <div style={selectedMode === "subhuman" ? animationStyles.modal : styles.modal}>
+        <div style={selectedMode === "subhuman" ? animationStyles.modal : {}}>
           <NavLink
             style={selectedMode === "subhuman" ? animationStyles.button : styles.button}
             onClick={() => setSelectedMode("subhuman")}
