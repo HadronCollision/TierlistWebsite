@@ -5,22 +5,14 @@ import { useSelectedMode } from "../../context/selectedModeContext";
 
 //prettier-ignore
 const gamemodes = [
-  // { src: "https://mctiers.com/assets/overall-ca77dd12.svg", label: "Overall", id: "overall", route: "/ranking/overall" },
-  // { src: "https://mctiers.com/assets/sword-9023278f.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
-  // { src: "https://mctiers.com/assets/neth_pot-07e18fb6.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
-  // { src: "https://mctiers.com/assets/vanilla-38455c89.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
-  // { src: "https://mctiers.com/assets/pot-5ade81ba.svg", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
-  // { src: "https://mctiers.com/assets/axe-09fbd7d8.svg", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
-  // { src: "https://mctiers.com/assets/uhc-05be850e.svg", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
-  // { src: "https://mctiers.com/assets/smp-72ce94df.svg", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
-  { src: "https://cdn.discordapp.com/emojis/1292906955924570258.webp?size=56", label: "Overall", id: "overall", route: "/ranking/overall" },
-  { src: "https://cdn.discordapp.com/emojis/1294297243280478319.webp?size=56", label: "Sword", id: "sword", route: "/tiers/sword" },
-  { src: "https://cdn.discordapp.com/emojis/1294297210741194843.webp?size=56", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
-  { src: "https://cdn.discordapp.com/emojis/1294297146916470870.webp?size=56", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
-  { src: "https://cdn.discordapp.com/emojis/1294297183906041968.webp?size=56", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
-  { src: "https://cdn.discordapp.com/emojis/1294297267565498368.webp?size=56", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
-  { src: "https://cdn.discordapp.com/emojis/1294297290986750054.webp?size=56", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
-  { src: "https://cdn.discordapp.com/emojis/1294297325665255516.webp?size=56", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
+  { src: "https://mctiers.io/assets/overall-ca77dd12.svg", label: "Overall", id: "overall", route: "/ranking/overall" },
+  { src: "https://mctiers.io/assets/sword-9023278f.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
+  { src: "https://mctiers.io/assets/neth_pot-07e18fb6.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
+  { src: "https://mctiers.io/assets/vanilla-38455c89.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
+  { src: "https://mctiers.io/assets/pot-5ade81ba.svg", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
+  { src: "https://mctiers.io/assets/axe-09fbd7d8.svg", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
+  { src: "https://mctiers.io/assets/uhc-05be850e.svg", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
+  { src: "https://mctiers.io/assets/smp-72ce94df.svg", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
 ];
 
 const GamemodeHeader = () => {
@@ -50,7 +42,7 @@ const GamemodeHeader = () => {
                 to={gamemode.route}
                 key={index}
               >
-                <img src={gamemode.src} style={styles.icon} alt="icon" />
+                <img src={gamemode.src} style={styles.icon} />
                 {/* {gamemode.label} */}
               </NavLink>
             </div>
@@ -65,7 +57,7 @@ const GamemodeHeader = () => {
             onClick={() => setSelectedMode("subhuman")}
             to={`/ranking/subhuman`}
           >
-            <img src="https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48" style={styles.icon} alt="icon" />
+            <img src="https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48" style={styles.icon} />
           </NavLink>
         </div>
       </div>
@@ -76,20 +68,20 @@ const GamemodeHeader = () => {
 const styles = {
   container: {
     display: "flex",
+    margin: "8px",
   },
   gamemodeContainer: {
     display: "flex",
     justifyContent: "center",
-    backgroundColor: Color.backgroundColor,
-    margin: "8px 0",
     flexDirection: "row",
+    gap: "12px",
+    backgroundColor: Color.backgroundColor,
   },
   subhumanContainer: {
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
     width: "100%",
-    margin: "0 10px",
   },
   button: {
     cursor: "pointer",
@@ -102,12 +94,10 @@ const styles = {
     alignItems: "center",
     borderRadius: "24px",
     fontSize: "18px",
-    margin: "0 10px",
   },
   icon: {
     height: "80%",
     backgroundColor: "transparent",
-    padding: "0px 8px",
   },
 };
 
