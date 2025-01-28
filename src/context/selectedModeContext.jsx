@@ -8,7 +8,7 @@ export const useSelectedMode = () => {
 };
 
 export const SelectedModeProvider = ({ children }) => {
-  const [selectedMode, setSelectedMode] = useState("overall");
+  const [selectedMode, setSelectedMode] = useState();
 
   const value = {
     selectedMode,
