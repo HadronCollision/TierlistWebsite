@@ -21,7 +21,7 @@ const Tiers = () => {
   if (!GamemodeList.includes(mode)) return;
 
   return (
-    <div style={{ width: "100vw", minWidth: "1200px" }}>
+    <div>
       <GamemodeHeader />
       <TierHeader />
       <TierColumnContainer selectedMode={selectedMode} />
