@@ -1,7 +1,7 @@
 import React from "react";
 import { createContext, useContext, useState } from "react";
 
-const SelectedModeContext = createContext({});
+const SelectedModeContext = createContext();
 
 export const useSelectedMode = () => {
   return useContext(SelectedModeContext);
