@@ -6,14 +6,14 @@ import { useModal } from "../../context/modalContext";
 
 const SearchBar = ({ style }) => {
   const { search, setSearch } = useSearch();
-  const { modalState, setModalState } = useModal();
+  const { setModalState } = useModal();
   const [error, setError] = useState("");
 
   const query = useQuery({
     queryFn: () => fetchPlayerData(search),
     queryKey: ["player", search],
-    staleTime: 60 * 1000,
-    gcTime: 60 * 1000,
+    staleTime: 60_000,
+    gcTime: 60_000,
     enabled: search.length > 0,
   });
 

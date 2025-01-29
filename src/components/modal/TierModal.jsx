@@ -16,8 +16,8 @@ function TierModal() {
   const { data: player } = useQuery({
     queryFn: () => fetchPlayerData(ign),
     queryKey: ["player", ign],
-    staleTime: 60 * 1000,
-    gcTime: 60 * 1000,
+    staleTime: 60_000,
+    gcTime: 60_000,
   });
 
   useEffect(() => {
