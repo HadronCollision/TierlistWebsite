@@ -4,7 +4,7 @@ import TierHeader from "../components/tiers/TierHeader";
 import TierColumnContainer from "../components/tiers/TierColumnContainer";
 import { useModal } from "../context/modalContext";
 import TierModal from "../components/modal/TierModal";
-import { useParams } from "react-router";
+import { Navigate, useParams } from "react-router";
 import { useSelectedMode } from "../context/selectedModeContext";
 import GamemodeHeader from "../components/tiers/GamemodeHeader";
 import { GamemodeList } from "../constants/gamemode";
@@ -14,11 +14,7 @@ const Tiers = () => {
   const { selectedMode, setSelectedMode } = useSelectedMode();
   const { mode } = useParams();
 
-  useEffect(() => {
-    setSelectedMode(mode);
-  }, [mode]);
-
-  if (!GamemodeList.includes(mode)) return;
+  if (!GamemodeList.includes(mode)) return <Navigate to="/" replace={true} />;
 
   return (
     <div>

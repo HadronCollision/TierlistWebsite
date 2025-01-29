@@ -3,12 +3,16 @@ import { Color } from "../../constants/color";
 import TierColumn from "./TierColumn";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTierData } from "../../api/players";
+import { GamemodeList } from "../../constants/gamemode";
 
 function TierColumnContainer({ selectedMode }) {
+  if (!GamemodeList.includes(selectedMode)) return;
+
   const { data: playerData } = useQuery({
     queryFn: () => fetchTierData(selectedMode),
     queryKey: ["players", selectedMode],
     staleTime: 60 * 1000,
+    gcTime: 60 * 1000,
   });
 
   return (

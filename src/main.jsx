@@ -19,21 +19,32 @@ const queryClient = new QueryClient();
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-      <SelectedModeProvider>
-        <SearchProvider>
-          <ModalProvider>
-            <BrowserRouter>
+      <BrowserRouter>
+        <SelectedModeProvider>
+          <SearchProvider>
+            <ModalProvider>
               <Font family="Roboto">
                 <Routes>
-                  <Route
-                    index
-                    element={<Navigate replace to="/ranking/overall" />}
-                  />
                   <Route element={<Header />}>
+                    <Route
+                      path="*"
+                      index
+                      element={
+                        <Navigate replace={true} to="/ranking/overall" />
+                      }
+                    />
                     <Route path="tiers">
+                      <Route
+                        index
+                        element={<Navigate to="/" replace={true} />}
+                      />
                       <Route path=":mode" element={<Tiers />} />
                     </Route>
                     <Route path="ranking">
+                      <Route
+                        index
+                        element={<Navigate to="/" replace={true} />}
+                      />
                       <Route path="overall" element={<Overall />} />
                       <Route path="topten" element={<Overall />} />
                       <Route path="subhuman" element={<Subhuman />} />
@@ -45,10 +56,10 @@ createRoot(document.getElementById("root")).render(
                   </Route>
                 </Routes>
               </Font>
-            </BrowserRouter>
-          </ModalProvider>
-        </SearchProvider>
-      </SelectedModeProvider>
+            </ModalProvider>
+          </SearchProvider>
+        </SelectedModeProvider>
+      </BrowserRouter>
     </QueryClientProvider>
   </StrictMode>
 );
