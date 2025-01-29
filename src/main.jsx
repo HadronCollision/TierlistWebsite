@@ -9,7 +9,7 @@ import { SelectedModeProvider } from "./context/selectedModeContext";
 import { SearchProvider } from "./context/searchContext";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
-import Header from "./components/Header";
+import Header from "./components/layout/Header";
 import Overall from "./pages/Overall";
 import Subhuman from "./pages/Subhuman";
 import Font from "react-font";

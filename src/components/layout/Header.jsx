@@ -1,30 +1,18 @@
 import React from "react";
 import { Text } from "react-font";
 import { NavLink, Outlet } from "react-router";
-import { useSearch } from "../context/searchContext";
-import { useModal } from "../context/modalContext";
-import TierModal from "./modal/TierModal";
+import { useModal } from "../../context/modalContext";
+import TierModal from "../modal/TierModal";
+import SearchBar from "./SearchBar";
 
 function Header() {
-  const { search, setSearch } = useSearch();
   const { modalState, setModalState } = useModal();
-
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setModalState({ show: true, player: { ign: search, country: "pk" } });
-  };
+  console.log("Header render");
 
   return (
     <div style={{ width: "100vw", minWidth: "1200px" }}>
       <header style={styles.header}>
-        <form style={styles.left} onSubmit={onSubmit}>
-          <input
-            type="text"
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </form>
+        <SearchBar style={styles.left} />
         <div style={styles.center}>
           <Text family="Space Mono" style={styles.text}>
             - Pakistan & India Tier List -

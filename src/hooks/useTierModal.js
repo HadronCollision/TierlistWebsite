@@ -3,15 +3,16 @@ import { useModal } from "../context/modalContext";
 
 export const useTierModal = () => {
   const { modalState, setModalState } = useModal();
-  const { ign, country } = modalState.player;
+  const { ign, country, rank } = modalState.player;
   const [imageLoading, setImageLoading] = useState(true);
   const countryTwo = country === "pk" ? "Pakistan" : "India";
 
-  const closeModal = () => setModalState({ ...modalState, show: false });
+  const closeModal = () => setModalState({ player: null, show: false });
 
   return {
     ign,
     country: countryTwo,
+    rank,
     imageLoading,
     setImageLoading,
     closeModal,
