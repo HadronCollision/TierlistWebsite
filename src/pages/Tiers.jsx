@@ -11,10 +11,10 @@ import { GamemodeList } from "../constants/gamemode";
 
 const Tiers = () => {
   const { modalState } = useModal();
-  const { selectedMode, setSelectedMode } = useSelectedMode();
+  const { selectedMode } = useSelectedMode();
   const { mode } = useParams();
 
-  if (!GamemodeList.includes(mode)) return <Navigate to="/" replace={true} />;
+  if (!GamemodeList.includes(mode)) return <Navigate to="/" />;
 
   return (
     <div>

@@ -29,22 +29,14 @@ createRoot(document.getElementById("root")).render(
                     <Route
                       path="*"
                       index
-                      element={
-                        <Navigate replace={true} to="/ranking/overall" />
-                      }
+                      element={<Navigate to="/ranking/overall" />}
                     />
                     <Route path="tiers">
-                      <Route
-                        index
-                        element={<Navigate to="/" replace={true} />}
-                      />
+                      <Route index element={<Navigate to="/" />} />
                       <Route path=":mode" element={<Tiers />} />
                     </Route>
                     <Route path="ranking">
-                      <Route
-                        index
-                        element={<Navigate to="/" replace={true} />}
-                      />
+                      <Route index element={<Navigate to="/" />} />
                       <Route path="overall" element={<Overall />} />
                       <Route path="topten" element={<Overall />} />
                       <Route path="subhuman" element={<Subhuman />} />
