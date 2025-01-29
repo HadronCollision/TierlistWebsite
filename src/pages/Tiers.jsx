@@ -3,7 +3,6 @@ import "../index.css";
 import TierHeader from "../components/tiers/TierHeader";
 import TierColumnContainer from "../components/tiers/TierColumnContainer";
 import { useModal } from "../context/modalContext";
-import TierModal from "../components/modal/TierModal";
 import { Navigate, useParams } from "react-router";
 import { useSelectedMode } from "../context/selectedModeContext";
 import GamemodeHeader from "../components/tiers/GamemodeHeader";
@@ -21,8 +20,6 @@ const Tiers = () => {
       <GamemodeHeader />
       <TierHeader />
       <TierColumnContainer selectedMode={selectedMode} />
-
-      {modalState.show && <TierModal />}
     </div>
   );
 };

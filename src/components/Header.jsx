@@ -2,14 +2,22 @@ import React from "react";
 import { Text } from "react-font";
 import { NavLink, Outlet } from "react-router";
 import { useSearch } from "../context/searchContext";
+import { useModal } from "../context/modalContext";
+import TierModal from "./modal/TierModal";
 
 function Header() {
   const { search, setSearch } = useSearch();
+  const { modalState, setModalState } = useModal();
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setModalState({ show: true, player: { ign: search, country: "pk" } });
+  };
 
   return (
     <div style={{ width: "100vw", minWidth: "1200px" }}>
       <header style={styles.header}>
-        <form style={styles.left}>
+        <form style={styles.left} onSubmit={onSubmit}>
           <input
             type="text"
             placeholder="Search"
@@ -30,6 +38,7 @@ function Header() {
         </NavLink>
       </header>
       <Outlet />
+      {modalState.show && <TierModal />}
     </div>
   );
 }
