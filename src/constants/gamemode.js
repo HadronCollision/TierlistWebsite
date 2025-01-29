@@ -1,9 +1,2 @@
-export const GamemodeList = [
-  "sword",
-  "nethpot",
-  "crystal",
-  "diapot",
-  "axe",
-  "uhc",
-  "smp",
-];
+//prettier-ignore
+export const GamemodeList = ["sword", "nethpot", "crystal", "diapot", "axe", "uhc", "smp"];
