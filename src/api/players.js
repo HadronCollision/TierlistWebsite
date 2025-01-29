@@ -6,6 +6,8 @@ export const fetchTierData = async (mode) => {
 };
 
 export const fetchPlayerData = async (ign) => {
-  const { data } = await axios.get(`http://localhost:6969/api/search/${ign}`);
+  const { data } = await axios.get(
+    `http://localhost:6969/api/search?ign=${ign}`
+  );
   return data;
 };
