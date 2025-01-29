@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "../index.css";
 import TierHeader from "../components/tiers/TierHeader";
 import TierColumnContainer from "../components/tiers/TierColumnContainer";

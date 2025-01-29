@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { createContext, useContext, useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import { GamemodeList } from "../constants/gamemode";
 
 const SelectedModeContext = createContext();
@@ -11,7 +11,6 @@ export const useSelectedMode = () => {
 
 export const SelectedModeProvider = ({ children }) => {
   const { pathname } = useLocation();
-
   const route = pathname.split("/")[2];
 
   const [selectedMode, setSelectedMode] = useState(
