@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Color } from "../../constants/color";
-import TierDisplayBox from "./TierDisplayBox";
 import { useTierModal } from "../../hooks/useTierModal";
 import { BeatLoader } from "react-spinners";
 import { AnimatePresence, motion } from "motion/react";
 import { fetchPlayerData } from "../../api/players";
 import { useQuery } from "@tanstack/react-query";
-import { GamemodeList } from "../../constants/gamemode";
+import TierDisplayBoxContainer from "./TierDisplayBoxContainer";
 
 function TierModal() {
   //prettier-ignore
@@ -62,7 +61,7 @@ function TierModal() {
 
             {imageLoading && <Loader />}
 
-            {player && <TiersDisplayBoxContainer rank={player.rank} />}
+            {player && <TierDisplayBoxContainer rank={player.rank} />}
           </motion.div>
         </motion.div>
       )}
@@ -75,21 +74,6 @@ const Loader = () => (
     <BeatLoader color="#aaa" style={{ backgroundColor: Color.highTier }} />
   </div>
 );
-
-const TiersDisplayBoxContainer = ({ rank }) => {
-  const formatTier = (tier) => {
-    if (!tier.pos) return "-";
-    return `${tier.pos.slice(0, 1).toUpperCase()}T${tier.tier}`;
-  };
-  //prettier-ignore
-  return (
-    <div style={styles.tierContainer}>
-      {GamemodeList.map((mode, index) => (
-        <TierDisplayBox type={`tier-${mode}`} tier={formatTier(rank[mode])} key={index} />
-      ))}
-    </div>
-  );
-};
 
 const styles = {
   modalOverlay: {
@@ -137,10 +121,6 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: Color.highTier,
-  },
-  tierContainer: {
-    position: "absolute",
-    transform: "translate(-60px, -30px)",
   },
   tierBox: {
     position: "absolute",
