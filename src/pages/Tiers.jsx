@@ -2,14 +2,12 @@ import React from "react";
 import "../index.css";
 import TierHeader from "../components/tiers/TierHeader";
 import TierColumnContainer from "../components/tiers/TierColumnContainer";
-import { useModal } from "../context/modalContext";
 import { Navigate, useParams } from "react-router";
 import { useSelectedMode } from "../context/selectedModeContext";
 import GamemodeHeader from "../components/tiers/GamemodeHeader";
 import { GamemodeList } from "../constants/gamemode";
 
 const Tiers = () => {
-  const { modalState } = useModal();
   const { selectedMode } = useSelectedMode();
   const { mode } = useParams();
 
