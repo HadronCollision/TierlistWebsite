@@ -9,8 +9,7 @@ import TierDisplayBoxContainer from "./TierDisplayBoxContainer";
 
 function TierModal() {
   //prettier-ignore
-  const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
-  const [isVisible, setIsVisible] = useState(true);
+  const { ign, country, imageLoading, setImageLoading, isVisible, setIsVisible, closeModal } = useTierModal();
   const skin = imageLoading ? { display: "none" } : styles.skinImage;
 
   const { data: player } = useQuery({
