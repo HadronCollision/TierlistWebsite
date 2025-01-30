@@ -68,7 +68,10 @@ function TierModal() {
 
 const Loader = () => (
   <div style={styles.loaderWrapper}>
-    <BeatLoader color="#aaa" style={{ backgroundColor: Color.highTier }} />
+    <BeatLoader
+      color={Color.loader}
+      style={{ backgroundColor: Color.highTier }}
+    />
   </div>
 );
 
