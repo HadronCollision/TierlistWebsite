@@ -45,4 +45,4 @@ const styles = {
   },
 };
 
-export default TierColumnContainer;
+export default React.memo(TierColumnContainer);
