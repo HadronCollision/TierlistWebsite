@@ -1,21 +1,21 @@
 .tier-sword {
-  transform: translate(180px, -80px);
+  transform: translate(200px, -120px);
 }
 .tier-nethpot {
-  transform: translate(220px, 20px);
+  transform: translate(220px, 10px);
 }
 .tier-crystal {
-  transform: translate(180px, 120px);
+  transform: translate(150px, 130px);
 }
 .tier-diapot {
-  transform: translate(0px, 220px);
+  transform: translate(0px, 190px);
 }
 .tier-axe {
-  transform: translate(-180px, 120px);
+  transform: translate(-150px, 130px);
 }
 .tier-uhc {
-  transform: translate(-220px, 20px);
+  transform: translate(-220px, 10px);
 }
 .tier-smp {
-  transform: translate(-180px, -80px);
+  transform: translate(-200px, -120px);
 }
