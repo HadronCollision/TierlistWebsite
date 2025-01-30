@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Color } from "../../constants/color";
 import { useModal } from "../../context/modalContext";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
 
 const TierRow = ({ player }) => {
   const { setModalState } = useModal();
@@ -28,7 +28,7 @@ const TierRow = ({ player }) => {
   };
 
   return (
-    <motion.li
+    <m.li
       style={styles}
       onClick={() => showModal(player)}
       whileTap={{ scale: 0.98 }}
@@ -36,7 +36,7 @@ const TierRow = ({ player }) => {
       onHoverEnd={() => setHover(false)}
     >
       {ign}
-    </motion.li>
+    </m.li>
   );
 };
 

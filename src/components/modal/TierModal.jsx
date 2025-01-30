@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import { Color } from "../../constants/color";
 import { useTierModal } from "../../hooks/useTierModal";
 import { BeatLoader } from "react-spinners";
-import { motion } from "motion/react";
+import { domAnimation, LazyMotion } from "motion/react";
 import { fetchPlayerData } from "../../api/players";
 import { useQuery } from "@tanstack/react-query";
 import TierDisplayBoxContainer from "./TierDisplayBoxContainer";
+import * as m from "motion/react-m";
 
 function TierModal() {
   //prettier-ignore
@@ -29,37 +30,39 @@ function TierModal() {
   }, []);
 
   return (
-    <motion.div
-      style={styles.modalOverlay}
-      onClick={() => {
-        closeModal();
-      }}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 0.1 }}
-    >
-      <motion.div
-        style={styles.modalBody}
-        onClick={(e) => e.stopPropagation()}
-        initial={{ opacity: 0.5, y: "5px" }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0.5, y: "-5px" }}
+    <LazyMotion features={domAnimation}>
+      <m.div
+        style={styles.modalOverlay}
+        onClick={() => {
+          closeModal();
+        }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
         transition={{ duration: 0.1 }}
       >
-        <p style={styles.ignText}>{ign}</p>
-        <p style={styles.countryText}>Country: {country}</p>
-        <img
-          src={`https://render.crafty.gg/3d/full/${ign}`}
-          style={skin}
-          onLoad={() => setImageLoading(false)}
-        />
+        <m.div
+          style={styles.modalBody}
+          onClick={(e) => e.stopPropagation()}
+          initial={{ opacity: 0.5, y: "5px" }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0.5, y: "-5px" }}
+          transition={{ duration: 0.1 }}
+        >
+          <p style={styles.ignText}>{ign}</p>
+          <p style={styles.countryText}>Country: {country}</p>
+          <img
+            src={`https://render.crafty.gg/3d/full/${ign}`}
+            style={skin}
+            onLoad={() => setImageLoading(false)}
+          />
 
-        {imageLoading && <Loader />}
+          {imageLoading && <Loader />}
 
-        <TierDisplayBoxContainer rank={player?.rank} />
-      </motion.div>
-    </motion.div>
+          <TierDisplayBoxContainer rank={player?.rank} />
+        </m.div>
+      </m.div>
+    </LazyMotion>
   );
 }
 

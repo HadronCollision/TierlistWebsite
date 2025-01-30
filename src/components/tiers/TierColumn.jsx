@@ -1,18 +1,21 @@
 import React from "react";
 import TierRow from "./TierRow";
 import { BeatLoader } from "react-spinners";
-import { motion } from "motion/react";
+import * as m from "motion/react-m";
+import { domAnimation, LazyMotion } from "motion/react";
 
 const TierColumn = ({ players }) => {
   return (
     <>
       {players ? (
-        <motion.ul initial={{ opacity: 1 }} transition={{ duration: 1 }}>
-          {players?.map((player) => (
-            <TierRow player={player} key={player.ign} />
-          ))}
-          <div style={styles.placeholder}></div>
-        </motion.ul>
+        <LazyMotion features={domAnimation}>
+          <m.ul initial={{ opacity: 1 }} transition={{ duration: 1 }}>
+            {players?.map((player) => (
+              <TierRow player={player} key={player.ign} />
+            ))}
+            <div style={styles.placeholder}></div>
+          </m.ul>
+        </LazyMotion>
       ) : (
         <BeatLoader color="#aaa" style={{ marginTop: "50px" }} />
       )}
