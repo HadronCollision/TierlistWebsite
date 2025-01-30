@@ -6,8 +6,7 @@ import TierModal from "../modal/TierModal";
 import SearchBar from "./SearchBar";
 import { AnimatePresence } from "motion/react";
 
-function Header() {
-  const { modalState, setModalState } = useModal();
+const Header = () => {
   console.log("Header render");
 
   return (
@@ -27,10 +26,15 @@ function Header() {
         </NavLink>
       </header>
       <Outlet />
-      <AnimatePresence>{modalState.show && <TierModal />}</AnimatePresence>
+      <Modal />
     </div>
   );
-}
+};
+
+const Modal = () => {
+  const { modalState } = useModal();
+  return <AnimatePresence>{modalState.show && <TierModal />}</AnimatePresence>;
+};
 
 const styles = {
   header: {
