@@ -1,0 +1,41 @@
+#s {
+  background: rgba(0, 0, 0, 0.375)
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQBJREFUeNqslI0RgyAMhdENWIEVWMEVXIGO0BW6Ah2hHcGOoCPYEewINFzBe9IA9id37w4kfEZesHHOCSYUqSPJML+RJlELDwN1pMHxMZNMkr8RTgyz2YPH5LmtwXpIHkOFmKhIlxowDmYAycKnHAHYcTCsSpXOJCie6YWDnXKLGeHLN2stGaqDsXXrX3GFcYcLrfhjtKEhffQ792gYT2nT6pJDjCw4z7ZGdGipOIqNbXIwFUARmCbKpMfYxsWJBmCEDoW7+gYUTAU2s3HJrK3AJvMLkqGHFLgWXTckm+SfSQexs+tLRqwVfgvjgMsvMAT689S5M/sk/I14kO5PAQYAuk6L1q+EdHMAAAAASUVORK5CYII=)
+    no-repeat 8px 8px;
+  text-indent: 16px;
+  display: inline-block;
+  border: 0 none;
+  width: 0;
+  border-radius: 20px;
+  transition: 0.3s;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  appearance: none;
+  font-weight: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  color: #fff;
+  background-color: transparent;
+  vertical-align: baseline;
+  background-size: 24px 24px;
+}
+
+input[type="search"]::-search-cancel-button {
+  appearance: none;
+}
+
+#s:hover,
+#s:focus {
+  opacity: 1;
+  background: #292929
+    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQBJREFUeNqslI0RgyAMhdENWIEVWMEVXIGO0BW6Ah2hHcGOoCPYEewINFzBe9IA9id37w4kfEZesHHOCSYUqSPJML+RJlELDwN1pMHxMZNMkr8RTgyz2YPH5LmtwXpIHkOFmKhIlxowDmYAycKnHAHYcTCsSpXOJCie6YWDnXKLGeHLN2stGaqDsXXrX3GFcYcLrfhjtKEhffQ792gYT2nT6pJDjCw4z7ZGdGipOIqNbXIwFUARmCbKpMfYxsWJBmCEDoW7+gYUTAU2s3HJrK3AJvMLkqGHFLgWXTckm+SfSQexs+tLRqwVfgvjgMsvMAT689S5M/sk/I14kO5PAQYAuk6L1q+EdHMAAAAASUVORK5CYII=)
+    8px 8px no-repeat;
+  background-size: 24px 24px;
+}
+
+#s:focus {
+  width: 200px;
+  /* min-width: 100px; */
+  cursor: text;
+}
