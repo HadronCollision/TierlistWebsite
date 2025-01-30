@@ -7,7 +7,7 @@ import { useModal } from "../../context/modalContext";
 const SearchBar = ({ style }) => {
   const { search, setSearch } = useSearch();
   const { setModalState } = useModal();
-  const [error, setError] = useState("");
+  const [placeholder, setPlaceholder] = useState("Search...");
 
   const query = useQuery({
     queryFn: () => fetchPlayerData(search),
@@ -29,20 +29,26 @@ const SearchBar = ({ style }) => {
           rank: query.data.rank,
         },
       });
+      return;
     }
 
-    setError(query?.data?.message);
+    setSearch("");
+    setPlaceholder("Player not found");
   };
 
   return (
-    <form style={style} onSubmit={onSubmit}>
+    <form className="search" style={style} onSubmit={onSubmit}>
       <input
-        type="text"
-        placeholder="Search"
+        id="s"
+        type="search"
+        placeholder={placeholder}
         value={search}
+        onFocus={() => {
+          setSearch("");
+          setPlaceholder("Search...");
+        }}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <p>{error}</p>
     </form>
   );
 };
