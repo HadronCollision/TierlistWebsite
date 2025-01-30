@@ -4,6 +4,7 @@ import { NavLink, Outlet } from "react-router";
 import { useModal } from "../../context/modalContext";
 import TierModal from "../modal/TierModal";
 import SearchBar from "./SearchBar";
+import { AnimatePresence } from "motion/react";
 
 function Header() {
   const { modalState, setModalState } = useModal();
@@ -26,7 +27,7 @@ function Header() {
         </NavLink>
       </header>
       <Outlet />
-      {modalState.show && <TierModal />}
+      <AnimatePresence>{modalState.show && <TierModal />}</AnimatePresence>
     </div>
   );
 }

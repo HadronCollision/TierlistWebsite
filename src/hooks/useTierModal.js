@@ -7,7 +7,7 @@ export const useTierModal = () => {
   const [imageLoading, setImageLoading] = useState(true);
   const countryTwo = country === "pk" ? "Pakistan" : "India";
 
-  const closeModal = () => setModalState({ player: null, show: false });
+  const closeModal = () => setModalState({ ...modalState, show: false });
 
   return {
     ign,

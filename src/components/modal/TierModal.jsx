@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { Color } from "../../constants/color";
 import { useTierModal } from "../../hooks/useTierModal";
 import { BeatLoader } from "react-spinners";
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import { fetchPlayerData } from "../../api/players";
 import { useQuery } from "@tanstack/react-query";
 import TierDisplayBoxContainer from "./TierDisplayBoxContainer";
 
 function TierModal() {
   //prettier-ignore
-  const { ign, country, imageLoading, setImageLoading, isVisible, setIsVisible, closeModal } = useTierModal();
+  const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
   const skin = imageLoading ? { display: "none" } : styles.skinImage;
 
   const { data: player } = useQuery({
@@ -22,50 +22,44 @@ function TierModal() {
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
-        setIsVisible(false);
-        setTimeout(() => closeModal(), 100);
+        closeModal();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
-    <AnimatePresence>
-      {isVisible && (
-        <motion.div
-          style={styles.modalOverlay}
-          onClick={() => {
-            setIsVisible(false);
-            setTimeout(() => closeModal(), 100);
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.1 }}
-        >
-          <motion.div
-            style={styles.modalBody}
-            onClick={(e) => e.stopPropagation()}
-            initial={{ opacity: 0, y: "5px" }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "-5px" }}
-            transition={{ duration: 0.1 }}
-          >
-            <p style={styles.ignText}>{ign}</p>
-            <p style={styles.countryText}>Country: {country}</p>
-            <img
-              src={`https://render.crafty.gg/3d/full/${ign}`}
-              style={skin}
-              onLoad={() => setImageLoading(false)}
-            />
+    <motion.div
+      style={styles.modalOverlay}
+      onClick={() => {
+        closeModal();
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.1 }}
+    >
+      <motion.div
+        style={styles.modalBody}
+        onClick={(e) => e.stopPropagation()}
+        initial={{ opacity: 0.5, y: "5px" }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0.5, y: "-5px" }}
+        transition={{ duration: 0.1 }}
+      >
+        <p style={styles.ignText}>{ign}</p>
+        <p style={styles.countryText}>Country: {country}</p>
+        <img
+          src={`https://render.crafty.gg/3d/full/${ign}`}
+          style={skin}
+          onLoad={() => setImageLoading(false)}
+        />
 
-            {imageLoading && <Loader />}
+        {imageLoading && <Loader />}
 
-            {player && <TierDisplayBoxContainer rank={player.rank} />}
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        <TierDisplayBoxContainer rank={player?.rank} />
+      </motion.div>
+    </motion.div>
   );
 }
 
