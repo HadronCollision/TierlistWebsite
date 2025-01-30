@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Color } from "../../constants/color";
 import { useTierModal } from "../../hooks/useTierModal";
 import { BeatLoader } from "react-spinners";
