@@ -3,6 +3,7 @@ import TierRow from "./TierRow";
 import { BeatLoader } from "react-spinners";
 import * as m from "motion/react-m";
 import { domAnimation, LazyMotion } from "motion/react";
+import { Color } from "../../constants/color";
 
 const TierColumn = ({ players }) => {
   return (
@@ -17,7 +18,7 @@ const TierColumn = ({ players }) => {
           </m.ul>
         </LazyMotion>
       ) : (
-        <BeatLoader color="#aaa" style={{ marginTop: "50px" }} />
+        <BeatLoader color={Color.loader} style={{ marginTop: "50px" }} />
       )}
     </>
   );
