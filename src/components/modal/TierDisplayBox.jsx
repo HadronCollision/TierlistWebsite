@@ -1,5 +1,8 @@
 import React from "react";
 import { Color } from "../../constants/color";
+import { BeatLoader } from "react-spinners";
+import { domAnimation, LazyMotion } from "motion/react";
+import * as m from "motion/react-m";
 
 const iconUrls = {
   sword: "https://mctiers.io/assets/sword-9023278f.svg",
@@ -11,56 +14,67 @@ const iconUrls = {
   smp: "https://mctiers.io/assets/smp-72ce94df.svg",
 };
 
-const TierDisplayBox = ({ type, orientation, tier }) => {
-  const iconUrl = iconUrls[type.split("-")[1]];
-
-  return (
-    <div style={styles.container} className={type}>
-      {orientation === "left" ? (
-        <>
-          <IconWrapper iconUrl={iconUrl} />
-          <TextWrapper tier={tier} />
-        </>
-      ) : (
-        <>
-          <TextWrapper tier={tier} />
-          <IconWrapper iconUrl={iconUrl} />
-        </>
-      )}
-    </div>
-  );
+const formatTier = (tier) => {
+  if (!tier?.pos) return "-";
+  return `${tier.pos.slice(0, 1).toUpperCase()}T${tier.tier}`;
 };
 
-const IconWrapper = ({ iconUrl }) => (
-  <div style={styles.iconWrapper}>
-    <img src={iconUrl} style={styles.icon} />
-  </div>
-);
-const TextWrapper = ({ tier }) => (
-  <div style={styles.textWrapper}>
-    <p style={styles.text}>{tier}</p>
-  </div>
-);
+const TierDisplayBox = ({ type, tier }) => {
+  if (!tier)
+    return (
+      <div
+        style={{ ...styles.container, backgroundColor: Color.lowTier }}
+        className={type}
+      >
+        <BeatLoader color={Color.loader} style={styles.loader} size="12px" />
+      </div>
+    );
+
+  const iconUrl = iconUrls[type.split("-")[1]];
+  return (
+    <LazyMotion features={domAnimation}>
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.2 }}
+        style={styles.container}
+        className={type}
+      >
+        <div style={styles.iconWrapper}>
+          <img src={iconUrl} style={styles.icon} />
+        </div>
+        <div style={styles.textWrapper}>
+          <p style={styles.text}>{formatTier(tier)}</p>
+        </div>
+      </m.div>
+    </LazyMotion>
+  );
+};
 
 const styles = {
   container: {
     position: "absolute",
-    height: "60px",
-    width: "120px",
+    height: "80px",
+    width: "80px",
     display: "flex",
-    borderRadius: "8px",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: "40px",
     overflow: "hidden",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)",
   },
   iconWrapper: {
-    width: "50%",
+    height: "50%",
+    width: "100%",
     backgroundColor: "#555",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
   textWrapper: {
-    width: "50%",
+    height: "50%",
+    width: "100%",
     backgroundColor: Color.lowTier,
     display: "flex",
     justifyContent: "center",
@@ -70,14 +84,18 @@ const styles = {
     color: "#ffffff",
     fontSize: "24px",
     fontWeight: "bold",
+    fontFamily: "Arial Rounded MT",
     backgroundColor: "transparent",
     margin: 0,
   },
   icon: {
-    height: "48px",
-    width: "48px",
-    objectFit: "contain",
+    height: "100%",
+    width: "100%",
     backgroundColor: "#555",
+  },
+  loader: {
+    backgroundColor: Color.lowTier,
+    display: "flex",
   },
 };
 
