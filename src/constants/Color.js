@@ -4,4 +4,5 @@ export const Color = {
   textColor: "#ececec",
   highTier: "#1e1e1e",
   lowTier: "#292929",
+  loader: "#aaa",
 };
