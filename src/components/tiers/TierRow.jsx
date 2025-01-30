@@ -16,7 +16,7 @@ const TierRow = ({ player }) => {
   const styles = {
     width: "15vw",
     minWidth: "240px",
-    backgroundColor: rank.pos === "high" ? Color.highTier : Color.lowTier,
+    backgroundColor: rank.pos === "high" ? Color.primary : Color.secondary,
     margin: "4px 0",
     padding: "8px",
     borderRadius: "2px",

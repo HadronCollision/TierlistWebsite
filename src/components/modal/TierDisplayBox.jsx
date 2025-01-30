@@ -23,7 +23,7 @@ const TierDisplayBox = ({ type, tier }) => {
   if (!tier)
     return (
       <div
-        style={{ ...styles.container, backgroundColor: Color.lowTier }}
+        style={{ ...styles.container, backgroundColor: Color.secondary }}
         className={type}
       >
         <BeatLoader color={Color.loader} style={styles.loader} size="12px" />
@@ -36,7 +36,7 @@ const TierDisplayBox = ({ type, tier }) => {
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.15 }}
+        transition={{ duration: 0.1 }}
         style={styles.container}
         className={type}
       >
@@ -67,7 +67,7 @@ const styles = {
   iconWrapper: {
     height: "50%",
     width: "100%",
-    backgroundColor: "#555",
+    backgroundColor: Color.tertiary,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -75,7 +75,7 @@ const styles = {
   textWrapper: {
     height: "50%",
     width: "100%",
-    backgroundColor: Color.lowTier,
+    backgroundColor: Color.secondary,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -91,10 +91,10 @@ const styles = {
   icon: {
     height: "100%",
     width: "100%",
-    backgroundColor: "#555",
+    backgroundColor: Color.tertiary,
   },
   loader: {
-    backgroundColor: Color.lowTier,
+    backgroundColor: Color.secondary,
     display: "flex",
   },
 };

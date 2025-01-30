@@ -28,7 +28,7 @@ const GamemodeHeader = () => {
     modal: { transform: "translateY(-3px)", transition: "0.3s" },
     button: {
       ...styles.button,
-      backgroundColor: "#555",
+      backgroundColor: Color.tertiary,
     },
   };
 
@@ -92,7 +92,7 @@ const styles = {
   button: {
     cursor: "pointer",
     textDecoration: "none",
-    backgroundColor: Color.lowTier,
+    backgroundColor: Color.secondary,
     height: "48px",
     width: "80px",
     display: "flex",

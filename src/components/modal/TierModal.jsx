@@ -70,7 +70,7 @@ const Loader = () => (
   <div style={styles.loaderWrapper}>
     <BeatLoader
       color={Color.loader}
-      style={{ backgroundColor: Color.highTier }}
+      style={{ backgroundColor: Color.primary }}
     />
   </div>
 );
@@ -92,26 +92,26 @@ const styles = {
     height: "500px",
     width: "500px",
     borderRadius: "250px",
-    backgroundColor: Color.highTier,
+    backgroundColor: Color.primary,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    boxShadow: `inset 0px 0px 50px ${Color.lowTier}`,
+    boxShadow: `inset 0px 0px 50px ${Color.secondary}`,
     border: "4px solid #333",
   },
   skinImage: {
-    backgroundColor: Color.highTier,
+    backgroundColor: Color.primary,
     width: "158px",
     height: "256px",
   },
   ignText: {
-    backgroundColor: Color.highTier,
+    backgroundColor: Color.primary,
     fontSize: "24px",
     fontWeight: "bold",
   },
   countryText: {
-    backgroundColor: Color.highTier,
+    backgroundColor: Color.primary,
     color: "#7a7a7a",
   },
   loaderWrapper: {
@@ -120,7 +120,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Color.highTier,
+    backgroundColor: Color.primary,
   },
   tierBox: {
     position: "absolute",
