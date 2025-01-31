@@ -14,7 +14,7 @@ const Header = () => {
       <header style={styles.header}>
         <SearchBar style={styles.left} />
         <div style={styles.center}>
-          <Text family="Space Mono" style={styles.text}>
+          <Text family="Poppins" style={styles.text}>
             - Pakistan & India Tier List -
           </Text>
         </div>
@@ -44,7 +44,7 @@ const styles = {
     margin: "10px 20px",
   },
   text: {
-    fontSize: "32px",
+    fontSize: "38px",
     color: "#fff",
     cursor: "pointer",
     userSelect: "none",
