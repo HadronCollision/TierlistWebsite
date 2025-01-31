@@ -1,23 +1,21 @@
 import React from "react";
 import { Color } from "../../constants/color";
 import TierHeading from "./TierHeading";
-import Font from "react-font";
 
 const TierHeader = () => {
+  console.log("TierHeader render");
   return (
-    <Font family="Audiowide">
-      <div style={styles.header}>
-        <TierHeading>Tier 1</TierHeading>
-        <div />
-        <TierHeading>Tier 2</TierHeading>
-        <div />
-        <TierHeading>Tier 3</TierHeading>
-        <div />
-        <TierHeading>Tier 4</TierHeading>
-        <div />
-        <TierHeading>Tier 5</TierHeading>
-      </div>
-    </Font>
+    <div className="audiowide-regular" style={styles.header}>
+      <TierHeading>Tier 1</TierHeading>
+      <div />
+      <TierHeading>Tier 2</TierHeading>
+      <div />
+      <TierHeading>Tier 3</TierHeading>
+      <div />
+      <TierHeading>Tier 4</TierHeading>
+      <div />
+      <TierHeading>Tier 5</TierHeading>
+    </div>
   );
 };
 

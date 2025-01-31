@@ -1,22 +1,46 @@
-import React from "react";
-import { Text } from "react-font";
+import React, { useEffect, useState } from "react";
 import { NavLink, Outlet } from "react-router";
 import { useModal } from "../../context/modalContext";
 import TierModal from "../modal/TierModal";
 import SearchBar from "./SearchBar";
 import { AnimatePresence } from "motion/react";
+import FontFaceObserver from "fontfaceobserver-es";
+import SplashScreen from "./SplashScreen";
 
 const Header = () => {
   console.log("Header render");
+  const [initialState, setInitialState] = useState(true);
+
+  useEffect(() => {
+    const roboto = new FontFaceObserver("Roboto");
+    const audiowide = new FontFaceObserver("Audiowide");
+    const poppins = new FontFaceObserver("Poppins");
+    const varelaRound = new FontFaceObserver("Varela Round");
+
+    Promise.all([
+      roboto.load(),
+      audiowide.load(),
+      poppins.load(),
+      varelaRound.load(),
+    ])
+      .then(() => {
+        setInitialState(false);
+      })
+      .catch(() => {
+        setInitialState(false);
+      });
+  }, []);
+
+  if (initialState) return <SplashScreen />;
 
   return (
     <div style={{ width: "100vw", minWidth: "1200px" }}>
       <header style={styles.header}>
         <SearchBar style={styles.left} />
         <div style={styles.center}>
-          <Text family="Poppins" style={styles.text}>
+          <p className="poppins-regular" style={styles.text}>
             - Pakistan & India Tier List -
-          </Text>
+          </p>
         </div>
         <NavLink style={styles.right} to="https://discord.gg/dd8hDGZP">
           <img
