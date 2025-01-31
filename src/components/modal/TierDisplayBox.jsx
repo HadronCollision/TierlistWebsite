@@ -3,6 +3,7 @@ import { Color } from "../../constants/color";
 import { BeatLoader } from "react-spinners";
 import { domAnimation, LazyMotion } from "motion/react";
 import * as m from "motion/react-m";
+import { Text } from "react-font";
 
 const iconUrls = {
   sword: "https://mctiers.io/assets/sword-9023278f.svg",
@@ -36,7 +37,7 @@ const TierDisplayBox = ({ type, tier }) => {
       <m.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.1 }}
+        transition={{ duration: 0.25 }}
         style={styles.container}
         className={type}
       >
@@ -44,7 +45,9 @@ const TierDisplayBox = ({ type, tier }) => {
           <img src={iconUrl} style={styles.icon} />
         </div>
         <div style={styles.textWrapper}>
-          <p style={styles.text}>{formatTier(tier)}</p>
+          <Text family="Varela Round" style={styles.text}>
+            {formatTier(tier)}
+          </Text>
         </div>
       </m.div>
     </LazyMotion>
@@ -84,7 +87,7 @@ const styles = {
     color: "#ffffff",
     fontSize: "24px",
     fontWeight: "bold",
-    fontFamily: "Arial Rounded MT",
+    // fontFamily: "Arial Rounded MT",
     backgroundColor: "transparent",
     margin: 0,
   },
