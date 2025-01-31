@@ -5,7 +5,7 @@ import TierHeading from "./TierHeading";
 const TierHeader = () => {
   console.log("TierHeader render");
   return (
-    <div className="audiowide-regular" style={styles.header}>
+    <div style={styles.header}>
       <TierHeading>Tier 1</TierHeading>
       <div />
       <TierHeading>Tier 2</TierHeading>

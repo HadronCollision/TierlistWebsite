@@ -9,6 +9,7 @@ const styles = {
   textAlign: "center",
   borderRadius: "5px",
   backgroundColor: Color.headerColor,
+  fontFamily: "Audiowide",
   fontSize: "36px",
   fontWeight: "bold",
   cursor: "default",
