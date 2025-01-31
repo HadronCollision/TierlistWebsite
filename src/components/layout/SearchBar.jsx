@@ -41,7 +41,7 @@ const SearchBar = ({ style }) => {
       <input
         id="s"
         type="search"
-        autocomplete="off"
+        autoComplete="off"
         placeholder={placeholder}
         value={search}
         onFocus={() => {
