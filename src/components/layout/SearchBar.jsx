@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useSearch } from "../../context/searchContext";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPlayerData } from "../../api/players";
@@ -7,33 +7,42 @@ import { useModal } from "../../context/modalContext";
 const SearchBar = ({ style }) => {
   const { search, setSearch } = useSearch();
   const { setModalState } = useModal();
+  const [searchQuery, setSearchQuery] = useState("");
   const [placeholder, setPlaceholder] = useState("Search...");
 
-  const query = useQuery({
-    queryFn: () => fetchPlayerData(search),
-    queryKey: ["player", search],
+  const { data, isFetched } = useQuery({
+    queryFn: () => fetchPlayerData(searchQuery),
+    queryKey: ["player", searchQuery?.toLowerCase()],
     staleTime: 60_000,
     gcTime: 60_000,
-    enabled: search.length > 0,
+    enabled: !!searchQuery,
   });
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!query.data?.error && query.isFetched) {
-      setModalState({
-        show: true,
-        player: {
-          ign: query.data.ign,
-          country: query.data.country,
-          rank: query.data.rank,
-        },
-      });
+  useEffect(() => {
+    if (data?.error) {
+      setSearch("");
+      setSearchQuery("");
+      setPlaceholder("Player not found");
       return;
     }
 
-    setSearch("");
-    setPlaceholder("Player not found");
+    if (isFetched) {
+      setModalState({
+        show: true,
+        player: {
+          ign: data.ign,
+          country: data.country,
+          rank: data.rank,
+        },
+      });
+      setSearch("");
+      setSearchQuery("");
+    }
+  }, [isFetched]);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setSearchQuery(search);
   };
 
   return (

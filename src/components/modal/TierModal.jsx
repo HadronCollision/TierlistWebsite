@@ -15,7 +15,7 @@ function TierModal() {
 
   const { data: player } = useQuery({
     queryFn: () => fetchPlayerData(ign),
-    queryKey: ["player", ign],
+    queryKey: ["player", ign?.toLowerCase()],
     staleTime: 60_000,
     gcTime: 60_000,
   });
