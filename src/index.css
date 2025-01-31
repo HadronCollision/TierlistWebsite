@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins&family=Roboto&family=Varela+Round&display=swap");
 @import url("./components/modal/index.css");
 @import url("./components/layout/index.css");
+@stylex stylesheet;
 
 * {
   margin: 0;
