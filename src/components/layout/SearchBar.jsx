@@ -3,6 +3,7 @@ import { useSearch } from "../../context/searchContext";
 import { useQuery } from "@tanstack/react-query";
 import { fetchPlayerData } from "../../api/players";
 import { useModal } from "../../context/modalContext";
+import * as stylex from "@stylexjs/stylex";
 
 const SearchBar = ({ style }) => {
   const { search, setSearch } = useSearch();
@@ -46,7 +47,7 @@ const SearchBar = ({ style }) => {
   };
 
   return (
-    <form className="search" style={style} onSubmit={onSubmit}>
+    <form className="search" {...stylex.props(style)} onSubmit={onSubmit}>
       <input
         id="s"
         type="search"

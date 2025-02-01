@@ -109,10 +109,12 @@ const styles = {
     backgroundColor: Color.primary,
     fontSize: "24px",
     fontWeight: "bold",
+    margin: 0,
   },
   countryText: {
     backgroundColor: Color.primary,
     color: "#7a7a7a",
+    margin: 0,
   },
   loaderWrapper: {
     height: "256px",

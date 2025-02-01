@@ -1,9 +1,10 @@
 import React from "react";
-import { Color } from "../../constants/color";
 import TierColumn from "./TierColumn";
 import { useQuery } from "@tanstack/react-query";
 import { fetchTierData } from "../../api/players";
 import { GamemodeList } from "../../constants/gamemode";
+import * as stylex from "@stylexjs/stylex";
+import { colors } from "../../tokens.stylex";
 
 function TierColumnContainer({ selectedMode }) {
   if (!GamemodeList.includes(selectedMode)) return;
@@ -16,33 +17,33 @@ function TierColumnContainer({ selectedMode }) {
   });
 
   return (
-    <div style={styles.container}>
+    <div {...stylex.props(styles.container)}>
       <TierColumn players={playerData?.tier1s} />
-      <div style={styles.border} />
+      <div {...stylex.props(styles.border)} />
       <TierColumn players={playerData?.tier2s} />
-      <div style={styles.border} />
+      <div {...stylex.props(styles.border)} />
       <TierColumn players={playerData?.tier3s} />
-      <div style={styles.border} />
+      <div {...stylex.props(styles.border)} />
       <TierColumn players={playerData?.tier4s} />
-      <div style={styles.border} />
+      <div {...stylex.props(styles.border)} />
       <TierColumn players={playerData?.tier5s} />
     </div>
   );
 }
 
-const styles = {
+const styles = stylex.create({
   container: {
     display: "flex",
     justifyContent: "space-evenly",
-    backgroundColor: Color.backgroundColor,
+    backgroundColor: colors.backgroundColor,
     height: "100%",
   },
   border: {
-    border: `2px solid ${Color.headerColor}`,
+    border: `2px solid ${colors.headerColor}`,
     margin: 0,
     padding: 0,
     height: "100vh",
   },
-};
+});
 
 export default React.memo(TierColumnContainer);

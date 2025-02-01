@@ -1,17 +1,18 @@
 import React from "react";
 import { BarLoader } from "react-spinners";
 import { Color } from "../../constants/color";
+import * as stylex from "@stylexjs/stylex";
 
 function SplashScreen() {
   return (
-    <div style={styles.container}>
+    <div {...stylex.props(styles.base)}>
       <BarLoader color={Color.loader} width="10vw" />
     </div>
   );
 }
 
-const styles = {
-  container: {
+const styles = stylex.create({
+  base: {
     position: "fixed",
     top: 0,
     left: 0,
@@ -22,6 +23,6 @@ const styles = {
     width: "100vw",
     backgroundColor: "black",
   },
-};
+});
 
 export default SplashScreen;

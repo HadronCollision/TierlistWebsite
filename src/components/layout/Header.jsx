@@ -6,6 +6,7 @@ import SearchBar from "./SearchBar";
 import { AnimatePresence } from "motion/react";
 import FontFaceObserver from "fontfaceobserver-es";
 import SplashScreen from "./SplashScreen";
+import * as stylex from "@stylexjs/stylex";
 
 const Header = () => {
   console.log("Header render");
@@ -34,17 +35,18 @@ const Header = () => {
   if (initialState) return <SplashScreen />;
 
   return (
-    <div style={{ width: "100vw", minWidth: "1200px" }}>
-      <header style={styles.header}>
+    <div {...stylex.props(styles.default)}>
+      <header {...stylex.props(styles.header)}>
         <SearchBar style={styles.left} />
-        <div style={styles.center}>
-          <p className="poppins-regular" style={styles.text}>
-            - Pakistan & India Tier List -
-          </p>
+        <div {...stylex.props(styles.center)}>
+          <p {...stylex.props(styles.text)}>- Pakistan & India Tier List -</p>
         </div>
-        <NavLink style={styles.right} to="https://discord.gg/dd8hDGZP">
+        <NavLink
+          {...stylex.props(styles.right)}
+          to="https://discord.gg/dd8hDGZP"
+        >
           <img
-            style={styles.dcIcon}
+            {...stylex.props(styles.dcIcon)}
             src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
           />
         </NavLink>
@@ -60,7 +62,12 @@ const Modal = () => {
   return <AnimatePresence>{modalState.show && <TierModal />}</AnimatePresence>;
 };
 
-const styles = {
+const styles = stylex.create({
+  default: {
+    fontFamily: "Roboto",
+    width: "100vw",
+    minWidth: "1200px",
+  },
   header: {
     display: "flex",
     justifyContent: "space-between",
@@ -68,10 +75,12 @@ const styles = {
     margin: "10px 20px",
   },
   text: {
+    fontFamily: "Poppins",
     fontSize: "38px",
     color: "#fff",
     cursor: "pointer",
     userSelect: "none",
+    margin: 0,
   },
   dcIcon: {
     height: "32px",
@@ -93,6 +102,6 @@ const styles = {
     display: "flex",
     justifyContent: "flex-end",
   },
-};
+});
 
 export default Header;

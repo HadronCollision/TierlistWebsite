@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import { Color } from "../../constants/color";
 import { NavLink, useLocation } from "react-router";
 import { useSelectedMode } from "../../context/selectedModeContext";
+import * as stylex from "@stylexjs/stylex";
+import { colors } from "../../tokens.stylex";
 
 //prettier-ignore
 const gamemodes = [
@@ -24,31 +25,27 @@ const GamemodeHeader = () => {
     setSelectedMode(pathname.split("/")[2] || "overall");
   }, []);
 
-  const animationStyles = {
-    modal: { transform: "translateY(-3px)", transition: "0.3s" },
-    button: {
-      ...styles.button,
-      backgroundColor: Color.tertiary,
-    },
-  };
-
   return (
-    <div style={styles.container}>
-      <div style={styles.gamemodeContainer}>
+    <div {...stylex.props(styles.container)}>
+      <div {...stylex.props(styles.gamemodeContainer)}>
         {gamemodes.map((gamemode, index) => {
           const isSelected = selectedMode === gamemode.id;
           return (
             <div
-              style={isSelected ? animationStyles.modal : {}}
+              {...stylex.props(isSelected ? styles.modalActive : {})}
               key={gamemode.route}
             >
               <NavLink
-                style={isSelected ? animationStyles.button : styles.button}
+                {...stylex.props(
+                  isSelected
+                    ? [styles.button, styles.buttonActive]
+                    : styles.button
+                )}
                 onClick={() => setSelectedMode(gamemode.id)}
                 to={gamemode.route}
                 key={index}
               >
-                <img src={gamemode.src} style={styles.icon} />
+                <img src={gamemode.src} {...stylex.props(styles.icon)} />
                 {/* {gamemode.label} */}
               </NavLink>
             </div>
@@ -56,14 +53,14 @@ const GamemodeHeader = () => {
         })}
       </div>
       {/* prettier-ignore */}
-      <div style={styles.subhumanContainer}>
-        <div style={selectedMode === "subhuman" ? animationStyles.modal : {}}>
+      <div {...stylex.props(styles.subhumanContainer)}>
+        <div {...stylex.props(selectedMode === "subhuman" ? styles.modalActive : {})}>
           <NavLink
-            style={selectedMode === "subhuman" ? animationStyles.button : styles.button}
+            {...stylex.props(selectedMode === "subhuman" ? [styles.button, styles.buttonActive] : styles.button)}
             onClick={() => setSelectedMode("subhuman")}
             to={`/ranking/subhuman`}
           >
-            <img src="https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48" style={styles.icon} />
+            <img src="https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48" {...stylex.props(styles.icon)} />
           </NavLink>
         </div>
       </div>
@@ -71,9 +68,10 @@ const GamemodeHeader = () => {
   );
 };
 
-const styles = {
+const styles = stylex.create({
   container: {
     display: "flex",
+    alignItems: "center",
     margin: "8px",
   },
   gamemodeContainer: {
@@ -81,7 +79,7 @@ const styles = {
     justifyContent: "center",
     flexDirection: "row",
     gap: "12px",
-    backgroundColor: Color.backgroundColor,
+    backgroundColor: colors.backgroundColor,
   },
   subhumanContainer: {
     display: "flex",
@@ -92,7 +90,7 @@ const styles = {
   button: {
     cursor: "pointer",
     textDecoration: "none",
-    backgroundColor: Color.secondary,
+    backgroundColor: colors.secondary,
     height: "48px",
     width: "80px",
     display: "flex",
@@ -101,10 +99,17 @@ const styles = {
     borderRadius: "24px",
     fontSize: "18px",
   },
+  buttonActive: {
+    backgroundColor: colors.tertiary,
+  },
+  modalActive: {
+    transform: "translateY(-3px)",
+    transition: "0.3s",
+  },
   icon: {
     height: "80%",
     backgroundColor: "transparent",
   },
-};
+});
 
 export default GamemodeHeader;

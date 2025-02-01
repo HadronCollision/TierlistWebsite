@@ -3,6 +3,8 @@ import { Color } from "../../constants/color";
 import { BeatLoader } from "react-spinners";
 import { domAnimation, LazyMotion } from "motion/react";
 import * as m from "motion/react-m";
+import * as stylex from "@stylexjs/stylex";
+import { colors } from "../../tokens.stylex";
 
 const iconUrls = {
   sword: "https://mctiers.io/assets/sword-9023278f.svg",
@@ -23,7 +25,9 @@ const TierDisplayBox = ({ type, tier }) => {
   if (!tier)
     return (
       <div
-        style={{ ...styles.container, backgroundColor: Color.secondary }}
+        {...stylex.props(styles.container, {
+          backgroundColor: colors.secondary,
+        })}
         className={type}
       >
         <BeatLoader color={Color.loader} style={styles.loader} size="12px" />
@@ -44,9 +48,7 @@ const TierDisplayBox = ({ type, tier }) => {
           <img src={iconUrl} style={styles.icon} />
         </div>
         <div style={styles.textWrapper}>
-          <p className="varela-round-regular" style={styles.text}>
-            {formatTier(tier)}
-          </p>
+          <p style={styles.text}>{formatTier(tier)}</p>
         </div>
       </m.div>
     </LazyMotion>
@@ -69,7 +71,7 @@ const styles = {
   iconWrapper: {
     height: "50%",
     width: "100%",
-    backgroundColor: Color.tertiary,
+    backgroundColor: colors.tertiary,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -77,26 +79,26 @@ const styles = {
   textWrapper: {
     height: "50%",
     width: "100%",
-    backgroundColor: Color.secondary,
+    backgroundColor: colors.secondary,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
   text: {
     color: "#ffffff",
+    fontFamily: "Varela Round",
     fontSize: "24px",
     fontWeight: "bold",
-    // fontFamily: "Arial Rounded MT",
     backgroundColor: "transparent",
     margin: 0,
   },
   icon: {
     height: "100%",
     width: "100%",
-    backgroundColor: Color.tertiary,
+    backgroundColor: colors.tertiary,
   },
   loader: {
-    backgroundColor: Color.secondary,
+    backgroundColor: colors.secondary,
     display: "flex",
   },
 };
