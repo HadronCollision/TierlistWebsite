@@ -7,11 +7,12 @@ import { useQuery } from "@tanstack/react-query";
 import TierDisplayBoxContainer from "./TierDisplayBoxContainer";
 import * as m from "motion/react-m";
 import { colors } from "../../tokens.stylex";
+import * as stylex from "@stylexjs/stylex";
 
 function TierModal() {
   //prettier-ignore
   const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
-  const skin = imageLoading ? { display: "none" } : styles.skinImage;
+  const skin = imageLoading ? styles.skinHidden : styles.skinImage;
 
   const { data: player } = useQuery({
     queryFn: () => fetchPlayerData(ign),
@@ -32,7 +33,7 @@ function TierModal() {
   return (
     <LazyMotion features={domAnimation}>
       <m.div
-        style={styles.modalOverlay}
+        {...stylex.props(styles.modalOverlay)}
         onClick={() => {
           closeModal();
         }}
@@ -42,18 +43,18 @@ function TierModal() {
         transition={{ duration: 0.1 }}
       >
         <m.div
-          style={styles.modalBody}
+          {...stylex.props(styles.modalBody)}
           onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0.5, y: "5px" }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0.5, y: "-5px" }}
           transition={{ duration: 0.1 }}
         >
-          <p style={styles.ignText}>{ign}</p>
-          <p style={styles.countryText}>Country: {country}</p>
+          <p {...stylex.props(styles.ignText)}>{ign}</p>
+          <p {...stylex.props(styles.countryText)}>Country: {country}</p>
           <img
             src={`https://render.crafty.gg/3d/full/${ign}`}
-            style={skin}
+            {...stylex.props(skin)}
             onLoad={() => setImageLoading(false)}
           />
 
@@ -67,15 +68,12 @@ function TierModal() {
 }
 
 const Loader = () => (
-  <div style={styles.loaderWrapper}>
-    <BeatLoader
-      color={colors.loader}
-      style={{ backgroundColor: colors.primary }}
-    />
+  <div {...stylex.props(styles.loaderWrapper)}>
+    <BeatLoader color={colors.loader} {...stylex.props(styles.loader)} />
   </div>
 );
 
-const styles = {
+const styles = stylex.create({
   modalOverlay: {
     display: "flex",
     justifyContent: "center",
@@ -105,6 +103,9 @@ const styles = {
     width: "158px",
     height: "256px",
   },
+  skinHidden: {
+    display: "none",
+  },
   ignText: {
     backgroundColor: colors.primary,
     fontSize: "24px",
@@ -115,6 +116,9 @@ const styles = {
     backgroundColor: colors.primary,
     color: "#7a7a7a",
     margin: 0,
+  },
+  loader: {
+    backgroundColor: colors.primary,
   },
   loaderWrapper: {
     height: "256px",
@@ -127,6 +131,6 @@ const styles = {
   tierBox: {
     position: "absolute",
   },
-};
+});
 
 export default TierModal;
