@@ -24,12 +24,14 @@ const TierDisplayBox = ({ type, tier }) => {
   if (!tier)
     return (
       <div
-        {...stylex.props(styles.container, {
-          backgroundColor: colors.secondary,
-        })}
         className={type}
+        style={{ ...cssStyles.container, backgroundColor: colors.secondary }}
       >
-        <BeatLoader color={colors.loader} style={styles.loader} size="12px" />
+        <BeatLoader
+          color={colors.loader}
+          style={cssStyles.loader}
+          size="12px"
+        />
       </div>
     );
 
@@ -40,21 +42,21 @@ const TierDisplayBox = ({ type, tier }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.25 }}
-        style={styles.container}
         className={type}
+        style={cssStyles.container}
       >
-        <div style={styles.iconWrapper}>
-          <img src={iconUrl} style={styles.icon} />
+        <div {...stylex.props(styles.iconWrapper)}>
+          <img src={iconUrl} {...stylex.props(styles.icon)} />
         </div>
-        <div style={styles.textWrapper}>
-          <p style={styles.text}>{formatTier(tier)}</p>
+        <div {...stylex.props(styles.textWrapper)}>
+          <p {...stylex.props(styles.text)}>{formatTier(tier)}</p>
         </div>
       </m.div>
     </LazyMotion>
   );
 };
 
-const styles = {
+const cssStyles = {
   container: {
     position: "absolute",
     height: "80px",
@@ -67,6 +69,13 @@ const styles = {
     overflow: "hidden",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)",
   },
+  loader: {
+    backgroundColor: colors.secondary,
+    display: "flex",
+  },
+};
+
+const styles = stylex.create({
   iconWrapper: {
     height: "50%",
     width: "100%",
@@ -100,6 +109,6 @@ const styles = {
     backgroundColor: colors.secondary,
     display: "flex",
   },
-};
+});
 
 export default TierDisplayBox;

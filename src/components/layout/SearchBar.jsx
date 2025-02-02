@@ -47,9 +47,9 @@ const SearchBar = ({ style }) => {
   };
 
   return (
-    <form className="search" {...stylex.props(style)} onSubmit={onSubmit}>
+    <form {...stylex.props(style)} onSubmit={onSubmit}>
       <input
-        id="s"
+        {...stylex.props(styles.search)}
         type="search"
         autoComplete="off"
         placeholder={placeholder}
@@ -63,5 +63,46 @@ const SearchBar = ({ style }) => {
     </form>
   );
 };
+
+const styles = stylex.create({
+  search: {
+    backgroundColor: "rgba(0, 0, 0, 0.375)",
+    background:
+      "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQBJREFUeNqslI0RgyAMhdENWIEVWMEVXIGO0BW6Ah2hHcGOoCPYEewINFzBe9IA9id37w4kfEZesHHOCSYUqSPJML+RJlELDwN1pMHxMZNMkr8RTgyz2YPH5LmtwXpIHkOFmKhIlxowDmYAycKnHAHYcTCsSpXOJCie6YWDnXKLGeHLN2stGaqDsXXrX3GFcYcLrfhjtKEhffQ792gYT2nT6pJDjCw4z7ZGdGipOIqNbXIwFUARmCbKpMfYxsWJBmCEDoW7+gYUTAU2s3HJrK3AJvMLkqGHFLgWXTckm+SfSQexs+tLRqwVfgvjgMsvMAT689S5M/sk/I14kO5PAQYAuk6L1q+EdHMAAAAASUVORK5CYII=) no-repeat 8px 8px",
+    textIndent: "16px",
+    display: "inline-block",
+    border: "0 none",
+    width: 0,
+    borderRadius: "20px",
+    transition: "0.3s",
+    outline: "none",
+    padding: "10px 20px",
+    cursor: "pointer",
+    appearance: "none",
+    fontWeight: "inherit",
+    fontSize: "inherit",
+    fontFamily: "inherit",
+    color: "#fff",
+    backgroundColor: "transparent",
+    verticalAlign: "baseline",
+    backgroundSize: "24px 24px",
+    ":hover": {
+      opacity: 1,
+      backgroundColor: "#292929",
+      background:
+        "#292929 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQBJREFUeNqslI0RgyAMhdENWIEVWMEVXIGO0BW6Ah2hHcGOoCPYEewINFzBe9IA9id37w4kfEZesHHOCSYUqSPJML+RJlELDwN1pMHxMZNMkr8RTgyz2YPH5LmtwXpIHkOFmKhIlxowDmYAycKnHAHYcTCsSpXOJCie6YWDnXKLGeHLN2stGaqDsXXrX3GFcYcLrfhjtKEhffQ792gYT2nT6pJDjCw4z7ZGdGipOIqNbXIwFUARmCbKpMfYxsWJBmCEDoW7+gYUTAU2s3HJrK3AJvMLkqGHFLgWXTckm+SfSQexs+tLRqwVfgvjgMsvMAT689S5M/sk/I14kO5PAQYAuk6L1q+EdHMAAAAASUVORK5CYII=) 8px 8px no-repeat",
+      backgroundSize: "24px 24px",
+    },
+    ":focus": {
+      opacity: 1,
+      backgroundColor: "#292929",
+      background:
+        "#292929 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAUCAYAAABvVQZ0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAQBJREFUeNqslI0RgyAMhdENWIEVWMEVXIGO0BW6Ah2hHcGOoCPYEewINFzBe9IA9id37w4kfEZesHHOCSYUqSPJML+RJlELDwN1pMHxMZNMkr8RTgyz2YPH5LmtwXpIHkOFmKhIlxowDmYAycKnHAHYcTCsSpXOJCie6YWDnXKLGeHLN2stGaqDsXXrX3GFcYcLrfhjtKEhffQ792gYT2nT6pJDjCw4z7ZGdGipOIqNbXIwFUARmCbKpMfYxsWJBmCEDoW7+gYUTAU2s3HJrK3AJvMLkqGHFLgWXTckm+SfSQexs+tLRqwVfgvjgMsvMAT689S5M/sk/I14kO5PAQYAuk6L1q+EdHMAAAAASUVORK5CYII=) 8px 8px no-repeat",
+      backgroundSize: "24px 24px",
+      width: "200px",
+      cursor: "text",
+    },
+  },
+});
 
 export default SearchBar;
