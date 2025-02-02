@@ -10,7 +10,7 @@ import * as stylex from "@stylexjs/stylex";
 
 const Header = () => {
   console.log("Header render");
-  const [initialState, setInitialState] = useState(true);
+  const [showSplashScreen, setShowSplashScreen] = useState(true);
 
   useEffect(() => {
     const roboto = new FontFaceObserver("Roboto");
@@ -25,14 +25,14 @@ const Header = () => {
       varelaRound.load(),
     ])
       .then(() => {
-        setInitialState(false);
+        setShowSplashScreen(false);
       })
       .catch(() => {
-        setInitialState(false);
+        setShowSplashScreen(false);
       });
   }, []);
 
-  if (initialState) return <SplashScreen />;
+  if (showSplashScreen) return <SplashScreen />;
 
   return (
     <div {...stylex.props(styles.default)}>
