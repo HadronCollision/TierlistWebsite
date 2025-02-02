@@ -1,12 +1,12 @@
 import React from "react";
 import { BarLoader } from "react-spinners";
-import { Color } from "../../constants/color";
 import * as stylex from "@stylexjs/stylex";
+import { colors } from "../../tokens.stylex";
 
 function SplashScreen() {
   return (
     <div {...stylex.props(styles.base)}>
-      <BarLoader color={Color.loader} width="10vw" />
+      <BarLoader color={colors.loader} width="10vw" />
     </div>
   );
 }

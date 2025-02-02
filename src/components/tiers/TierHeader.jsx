@@ -1,11 +1,9 @@
 import React from "react";
-import { Color } from "../../constants/color";
 import TierHeading from "./TierHeading";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 
 const TierHeader = () => {
-  console.log("TierHeader render");
   return (
     <div {...stylex.props(styles.header)}>
       <TierHeading>Tier 1</TierHeading>
@@ -27,7 +25,7 @@ const styles = stylex.create({
     justifyContent: "space-evenly",
     backgroundColor: colors.headerColor,
     padding: "12px 0",
-    cusor: "pointer",
+    cursor: "pointer",
   },
 });
 

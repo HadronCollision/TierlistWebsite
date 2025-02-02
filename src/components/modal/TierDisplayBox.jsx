@@ -1,5 +1,4 @@
 import React from "react";
-import { Color } from "../../constants/color";
 import { BeatLoader } from "react-spinners";
 import { domAnimation, LazyMotion } from "motion/react";
 import * as m from "motion/react-m";
@@ -30,7 +29,7 @@ const TierDisplayBox = ({ type, tier }) => {
         })}
         className={type}
       >
-        <BeatLoader color={Color.loader} style={styles.loader} size="12px" />
+        <BeatLoader color={colors.loader} style={styles.loader} size="12px" />
       </div>
     );
 

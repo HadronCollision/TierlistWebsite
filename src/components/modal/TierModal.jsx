@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Color } from "../../constants/color";
 import { useTierModal } from "../../hooks/useTierModal";
 import { BeatLoader } from "react-spinners";
 import { domAnimation, LazyMotion } from "motion/react";
@@ -7,6 +6,7 @@ import { fetchPlayerData } from "../../api/players";
 import { useQuery } from "@tanstack/react-query";
 import TierDisplayBoxContainer from "./TierDisplayBoxContainer";
 import * as m from "motion/react-m";
+import { colors } from "../../tokens.stylex";
 
 function TierModal() {
   //prettier-ignore
@@ -69,8 +69,8 @@ function TierModal() {
 const Loader = () => (
   <div style={styles.loaderWrapper}>
     <BeatLoader
-      color={Color.loader}
-      style={{ backgroundColor: Color.primary }}
+      color={colors.loader}
+      style={{ backgroundColor: colors.primary }}
     />
   </div>
 );
@@ -92,27 +92,27 @@ const styles = {
     height: "500px",
     width: "500px",
     borderRadius: "250px",
-    backgroundColor: Color.primary,
+    backgroundColor: colors.primary,
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    boxShadow: `inset 0px 0px 50px ${Color.secondary}`,
+    boxShadow: `inset 0px 0px 50px ${colors.secondary}`,
     border: "4px solid #333",
   },
   skinImage: {
-    backgroundColor: Color.primary,
+    backgroundColor: colors.primary,
     width: "158px",
     height: "256px",
   },
   ignText: {
-    backgroundColor: Color.primary,
+    backgroundColor: colors.primary,
     fontSize: "24px",
     fontWeight: "bold",
     margin: 0,
   },
   countryText: {
-    backgroundColor: Color.primary,
+    backgroundColor: colors.primary,
     color: "#7a7a7a",
     margin: 0,
   },
@@ -122,7 +122,7 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Color.primary,
+    backgroundColor: colors.primary,
   },
   tierBox: {
     position: "absolute",
