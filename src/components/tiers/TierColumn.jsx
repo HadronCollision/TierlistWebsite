@@ -3,8 +3,8 @@ import TierRow from "./TierRow";
 import { BeatLoader } from "react-spinners";
 import * as m from "motion/react-m";
 import { domAnimation, LazyMotion } from "motion/react";
-import { Color } from "../../constants/color";
 import * as stylex from "@stylexjs/stylex";
+import { colors } from "../../tokens.stylex";
 
 const TierColumn = ({ players }) => {
   return (
@@ -23,7 +23,7 @@ const TierColumn = ({ players }) => {
           </m.ul>
         </LazyMotion>
       ) : (
-        <BeatLoader color={Color.loader} {...stylex.props(styles.loader)} />
+        <BeatLoader color={colors.loader} {...stylex.props(styles.loader)} />
       )}
     </>
   );

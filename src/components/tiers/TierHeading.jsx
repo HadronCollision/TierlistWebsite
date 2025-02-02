@@ -1,4 +1,4 @@
-import { Color } from "../../constants/color";
+import { colors } from "../../tokens.stylex";
 
 const TierHeading = ({ children }) => {
   return <p style={styles}>{children}</p>;
@@ -8,8 +8,8 @@ const styles = {
   width: "15vw",
   textAlign: "center",
   borderRadius: "5px",
-  color: Color.textColor,
-  backgroundColor: Color.headerColor,
+  color: colors.textColor,
+  backgroundColor: colors.headerColor,
   fontFamily: "Audiowide",
   fontSize: "36px",
   fontWeight: "bold",
