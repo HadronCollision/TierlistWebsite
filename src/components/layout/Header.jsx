@@ -32,28 +32,33 @@ const Header = () => {
       });
   }, []);
 
-  if (showSplashScreen) return <SplashScreen />;
-
   return (
-    <div {...stylex.props(styles.default)}>
-      <header {...stylex.props(styles.header)}>
-        <SearchBar style={styles.left} />
-        <div {...stylex.props(styles.center)}>
-          <p {...stylex.props(styles.text)}>- Pakistan & India Tier List -</p>
-        </div>
-        <NavLink
-          {...stylex.props(styles.right)}
-          to="https://discord.gg/dd8hDGZP"
-        >
-          <img
-            {...stylex.props(styles.dcIcon)}
-            src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
-          />
-        </NavLink>
-      </header>
-      <Outlet />
-      <Modal />
-    </div>
+    <>
+      {showSplashScreen && <SplashScreen />}
+      <div
+        {...stylex.props(
+          showSplashScreen ? { display: "none" } : styles.default
+        )}
+      >
+        <header {...stylex.props(styles.header)}>
+          <SearchBar style={styles.left} />
+          <div {...stylex.props(styles.center)}>
+            <p {...stylex.props(styles.text)}>- Pakistan & India Tier List -</p>
+          </div>
+          <NavLink
+            {...stylex.props(styles.right)}
+            to="https://discord.gg/dd8hDGZP"
+          >
+            <img
+              {...stylex.props(styles.dcIcon)}
+              src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
+            />
+          </NavLink>
+        </header>
+        <Outlet />
+        <Modal />
+      </div>
+    </>
   );
 };
 
