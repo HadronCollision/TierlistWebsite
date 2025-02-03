@@ -6,25 +6,30 @@ import { domAnimation, LazyMotion } from "motion/react";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 
-const TierColumn = ({ players }) => {
+const TierColumn = ({ players, isLoading }) => {
   return (
     <>
-      {players ? (
-        <LazyMotion features={domAnimation}>
-          <m.ul
-            initial={{ opacity: 1 }}
-            transition={{ duration: 1 }}
-            {...stylex.props(styles.default)}
-          >
-            {players?.map((player) => (
-              <TierRow player={player} key={player.ign} />
-            ))}
-            <div {...stylex.props(styles.placeholder)}></div>
-          </m.ul>
-        </LazyMotion>
-      ) : (
-        <BeatLoader color={colors.loader} {...stylex.props(styles.loader)} />
-      )}
+      <LazyMotion features={domAnimation}>
+        <m.ul
+          {...stylex.props(styles.default)}
+          key={JSON.stringify(players)}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.15 }}
+        >
+          {players?.map((player) => (
+            <TierRow player={player} key={player.ign} />
+          ))}
+          <div {...stylex.props(styles.placeholder)}></div>
+
+          {isLoading && (
+            <BeatLoader
+              color={colors.loader}
+              {...stylex.props(styles.loader)}
+            />
+          )}
+        </m.ul>
+      </LazyMotion>
     </>
   );
 };
@@ -35,10 +40,11 @@ const styles = stylex.create({
     padding: 0,
   },
   placeholder: {
-    width: "15vw",
-    minWidth: "240px",
+    width: "18vw",
+    minWidth: "235px",
   },
   loader: {
+    textAlign: "center",
     marginTop: "50px",
   },
 });

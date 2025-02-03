@@ -5,11 +5,14 @@ import { fetchTierData } from "../../api/players";
 import { GamemodeList } from "../../constants/gamemode";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
+import { useSelectedMode } from "../../context/selectedModeContext";
 
-function TierColumnContainer({ selectedMode }) {
+function TierColumnContainer() {
+  const { selectedMode } = useSelectedMode();
+
   if (!GamemodeList.includes(selectedMode)) return;
 
-  const { data: playerData } = useQuery({
+  const { data: playerData, isLoading } = useQuery({
     queryFn: () => fetchTierData(selectedMode),
     queryKey: ["players", selectedMode],
     staleTime: 60 * 1000,
@@ -18,15 +21,15 @@ function TierColumnContainer({ selectedMode }) {
 
   return (
     <div {...stylex.props(styles.container)}>
-      <TierColumn players={playerData?.tier1s} />
+      <TierColumn players={playerData?.tier1s} isLoading={isLoading} />
       <div {...stylex.props(styles.border)} />
-      <TierColumn players={playerData?.tier2s} />
+      <TierColumn players={playerData?.tier2s} isLoading={isLoading} />
       <div {...stylex.props(styles.border)} />
-      <TierColumn players={playerData?.tier3s} />
+      <TierColumn players={playerData?.tier3s} isLoading={isLoading} />
       <div {...stylex.props(styles.border)} />
-      <TierColumn players={playerData?.tier4s} />
+      <TierColumn players={playerData?.tier4s} isLoading={isLoading} />
       <div {...stylex.props(styles.border)} />
-      <TierColumn players={playerData?.tier5s} />
+      <TierColumn players={playerData?.tier5s} isLoading={isLoading} />
     </div>
   );
 }
