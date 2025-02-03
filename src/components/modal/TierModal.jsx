@@ -11,8 +11,9 @@ import { useFetchPlayerData } from "../../hooks/useFetchPlayerData";
 function TierModal() {
   //prettier-ignore
   const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
-  const skin = imageLoading ? styles.skinHidden : styles.skinImage;
-  const { data } = useFetchPlayerData(ign);
+  const { data, isFetched } = useFetchPlayerData(ign);
+  const isLoading = imageLoading || !isFetched;
+  const skin = isLoading ? styles.skinHidden : styles.skinImage;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -51,9 +52,9 @@ function TierModal() {
             onLoad={() => setImageLoading(false)}
           />
 
-          {imageLoading && <Loader />}
+          {isLoading && <Loader />}
 
-          <TierDisplayBoxContainer rank={data?.rank} />
+          <TierDisplayBoxContainer rank={data?.rank} isLoading={isLoading} />
         </m.div>
       </m.div>
     </LazyMotion>

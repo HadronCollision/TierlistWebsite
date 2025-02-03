@@ -20,8 +20,8 @@ const formatTier = (tier) => {
   return `${tier.pos.slice(0, 1).toUpperCase()}T${tier.tier}`;
 };
 
-const TierDisplayBox = ({ type, tier }) => {
-  if (!tier)
+const TierDisplayBox = ({ type, tier, isLoading }) => {
+  if (isLoading)
     return (
       <div
         className={type}
@@ -36,6 +36,7 @@ const TierDisplayBox = ({ type, tier }) => {
     );
 
   const iconUrl = iconUrls[type.split("-")[1]];
+
   return (
     <LazyMotion features={domAnimation}>
       <m.div
