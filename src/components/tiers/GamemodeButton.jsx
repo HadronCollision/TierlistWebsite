@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useCallback } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 import { NavLink } from "react-router";
 
 function GamemodeButton({ gamemode, isSelected, onClick }) {
+  console.log(gamemode.id);
+
   return (
     <div {...stylex.props(isSelected ? styles.modalActive : {})}>
       <NavLink
@@ -45,4 +47,4 @@ const styles = stylex.create({
   },
 });
 
-export default GamemodeButton;
+export default React.memo(GamemodeButton);

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { useLocation } from "react-router";
 import { useSelectedMode } from "../../context/selectedModeContext";
 import * as stylex from "@stylexjs/stylex";
@@ -18,8 +18,8 @@ const gamemodes = [
 ];
 
 const GamemodeHeader = () => {
-  const { pathname } = useLocation();
   const { selectedMode, setSelectedMode } = useSelectedMode();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     setSelectedMode(pathname.split("/")[2] || "overall");
@@ -33,7 +33,7 @@ const GamemodeHeader = () => {
             <GamemodeButton
               gamemode={gamemode}
               isSelected={selectedMode === gamemode.id}
-              onClick={() => setSelectedMode(gamemode.id)}
+              onClick={useCallback(() => setSelectedMode(gamemode.id), [])}
               key={index}
             />
           );
@@ -45,6 +45,7 @@ const GamemodeHeader = () => {
           onClick={() => setSelectedMode("subhuman")}
           gamemode={{
             src: "https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48",
+            id: "subhuman",
             route: "/ranking/subhuman",
           }}
         />
