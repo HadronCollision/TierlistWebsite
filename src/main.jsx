@@ -39,10 +39,10 @@ createRoot(document.getElementById("root")).render(
                     <Route path="topten" element={<Overall />} />
                     <Route path="subhuman" element={<Subhuman />} />
                   </Route>
-                  <Route path="admin">
-                    <Route path="login" element={<AdminLogin />} />
-                    <Route path="dashboard" element={<AdminDashboard />} />
-                  </Route>
+                </Route>
+                <Route path="admin">
+                  <Route path="login" element={<AdminLogin />} />
+                  <Route path="dashboard" element={<AdminDashboard />} />
                 </Route>
               </Routes>
             </ModalProvider>
