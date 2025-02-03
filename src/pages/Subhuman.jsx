@@ -4,7 +4,6 @@ import GamemodeHeader from "../components/tiers/GamemodeHeader";
 function Subhuman() {
   return (
     <div>
-      <GamemodeHeader />
       <div
         style={{
           display: "flex",
