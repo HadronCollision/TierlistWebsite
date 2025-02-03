@@ -32,8 +32,8 @@ const GamemodeHeader = () => {
           return (
             <GamemodeButton
               gamemode={gamemode}
-              selectedMode={selectedMode}
-              setSelectedMode={setSelectedMode}
+              isSelected={selectedMode === gamemode.id}
+              onClick={() => setSelectedMode(gamemode.id)}
               key={index}
             />
           );
@@ -41,13 +41,11 @@ const GamemodeHeader = () => {
       </div>
       <div {...stylex.props(styles.subhumanContainer)}>
         <GamemodeButton
-          selectedMode={selectedMode}
-          setSelectedMode={setSelectedMode}
+          isSelected={selectedMode === "subhuman"}
+          onClick={() => setSelectedMode("subhuman")}
           gamemode={{
             src: "https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48",
-            label: "Hacking Subhuman",
-            id: "subhuman",
-            route: "/ranking/overall",
+            route: "/ranking/subhuman",
           }}
         />
       </div>

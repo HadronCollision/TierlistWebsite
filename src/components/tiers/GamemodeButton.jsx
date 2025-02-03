@@ -3,16 +3,14 @@ import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 import { NavLink } from "react-router";
 
-function GamemodeButton({ selectedMode, setSelectedMode, gamemode }) {
-  const isSelected = selectedMode === gamemode.id;
-
+function GamemodeButton({ gamemode, isSelected, onClick }) {
   return (
     <div {...stylex.props(isSelected ? styles.modalActive : {})}>
       <NavLink
         {...stylex.props(
           isSelected ? [styles.button, styles.buttonActive] : styles.button
         )}
-        onClick={() => setSelectedMode(gamemode.id)}
+        onClick={onClick}
         to={gamemode.route}
       >
         <img src={gamemode.src} {...stylex.props(styles.icon)} />
