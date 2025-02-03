@@ -29,8 +29,8 @@ const TierRow = ({ player }) => {
 
 const styles = stylex.create({
   base: {
-    width: "15vw",
-    minWidth: "240px",
+    width: "18vw",
+    minWidth: "235px",
     margin: "4px 0",
     padding: "8px",
     borderRadius: "2px",
@@ -38,6 +38,7 @@ const styles = stylex.create({
     fontSize: "18px",
     listStyle: "none",
     color: "#ececec",
+    index: 9,
   },
   high: {
     backgroundColor: colors.primary,

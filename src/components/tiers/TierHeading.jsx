@@ -7,7 +7,7 @@ const TierHeading = ({ children }) => {
 
 const styles = stylex.create({
   base: {
-    width: "15vw",
+    width: "18vw",
     textAlign: "center",
     borderRadius: "5px",
     color: colors.textColor,
