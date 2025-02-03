@@ -7,6 +7,7 @@ import { AnimatePresence } from "motion/react";
 import FontFaceObserver from "fontfaceobserver-es";
 import SplashScreen from "./SplashScreen";
 import * as stylex from "@stylexjs/stylex";
+import GamemodeHeader from "../tiers/GamemodeHeader";
 
 const Header = () => {
   console.log("Header render");
@@ -55,6 +56,7 @@ const Header = () => {
             />
           </NavLink>
         </header>
+        <GamemodeHeader />
         <Outlet />
         <Modal />
       </div>
@@ -71,7 +73,7 @@ const styles = stylex.create({
   default: {
     fontFamily: "Roboto",
     width: "100vw",
-    minWidth: "1200px",
+    minWidth: "1100px",
   },
   header: {
     display: "flex",
