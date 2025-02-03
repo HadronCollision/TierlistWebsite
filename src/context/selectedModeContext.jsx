@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { createContext, useContext, useState } from "react";
 import { useLocation } from "react-router";
 import { GamemodeList } from "../constants/gamemode";
@@ -17,10 +17,10 @@ export const SelectedModeProvider = ({ children }) => {
     GamemodeList.includes(route) ? route : "overall"
   );
 
-  const value = {
-    selectedMode,
-    setSelectedMode,
-  };
+  const value = useMemo(
+    () => ({ selectedMode, setSelectedMode }),
+    [selectedMode]
+  );
 
   return (
     <SelectedModeContext.Provider value={value}>
