@@ -13,7 +13,6 @@ function SplashScreen() {
 
 const styles = stylex.create({
   base: {
-    display: "unset",
     position: "fixed",
     top: 0,
     left: 0,
