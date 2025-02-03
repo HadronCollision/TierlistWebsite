@@ -11,8 +11,8 @@ import { useFetchPlayerData } from "../../hooks/useFetchPlayerData";
 function TierModal() {
   //prettier-ignore
   const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
-  const { data, isFetched } = useFetchPlayerData(ign);
-  const isLoading = imageLoading || !isFetched;
+  const { data, isLoading: tiersLoading } = useFetchPlayerData(ign);
+  const isLoading = imageLoading || tiersLoading;
   const skin = isLoading ? styles.skinHidden : styles.skinImage;
 
   useEffect(() => {
@@ -28,9 +28,7 @@ function TierModal() {
     <LazyMotion features={domAnimation}>
       <m.div
         {...stylex.props(styles.modalOverlay)}
-        onClick={() => {
-          closeModal();
-        }}
+        onClick={() => closeModal()}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
