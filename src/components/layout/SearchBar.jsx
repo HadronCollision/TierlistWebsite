@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSearch } from "../../context/searchContext";
-import { useQuery } from "@tanstack/react-query";
-import { fetchPlayerData } from "../../api/players";
 import { useModal } from "../../context/modalContext";
 import * as stylex from "@stylexjs/stylex";
+import { useFetchPlayerData } from "../../hooks/useFetchPlayerData";
 
 const SearchBar = ({ style }) => {
   const { search, setSearch } = useSearch();
   const { setModalState } = useModal();
   const [searchQuery, setSearchQuery] = useState("");
   const [placeholder, setPlaceholder] = useState("Search...");
-
-  const { data, isFetched } = useQuery({
-    queryFn: () => fetchPlayerData(searchQuery),
-    queryKey: ["player", searchQuery?.toLowerCase()],
-    staleTime: 60_000,
-    gcTime: 60_000,
-    enabled: !!searchQuery,
-  });
+  const { data, isFetched } = useFetchPlayerData(searchQuery);
 
   useEffect(() => {
     if (data?.error) {

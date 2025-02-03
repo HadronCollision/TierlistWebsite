@@ -2,24 +2,17 @@ import React, { useEffect } from "react";
 import { useTierModal } from "../../hooks/useTierModal";
 import { BeatLoader } from "react-spinners";
 import { domAnimation, LazyMotion } from "motion/react";
-import { fetchPlayerData } from "../../api/players";
-import { useQuery } from "@tanstack/react-query";
 import TierDisplayBoxContainer from "./TierDisplayBoxContainer";
 import * as m from "motion/react-m";
 import { colors } from "../../tokens.stylex";
 import * as stylex from "@stylexjs/stylex";
+import { useFetchPlayerData } from "../../hooks/useFetchPlayerData";
 
 function TierModal() {
   //prettier-ignore
   const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
   const skin = imageLoading ? styles.skinHidden : styles.skinImage;
-
-  const { data: player } = useQuery({
-    queryFn: () => fetchPlayerData(ign),
-    queryKey: ["player", ign?.toLowerCase()],
-    staleTime: 60_000,
-    gcTime: 60_000,
-  });
+  const { data } = useFetchPlayerData(ign);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -60,7 +53,7 @@ function TierModal() {
 
           {imageLoading && <Loader />}
 
-          <TierDisplayBoxContainer rank={player?.rank} />
+          <TierDisplayBoxContainer rank={data?.rank} />
         </m.div>
       </m.div>
     </LazyMotion>
