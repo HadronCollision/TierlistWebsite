@@ -16,13 +16,13 @@ const Header = () => {
   useEffect(() => {
     const roboto = new FontFaceObserver("Roboto");
     const audiowide = new FontFaceObserver("Audiowide");
-    const poppins = new FontFaceObserver("Poppins");
+    const blackOpsOne = new FontFaceObserver("Black Ops One");
     const varelaRound = new FontFaceObserver("Varela Round");
 
     Promise.all([
       roboto.load(),
       audiowide.load(),
-      poppins.load(),
+      blackOpsOne.load(),
       varelaRound.load(),
     ])
       .then(() => {
@@ -82,7 +82,7 @@ const styles = stylex.create({
     margin: "10px 20px",
   },
   text: {
-    fontFamily: "Poppins",
+    fontFamily: "Black Ops One",
     fontSize: "38px",
     color: "#fff",
     cursor: "pointer",
