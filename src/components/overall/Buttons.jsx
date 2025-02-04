@@ -37,7 +37,7 @@ function Buttons({ selectedButton, setSelectedButton }) {
 
 const styles = stylex.create({
   buttonContainer: {
-    marginTop: "16px",
+    marginVertical: "12px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
