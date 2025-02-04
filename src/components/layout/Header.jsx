@@ -10,7 +10,6 @@ import * as stylex from "@stylexjs/stylex";
 import GamemodeHeader from "../tiers/GamemodeHeader";
 
 const Header = () => {
-  console.log("Header render");
   const [showSplashScreen, setShowSplashScreen] = useState(true);
 
   useEffect(() => {
