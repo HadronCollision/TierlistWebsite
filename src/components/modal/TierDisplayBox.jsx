@@ -99,6 +99,7 @@ const styles = stylex.create({
     fontSize: "24px",
     fontWeight: "bold",
     backgroundColor: "transparent",
+    userSelect: "none",
     margin: 0,
   },
   icon: {
