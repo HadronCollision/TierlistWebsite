@@ -14,7 +14,7 @@ export const SelectedModeProvider = ({ children }) => {
   const route = pathname.split("/")[2];
 
   const [selectedMode, setSelectedMode] = useState(
-    GamemodeList.includes(route) ? route : "overall"
+    GamemodeList.includes(route) ? route : "leaderboard"
   );
 
   const value = useMemo(

@@ -27,7 +27,7 @@ createRoot(document.getElementById("root")).render(
                   <Route
                     path="*"
                     index
-                    element={<Navigate to="/ranking/overall" />}
+                    element={<Navigate to="/ranking/leaderboard" />}
                   />
                   <Route path="tiers">
                     <Route index element={<Navigate to="/" />} />
@@ -35,8 +35,7 @@ createRoot(document.getElementById("root")).render(
                   </Route>
                   <Route path="ranking">
                     <Route index element={<Navigate to="/" />} />
-                    <Route path="overall" element={<Overall />} />
-                    <Route path="topten" element={<Overall />} />
+                    <Route path="leaderboard" element={<Overall />} />
                     <Route path="subhuman" element={<Subhuman />} />
                   </Route>
                 </Route>

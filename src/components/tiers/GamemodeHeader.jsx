@@ -7,7 +7,7 @@ import GamemodeButton from "./GamemodeButton";
 
 //prettier-ignore
 const gamemodes = [
-  { src: "https://mctiers.com/assets/overall-ca77dd12.svg", label: "Overall", id: "overall", route: "/ranking/overall" },
+  { src: "https://mctiers.com/assets/overall-ca77dd12.svg", label: "Leaderboard", id: "leaderboard", route: "/ranking/leaderboard" },
   { src: "https://mctiers.com/assets/sword-9023278f.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
   { src: "https://mctiers.com/assets/neth_pot-07e18fb6.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
   { src: "https://mctiers.com/assets/vanilla-38455c89.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
@@ -22,7 +22,7 @@ const GamemodeHeader = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    setSelectedMode(pathname.split("/")[2] || "overall");
+    setSelectedMode(pathname.split("/")[2] || "leaderboard");
   }, []);
 
   return (
