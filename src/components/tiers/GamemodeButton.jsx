@@ -5,33 +5,29 @@ import { NavLink } from "react-router";
 import { domAnimation, LazyMotion } from "motion/react";
 import * as m from "motion/react-m";
 
-function GamemodeButton({ gamemode, isSelected, onClick }) {
-  console.log(gamemode.id);
-
-  return (
-    <div {...stylex.props(isSelected ? styles.modalActive : {})}>
-      <NavLink
-        {...stylex.props(
-          isSelected ? [styles.button, styles.buttonActive] : styles.button
-        )}
-        onClick={onClick}
-        to={gamemode.route}
-      >
-        <img src={gamemode.src} {...stylex.props(styles.icon)} />
-      </NavLink>
-      {isSelected && (
-        <LazyMotion features={domAnimation}>
-          <m.div
-            initial={{ y: 0, backgroundColor: colors.tertiary }}
-            animate={{ y: 4, backgroundColor: colors.loader }}
-            transition={{ duration: 0.3 }}
-            {...stylex.props(styles.underline)}
-          />
-        </LazyMotion>
+const GamemodeButton = ({ gamemode, isSelected, onClick }) => (
+  <div {...stylex.props(isSelected ? styles.modalActive : {})}>
+    <NavLink
+      {...stylex.props(
+        isSelected ? [styles.button, styles.buttonActive] : styles.button
       )}
-    </div>
-  );
-}
+      onClick={onClick}
+      to={gamemode.route}
+    >
+      <img src={gamemode.src} {...stylex.props(styles.icon)} />
+    </NavLink>
+    {isSelected && (
+      <LazyMotion features={domAnimation}>
+        <m.div
+          initial={{ y: 0, backgroundColor: colors.tertiary }}
+          animate={{ y: 4, backgroundColor: colors.loader }}
+          transition={{ duration: 0.3 }}
+          {...stylex.props(styles.underline)}
+        />
+      </LazyMotion>
+    )}
+  </div>
+);
 
 const styles = stylex.create({
   button: {
