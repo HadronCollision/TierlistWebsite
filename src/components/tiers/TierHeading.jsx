@@ -12,7 +12,7 @@ const styles = stylex.create({
     borderRadius: "5px",
     color: colors.textColor,
     backgroundColor: colors.headerColor,
-    fontFamily: "Audiowide",
+    fontFamily: "Russo One",
     fontSize: "36px",
     fontWeight: "bold",
     cursor: "default",
