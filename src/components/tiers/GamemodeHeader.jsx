@@ -23,7 +23,7 @@ const GamemodeHeader = () => {
 
   useEffect(() => {
     setSelectedMode(pathname.split("/")[2] || "leaderboard");
-  }, []);
+  }, [pathname]);
 
   return (
     <div {...stylex.props(styles.container)}>
