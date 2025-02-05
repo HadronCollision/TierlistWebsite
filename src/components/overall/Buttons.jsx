@@ -62,7 +62,7 @@ const styles = stylex.create({
     padding: "2px 0",
     marginHorizontal: "16px",
     borderRadius: "8px",
-    fontFamily: "Audiowide",
+    fontFamily: "Russo One",
     cursor: "pointer",
   },
   buttonActive: {
@@ -76,7 +76,7 @@ const styles = stylex.create({
     padding: "2px 0",
     marginHorizontal: "16px",
     borderRadius: "8px",
-    fontFamily: "Audiowide",
+    fontFamily: "Russo One",
     cursor: "pointer",
   },
   underline: {

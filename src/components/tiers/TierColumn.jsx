@@ -40,8 +40,8 @@ const styles = stylex.create({
     padding: 0,
   },
   placeholder: {
-    width: "18vw",
-    minWidth: "235px",
+    width: "19vw",
+    minWidth: "215px",
   },
   loader: {
     textAlign: "center",

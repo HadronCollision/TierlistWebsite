@@ -71,7 +71,7 @@ const Modal = () => {
 const styles = stylex.create({
   default: {
     fontFamily: "Roboto",
-    width: "100vw",
+    width: "100%",
     minWidth: "1100px",
   },
   header: {
@@ -81,11 +81,12 @@ const styles = stylex.create({
     margin: "10px 20px",
   },
   text: {
-    fontFamily: "Black Ops One",
+    fontFamily: "Russo One",
     fontSize: "38px",
     color: "#fff",
     cursor: "pointer",
     userSelect: "none",
+    textWrap: "nowrap",
     margin: 0,
   },
   dcIcon: {
