@@ -14,10 +14,16 @@ const Header = () => {
 
   useEffect(() => {
     const roboto = new FontFaceObserver("Roboto");
-    const blackOpsOne = new FontFaceObserver("Black Ops One");
+    const russoOne = new FontFaceObserver("Russo One");
+    const poppins = new FontFaceObserver("Poppins");
     const varelaRound = new FontFaceObserver("Varela Round");
 
-    Promise.all([roboto.load(), blackOpsOne.load(), varelaRound.load()])
+    Promise.all([
+      roboto.load(),
+      russoOne.load(),
+      poppins.load(),
+      varelaRound.load(),
+    ])
       .then(() => {
         setShowSplashScreen(false);
       })
