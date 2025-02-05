@@ -48,7 +48,7 @@ const styles = stylex.create({
     margin: "4px 0px",
     borderRadius: "24px",
     fontFamily: "Poppins",
-    fontSize: "32px",
+    fontSize: "28px",
     cursor: "pointer",
   },
   index: {
