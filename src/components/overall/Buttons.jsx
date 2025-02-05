@@ -13,9 +13,7 @@ function Buttons({ selectedButton, setSelectedButton }) {
       <div {...stylex.props(styles.buttonWrapper)}>
         {["overall", "top 10"].map((button, i) => (
           <div
-            {...stylex.props(
-              selectedButton === button ? styles.buttonActive : styles.button
-            )}
+            {...stylex.props(styles.button)}
             onClick={() => setSelectedButton(button)}
             key={i}
           >
@@ -52,20 +50,6 @@ const styles = stylex.create({
     borderRadius: "25px",
   },
   button: {
-    position: "relative",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "transparent",
-    width: "10vw",
-    minWidth: "125px",
-    padding: "2px 0",
-    marginHorizontal: "16px",
-    borderRadius: "8px",
-    fontFamily: "Russo One",
-    cursor: "pointer",
-  },
-  buttonActive: {
     position: "relative",
     display: "flex",
     justifyContent: "center",
