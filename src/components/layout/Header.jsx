@@ -78,7 +78,7 @@ const styles = stylex.create({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    margin: "10px 20px",
+    margin: "16px 20px",
   },
   text: {
     fontFamily: "Russo One",
