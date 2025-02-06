@@ -7,11 +7,11 @@ import * as m from "motion/react-m";
 const loadFeatures = () =>
   import("../../motionFeatures.js").then((res) => res.default);
 
-function Buttons({ selectedButton, setSelectedButton }) {
+function Buttons({ buttons, selectedButton, setSelectedButton, layoutId }) {
   return (
     <div {...stylex.props(styles.buttonContainer)}>
       <div {...stylex.props(styles.buttonWrapper)}>
-        {["overall", "top 10"].map((button, i) => (
+        {buttons.map((button, i) => (
           <div
             {...stylex.props(styles.button)}
             onClick={() => setSelectedButton(button)}
@@ -20,7 +20,7 @@ function Buttons({ selectedButton, setSelectedButton }) {
             <LazyMotion features={loadFeatures}>
               {selectedButton === button && (
                 <m.div
-                  layoutId="underline"
+                  layoutId={layoutId}
                   {...stylex.props(styles.underline)}
                 ></m.div>
               )}
