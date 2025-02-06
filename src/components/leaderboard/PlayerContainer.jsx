@@ -1,40 +1,35 @@
 import React, { useState } from "react";
 import * as stylex from "@stylexjs/stylex";
-import { domAnimation, LazyMotion } from "motion/react";
-import * as m from "motion/react-m";
 import { colors } from "../../tokens.stylex";
 
 const PlayerContainer = ({ player, index, setModalState }) => {
   const [hover, setHover] = useState(false);
 
   return (
-    <LazyMotion features={domAnimation}>
-      <m.span
-        {...stylex.props(styles.playerCell)}
-        whileTap={{ scale: 0.99 }}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
-        onClick={() =>
-          setModalState({
-            show: true,
-            player: { ign: player, country: "pk" },
-          })
-        }
+    <span
+      {...stylex.props(styles.playerCell)}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onClick={() =>
+        setModalState({
+          show: true,
+          player: { ign: player, country: "pk" },
+        })
+      }
+    >
+      <span
+        {...stylex.props(
+          hover ? [styles.index, styles.indexActive] : styles.index
+        )}
       >
-        <span
-          {...stylex.props(
-            hover ? [styles.index, styles.indexActive] : styles.index
-          )}
-        >
-          #{index + 1}
-          <img
-            src={`https://render.crafty.gg/2d/head/${player}`}
-            {...stylex.props(styles.skin)}
-          />
-        </span>
-        {player}
-      </m.span>
-    </LazyMotion>
+        #{index + 1}
+        <img
+          src={`https://render.crafty.gg/2d/head/${player}`}
+          {...stylex.props(styles.skin)}
+        />
+      </span>
+      {player}
+    </span>
   );
 };
 
