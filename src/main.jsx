@@ -10,7 +10,7 @@ import { SearchProvider } from "./context/searchContext";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
 import Header from "./components/layout/Header";
-import Overall from "./pages/Overall";
+import Leaderboard from "./pages/Leaderboard";
 import Subhuman from "./pages/Subhuman";
 
 const queryClient = new QueryClient();
@@ -35,7 +35,7 @@ createRoot(document.getElementById("root")).render(
                   </Route>
                   <Route path="ranking">
                     <Route index element={<Navigate to="/" />} />
-                    <Route path="leaderboard" element={<Overall />} />
+                    <Route path="leaderboard" element={<Leaderboard />} />
                     <Route path="subhuman" element={<Subhuman />} />
                   </Route>
                 </Route>

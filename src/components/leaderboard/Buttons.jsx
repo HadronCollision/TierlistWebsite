@@ -1,6 +1,6 @@
 import React from "react";
 import * as stylex from "@stylexjs/stylex";
-import { colors } from "../../tokens.stylex";
+import { colors } from "../../tokens.stylex.js";
 import { LazyMotion } from "motion/react";
 import * as m from "motion/react-m";
 

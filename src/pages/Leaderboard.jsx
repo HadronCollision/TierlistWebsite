@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import Buttons from "../components/overall/Buttons";
+import Buttons from "../components/leaderboard/Buttons";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../tokens.stylex";
 import { useModal } from "../context/modalContext";
-import PlayerContainer from "../components/overall/PlayerContainer";
+import PlayerContainer from "../components/leaderboard/PlayerContainer";
 
-function Overall() {
+function leaderboard() {
   const [selectedButton, setSelectedButton] = useState("overall");
   const { setModalState } = useModal();
 
@@ -130,4 +130,4 @@ const styles = stylex.create({
   },
 });
 
-export default Overall;
+export default leaderboard;
