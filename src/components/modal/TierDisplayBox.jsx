@@ -94,7 +94,7 @@ const styles = stylex.create({
     alignItems: "center",
   },
   text: {
-    color: "#ffffff",
+    color: colors.textColor,
     fontFamily: "Varela Round",
     fontSize: "24px",
     fontWeight: "bold",

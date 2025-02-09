@@ -3,6 +3,7 @@ import { useSearch } from "../../context/searchContext";
 import { useModal } from "../../context/modalContext";
 import * as stylex from "@stylexjs/stylex";
 import { useFetchPlayerData } from "../../hooks/useFetchPlayerData";
+import { colors } from "../../tokens.stylex";
 
 const SearchBar = ({ style }) => {
   const { search, setSearch } = useSearch();
@@ -73,7 +74,7 @@ const styles = stylex.create({
     fontWeight: "inherit",
     fontSize: "inherit",
     fontFamily: "inherit",
-    color: "#fff",
+    color: colors.textColor,
     verticalAlign: "baseline",
     backgroundSize: "24px 24px",
     ":hover": {

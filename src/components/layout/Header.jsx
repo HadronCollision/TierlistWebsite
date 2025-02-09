@@ -8,6 +8,7 @@ import FontFaceObserver from "fontfaceobserver-es";
 import SplashScreen from "./SplashScreen";
 import * as stylex from "@stylexjs/stylex";
 import GamemodeHeader from "../tiers/GamemodeHeader";
+import { colors } from "../../tokens.stylex";
 
 const Header = () => {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
@@ -83,7 +84,7 @@ const styles = stylex.create({
   text: {
     fontFamily: "Russo One",
     fontSize: "38px",
-    color: "#fff",
+    color: colors.textColor,
     cursor: "pointer",
     userSelect: "none",
     textWrap: "nowrap",
