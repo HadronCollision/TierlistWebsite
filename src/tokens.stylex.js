@@ -6,6 +6,6 @@ export const colors = stylex.defineVars({
   textColor: "#ececec",
   secondary: "#292929",
   primary: "#1e1e1e",
-  tertiary: "#555",
+  tertiary: "#525252",
   loader: "#aaa",
 });
