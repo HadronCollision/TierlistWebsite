@@ -92,6 +92,7 @@ const styles = stylex.create({
   dcIcon: {
     height: "32px",
     width: "32px",
+    marginHorizontal: "8px",
     cursor: "pointer",
   },
   left: {
