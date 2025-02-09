@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
+import { useModal } from "../../context/modalContext";
 
-const PlayerContainer = ({ player, index, setModalState }) => {
+const PlayerContainer = ({ ign, rank, index }) => {
+  const { setModalState } = useModal();
   const [hover, setHover] = useState(false);
 
   return (
@@ -13,7 +15,7 @@ const PlayerContainer = ({ player, index, setModalState }) => {
       onClick={() =>
         setModalState({
           show: true,
-          player: { ign: player, country: "pk" },
+          player: { ign, country: "pk" },
         })
       }
     >
@@ -24,11 +26,14 @@ const PlayerContainer = ({ player, index, setModalState }) => {
       >
         #{index + 1}
         <img
-          src={`https://render.crafty.gg/2d/head/${player}`}
+          src={`https://render.crafty.gg/2d/head/${ign}`}
           {...stylex.props(styles.skin)}
         />
       </span>
-      {player}
+      <span {...stylex.props(styles.playerTextContainer)}>
+        {ign}
+        {rank && <span {...stylex.props(styles.rankText)}>{rank}</span>}
+      </span>
     </span>
   );
 };
@@ -36,7 +41,7 @@ const PlayerContainer = ({ player, index, setModalState }) => {
 const styles = stylex.create({
   playerCell: {
     width: "100%",
-    height: "80px",
+    height: "70px",
     display: "flex",
     alignItems: "center",
     backgroundColor: colors.secondary,
@@ -48,10 +53,10 @@ const styles = stylex.create({
   },
   index: {
     display: "flex",
-    justifyContent: "space-evenly",
+    justifyContent: "space-around",
     alignItems: "center",
     height: "100%",
-    width: "140px",
+    width: "130px",
     borderRadius: "24px",
     backgroundColor: colors.tertiary,
     fontFamily: "Russo One",
@@ -60,13 +65,29 @@ const styles = stylex.create({
     transition: "0.2s",
   },
   indexActive: {
-    width: "150px",
+    width: "140px",
   },
   skin: {
-    height: "64px",
-    width: "64px",
+    height: "58px",
+    width: "58px",
     borderRadius: "16px",
     boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.5)",
+  },
+  playerTextContainer: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: "100%",
+  },
+  rankText: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: "18px",
+    backgroundColor: colors.primary,
+    borderRadius: "16px",
+    width: "100px",
+    height: "50px",
   },
 });
 
