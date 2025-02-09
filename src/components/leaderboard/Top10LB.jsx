@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PlayerContainer from "./PlayerContainer";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
+import { useQuery } from "@tanstack/react-query";
+import { fetchLeaderboardData } from "../../api/leaderboards";
 
 const Top10LB = () => {
+  const [players, setPlayers] = useState({
+    pak: Array(10).fill(""),
+    ind: Array(10).fill(""),
+  });
+
+  const { data, isFetching } = useQuery({
+    queryFn: () => fetchLeaderboardData("top10"),
+    queryKey: ["leaderboard", "top10"],
+    staleTime: 60_000,
+    gcTime: 60_000,
+  });
+
+  useEffect(() => {
+    if (data) setPlayers(data);
+  }, [data]);
+
   return (
     <div {...stylex.props(styles.container)}>
       <div {...stylex.props(styles.subContainer, styles.leftSubContainer)}>
@@ -15,22 +33,17 @@ const Top10LB = () => {
           TOP 10 BEST PLAYERS FROM PAKISTAN
         </div>
         <div {...stylex.props(styles.playerContainer)}>
-          {[
-            "FakeDrugLord123",
-            "YTMe_",
-            "asimyuh_FAN",
-            "xUltimate_",
-            "Raxizz",
-            "Sqxshyy",
-            "FllNISH",
-            "xeob",
-            "StackeRrz",
-            "DrPuuuu",
-          ].map((ign, i) => (
-            <PlayerContainer ign={ign} index={i} key={i} />
+          {players.pak.map((ign, i) => (
+            <PlayerContainer
+              ign={ign}
+              index={i}
+              isLoading={isFetching}
+              key={i}
+            />
           ))}
         </div>
       </div>
+
       <div {...stylex.props(styles.subContainer, styles.rightSubContainer)}>
         <div {...stylex.props(styles.title)}>
           <img
@@ -40,19 +53,13 @@ const Top10LB = () => {
           TOP 10 BEST PLAYERS FROM INDIA
         </div>
         <div {...stylex.props(styles.playerContainer)}>
-          {[
-            "360Mall",
-            "9fts",
-            "mistyibra",
-            "CattoL0VeR",
-            "Critspammer449",
-            "ShubDaRizzler_",
-            "RunThe1s_",
-            "TimeIess_",
-            "OhioKidooo",
-            "Sahibiguess",
-          ].map((ign, i) => (
-            <PlayerContainer ign={ign} index={i} key={i} />
+          {players.ind.map((ign, i) => (
+            <PlayerContainer
+              ign={ign}
+              index={i}
+              isLoading={isFetching}
+              key={i}
+            />
           ))}
         </div>
       </div>
