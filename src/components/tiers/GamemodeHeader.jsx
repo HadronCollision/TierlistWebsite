@@ -7,14 +7,14 @@ import GamemodeButton from "./GamemodeButton";
 
 //prettier-ignore
 const gamemodes = [
-  { src: "https://mctiers.com/assets/overall-ca77dd12.svg", label: "Leaderboard", id: "leaderboard", route: "/ranking/leaderboard" },
-  { src: "https://mctiers.com/assets/sword-9023278f.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
-  { src: "https://mctiers.com/assets/neth_pot-07e18fb6.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
-  { src: "https://mctiers.com/assets/vanilla-38455c89.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
-  { src: "https://mctiers.com/assets/pot-5ade81ba.svg", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
-  { src: "https://mctiers.com/assets/axe-09fbd7d8.svg", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
-  { src: "https://mctiers.com/assets/uhc-05be850e.svg", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
-  { src: "https://mctiers.com/assets/smp-72ce94df.svg", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
+  { src: "https://mctiers.com/tier_icons/overall.svg", label: "Leaderboard", id: "leaderboard", route: "/ranking/leaderboard" },
+  { src: "https://mctiers.com/tier_icons/sword.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
+  { src: "https://mctiers.com/tier_icons/neth_pot.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
+  { src: "https://mctiers.com/tier_icons/vanilla.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
+  { src: "https://mctiers.com/tier_icons/pot.svg", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
+  { src: "https://mctiers.com/tier_icons/axe.svg", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
+  { src: "https://mctiers.com/tier_icons/uhc.svg", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
+  { src: "https://mctiers.com/tier_icons/smp.svg", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
 ];
 
 const GamemodeHeader = () => {
