@@ -12,7 +12,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import Header from "./components/layout/Header";
 import Leaderboard from "./pages/Leaderboard";
 import Subhuman from "./pages/Subhuman";
-import Top10LB from "./components/leaderboard/Top10LB";
+import OverallLb from "./components/leaderboard/Top10LB";
 import GamemodeLeaderboard from "./components/leaderboard/GamemodeLeaderboard";
 
 const queryClient = new QueryClient();
@@ -33,7 +33,7 @@ createRoot(document.getElementById("root")).render(
                   />
                   <Route path="leaderboard" element={<Leaderboard />}>
                     <Route index element={<Navigate to="/" />} />
-                    <Route path="overall" element={<Top10LB />} />
+                    <Route path="overall" element={<OverallLb />} />
                     <Route
                       path="pak_lb"
                       element={
