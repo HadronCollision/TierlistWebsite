@@ -7,7 +7,6 @@ import GamemodeButton from "./GamemodeButton";
 
 //prettier-ignore
 const gamemodes = [
-  { src: "https://mctiers.com/tier_icons/overall.svg", label: "Leaderboard", id: "leaderboard", route: "/ranking/leaderboard" },
   { src: "https://mctiers.com/tier_icons/sword.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
   { src: "https://mctiers.com/tier_icons/neth_pot.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
   { src: "https://mctiers.com/tier_icons/vanilla.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
@@ -20,19 +19,29 @@ const gamemodes = [
 const GamemodeHeader = () => {
   const { selectedMode, setSelectedMode } = useSelectedMode();
   const { pathname } = useLocation();
+  console.log(pathname);
 
   useEffect(() => {
-    setSelectedMode(pathname.split("/")[2] || "leaderboard");
+    setSelectedMode(pathname.split("/"));
   }, [pathname]);
 
   return (
     <div {...stylex.props(styles.container)}>
       <div {...stylex.props(styles.gamemodeContainer)}>
+        <GamemodeButton
+          isSelected={selectedMode[1] === "leaderboard"}
+          onClick={() => setSelectedMode("leaderboard")}
+          gamemode={{
+            src: "https://mctiers.com/tier_icons/overall.svg",
+            id: "leaderboard",
+            route: "/leaderboard/overall",
+          }}
+        />
         {gamemodes.map((gamemode, index) => {
           return (
             <GamemodeButton
               gamemode={gamemode}
-              isSelected={selectedMode === gamemode.id}
+              isSelected={selectedMode[2] === gamemode.id}
               onClick={useCallback(() => setSelectedMode(gamemode.id), [])}
               key={index}
             />
@@ -41,12 +50,12 @@ const GamemodeHeader = () => {
       </div>
       <div {...stylex.props(styles.subhumanContainer)}>
         <GamemodeButton
-          isSelected={selectedMode === "subhuman"}
+          isSelected={selectedMode[1] === "subhuman"}
           onClick={() => setSelectedMode("subhuman")}
           gamemode={{
             src: "https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48",
             id: "subhuman",
-            route: "/ranking/subhuman",
+            route: "/subhuman",
           }}
         />
       </div>
