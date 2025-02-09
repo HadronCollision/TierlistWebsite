@@ -19,18 +19,17 @@ const gamemodes = [
 const GamemodeHeader = () => {
   const { selectedMode, setSelectedMode } = useSelectedMode();
   const { pathname } = useLocation();
-  console.log(pathname);
 
   useEffect(() => {
-    setSelectedMode(pathname.split("/"));
+    setSelectedMode(pathname);
   }, [pathname]);
 
   return (
     <div {...stylex.props(styles.container)}>
       <div {...stylex.props(styles.gamemodeContainer)}>
         <GamemodeButton
-          isSelected={selectedMode[1] === "leaderboard"}
-          onClick={() => setSelectedMode("leaderboard")}
+          isSelected={selectedMode.startsWith("/leaderboard/")}
+          onClick={() => setSelectedMode("/leaderboard/overall")}
           gamemode={{
             src: "https://mctiers.com/tier_icons/overall.svg",
             id: "leaderboard",
@@ -41,8 +40,8 @@ const GamemodeHeader = () => {
           return (
             <GamemodeButton
               gamemode={gamemode}
-              isSelected={selectedMode[2] === gamemode.id}
-              onClick={useCallback(() => setSelectedMode(gamemode.id), [])}
+              isSelected={selectedMode === gamemode.route}
+              onClick={useCallback(() => setSelectedMode(gamemode.route), [])}
               key={index}
             />
           );
