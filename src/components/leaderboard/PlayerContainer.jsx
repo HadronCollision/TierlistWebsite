@@ -21,7 +21,10 @@ const PlayerContainer = ({ ign, rank, index }) => {
     >
       <span
         {...stylex.props(
-          hover ? [styles.index, styles.indexActive] : styles.index
+          hover ? [styles.index, styles.indexActive] : styles.index,
+          index === 0 && styles.goldIndex,
+          index === 1 && styles.silverIndex,
+          index === 2 && styles.bronzeIndex
         )}
       >
         #{index + 1}
@@ -56,16 +59,29 @@ const styles = stylex.create({
     justifyContent: "space-around",
     alignItems: "center",
     height: "100%",
-    width: "130px",
+    width: "150px",
     borderRadius: "24px",
     backgroundColor: colors.tertiary,
     fontFamily: "Russo One",
     fontSize: "32px",
     marginRight: "8px",
+    paddingHorizontal: "2px",
     transition: "0.2s",
   },
+  goldIndex: {
+    backgroundColor: " #D6AF36",
+    border: "1px solid rgba(255, 255, 255, 0.3)",
+  },
+  silverIndex: {
+    backgroundColor: " #A7A7AD",
+    border: "1px solid rgba(255, 255, 255, 0.3)",
+  },
+  bronzeIndex: {
+    backgroundColor: " #A77044",
+    border: "1px solid rgba(255, 255, 255, 0.2)",
+  },
   indexActive: {
-    width: "140px",
+    width: "160px",
   },
   skin: {
     height: "58px",
