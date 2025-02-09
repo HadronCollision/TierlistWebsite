@@ -19,16 +19,16 @@ function leaderboard() {
         <GamemodeLeaderboard
           country="pak"
           players={[
-            "FakeDrugLord123",
-            "YTMe_",
-            "asimyuh_FAN",
-            "xUltimate_",
-            "Raxizz",
-            "Sqxshyy",
-            "FllNISH",
-            "xeob",
-            "StackeRrz",
-            "DrPuuuu",
+            { ign: "FakeDrugLord123", rank: "HT3" },
+            { ign: "YTMe_", rank: "LT3" },
+            { ign: "asimyuh_FAN", rank: "LT3" },
+            { ign: "xUltimate_", rank: "LT3" },
+            { ign: "Raxizz", rank: "LT3" },
+            { ign: "Sqxshyy", rank: "LT3" },
+            { ign: "FllNISH", rank: "LT3" },
+            { ign: "xeob", rank: "LT3" },
+            { ign: "StackeRrz", rank: "LT3" },
+            { ign: "DrPuuuu", rank: "LT3" },
           ]}
         />
       )}
@@ -36,16 +36,17 @@ function leaderboard() {
         <GamemodeLeaderboard
           country="ind"
           players={[
-            "360Mall",
-            "9fts",
-            "mistyibra",
-            "CattoL0VeR",
-            "Critspammer449",
-            "ShubDaRizzler_",
-            "RunThe1s_",
-            "TimeIess_",
-            "OhioKidooo",
-            "Sahibiguess",
+            { ign: "360Mall", rank: "HT3" },
+            { ign: "9fts", rank: "LT3" },
+            { ign: "mistyibra", rank: "LT3" },
+            { ign: "CattoL0VeR", rank: "LT3" },
+            { ign: "Critspammer449", rank: "LT3" },
+            { ign: "Critspammer449", rank: "LT3" },
+            { ign: "ShubDaRizzler_", rank: "LT3" },
+            { ign: "RunThe1s_", rank: "LT3" },
+            { ign: "TimeIess_", rank: "LT3" },
+            { ign: "OhioKidooo", rank: "LT3" },
+            { ign: "Sahibiguess", rank: "LT3" },
           ]}
         />
       )}
