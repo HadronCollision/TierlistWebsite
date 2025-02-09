@@ -26,8 +26,8 @@ const Top10LB = () => {
             "xeob",
             "StackeRrz",
             "DrPuuuu",
-          ].map((player, i) => (
-            <PlayerContainer player={player} index={i} key={i} />
+          ].map((ign, i) => (
+            <PlayerContainer ign={ign} index={i} key={i} />
           ))}
         </div>
       </div>
@@ -51,8 +51,8 @@ const Top10LB = () => {
             "TimeIess_",
             "OhioKidooo",
             "Sahibiguess",
-          ].map((player, i) => (
-            <PlayerContainer player={player} index={i} key={i} />
+          ].map((ign, i) => (
+            <PlayerContainer ign={ign} index={i} key={i} />
           ))}
         </div>
       </div>
@@ -63,7 +63,6 @@ const Top10LB = () => {
 const styles = stylex.create({
   container: {
     display: "flex",
-    justifyContent: "space-evenly",
     alignItems: "center",
     color: colors.textColor,
     marginBottom: "32px",
