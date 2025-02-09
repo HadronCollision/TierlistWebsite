@@ -3,9 +3,11 @@ import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 import { useModal } from "../../context/modalContext";
 
-const PlayerContainer = ({ ign, rank, index }) => {
+const PlayerContainer = ({ ign, rank, index, isLoading }) => {
   const { setModalState } = useModal();
   const [hover, setHover] = useState(false);
+
+  if (isLoading) return <span {...stylex.props(styles.skeletonLoader)} />;
 
   return (
     <span
@@ -41,7 +43,24 @@ const PlayerContainer = ({ ign, rank, index }) => {
   );
 };
 
+const shimmer = stylex.keyframes({
+  "0%": { backgroundPosition: "200% 0" },
+  "100%": { backgroundPosition: "-200% 0" },
+});
+
 const styles = stylex.create({
+  skeletonLoader: {
+    width: "100%",
+    height: "70px",
+    margin: "4px 0px",
+    background: `linear-gradient(90deg, ${colors.secondary} 25%, #333 50%, ${colors.secondary} 75%)`,
+    backgroundSize: "200% 100%",
+    borderRadius: "24px",
+    animationName: shimmer,
+    animationDuration: "3s",
+    animationTimingFunction: "linear",
+    animationIterationCount: "infinite",
+  },
   playerCell: {
     width: "100%",
     height: "70px",
