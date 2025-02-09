@@ -9,12 +9,13 @@ import { useSelectedMode } from "../../context/selectedModeContext";
 
 function TierColumnContainer() {
   const { selectedMode } = useSelectedMode();
+  const mode = selectedMode.split("/")[2];
 
-  if (!GamemodeList.includes(selectedMode)) return;
+  if (!GamemodeList.includes(mode)) return;
 
   const { data: playerData, isLoading } = useQuery({
-    queryFn: () => fetchTierData(selectedMode),
-    queryKey: ["players", selectedMode],
+    queryFn: () => fetchTierData(mode),
+    queryKey: ["players", mode],
     staleTime: 60 * 1000,
     gcTime: 60 * 1000,
   });
