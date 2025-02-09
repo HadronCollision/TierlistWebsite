@@ -12,8 +12,8 @@ const OverallLb = () => {
   });
 
   const { data, isFetching } = useQuery({
-    queryFn: () => fetchLeaderboardData("top10"),
-    queryKey: ["leaderboard", "top10"],
+    queryFn: () => fetchLeaderboardData("overall"),
+    queryKey: ["leaderboard", "overall"],
     staleTime: 60_000,
     gcTime: 60_000,
   });
