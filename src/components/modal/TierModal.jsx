@@ -11,7 +11,7 @@ import { useFetchPlayerData } from "../../hooks/useFetchPlayerData";
 function TierModal() {
   //prettier-ignore
   const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
-  const { data, isLoading: tiersLoading } = useFetchPlayerData(ign);
+  const { data, isFetching: tiersLoading } = useFetchPlayerData(ign);
   const isLoading = imageLoading || tiersLoading;
   const skin = isLoading ? styles.skinHidden : styles.skinImage;
 
