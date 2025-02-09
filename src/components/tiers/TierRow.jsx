@@ -40,10 +40,10 @@ const styles = stylex.create({
     color: "#ececec",
   },
   high: {
-    backgroundColor: colors.primary,
+    backgroundColor: colors.secondary,
   },
   low: {
-    backgroundColor: colors.secondary,
+    backgroundColor: colors.primary,
   },
   pk: {
     borderLeft: `4px solid green`,
