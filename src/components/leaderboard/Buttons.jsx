@@ -35,7 +35,7 @@ function Buttons({ buttons, selectedButton, setSelectedButton, layoutId }) {
 
 const styles = stylex.create({
   buttonContainer: {
-    marginVertical: "12px",
+    marginVertical: "8px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
@@ -46,7 +46,7 @@ const styles = stylex.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: colors.primary,
-    padding: "8px 0",
+    padding: "8px 8px",
     borderRadius: "25px",
   },
   button: {
@@ -56,18 +56,18 @@ const styles = stylex.create({
     alignItems: "center",
     backgroundColor: "transparent",
     width: "10vw",
-    minWidth: "125px",
+    minWidth: "130px",
     padding: "2px 0",
-    marginHorizontal: "16px",
     borderRadius: "8px",
     fontFamily: "Russo One",
     cursor: "pointer",
+    userSelect: "none",
   },
   underline: {
     position: "absolute",
-    left: "12px",
-    right: "12px",
-    height: "100%",
+    left: "0px",
+    right: "0px",
+    height: "120%",
     border: `2px solid ${colors.tertiary}`,
     borderRadius: "16px",
   },
