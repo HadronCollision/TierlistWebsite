@@ -58,7 +58,7 @@ const styles = stylex.create({
   container: {
     display: "flex",
     alignItems: "center",
-    margin: "8px",
+    margin: "8px 16px",
   },
   gamemodeContainer: {
     display: "flex",
