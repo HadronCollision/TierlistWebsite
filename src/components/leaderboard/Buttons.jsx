@@ -7,14 +7,23 @@ import * as m from "motion/react-m";
 const loadFeatures = () =>
   import("../../motionFeatures.js").then((res) => res.default);
 
-function Buttons({ buttons, selectedButton, setSelectedButton, layoutId }) {
+const Buttons = ({
+  buttons,
+  selectedButton,
+  setSelectedButton,
+  onClick,
+  layoutId,
+}) => {
   return (
     <div {...stylex.props(styles.buttonContainer)}>
       <div {...stylex.props(styles.buttonWrapper)}>
         {buttons.map((button, i) => (
           <div
             {...stylex.props(styles.button)}
-            onClick={() => setSelectedButton(button)}
+            onClick={() => {
+              setSelectedButton(button);
+              onClick(button);
+            }}
             key={i}
           >
             <LazyMotion features={loadFeatures}>
@@ -25,13 +34,13 @@ function Buttons({ buttons, selectedButton, setSelectedButton, layoutId }) {
                 ></m.div>
               )}
             </LazyMotion>
-            {button.toUpperCase()}
+            {button.split("_").join(" ").toUpperCase()}
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
 
 const styles = stylex.create({
   buttonContainer: {
