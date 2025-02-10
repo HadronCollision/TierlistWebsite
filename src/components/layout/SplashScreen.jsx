@@ -21,7 +21,7 @@ const styles = stylex.create({
     alignItems: "center",
     height: "100vh",
     width: "100vw",
-    backgroundColor: "black",
+    backgroundColor: "#322b27",
     zIndex: 1000,
   },
 });
