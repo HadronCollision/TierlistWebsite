@@ -85,12 +85,6 @@ const styles = stylex.create({
       transform: "translateY(-50%)",
     },
   },
-  skeletonLoaderBox01: {
-    backgroundColor: colors.tertiary,
-    width: "100px",
-    height: "50px",
-    backgroundColor: "#fff",
-  },
   playerCell: {
     width: "100%",
     height: "70px",
