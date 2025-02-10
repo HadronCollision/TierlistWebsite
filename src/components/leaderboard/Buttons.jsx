@@ -21,20 +21,20 @@ const Buttons = ({
           <div
             {...stylex.props(styles.button)}
             onClick={() => {
-              setSelectedButton(button);
-              onClick(button);
+              setSelectedButton(button.id);
+              if (onClick) onClick(button.id);
             }}
             key={i}
           >
             <LazyMotion features={loadFeatures}>
-              {selectedButton === button && (
+              {selectedButton === button.id && (
                 <m.div
                   layoutId={layoutId}
                   {...stylex.props(styles.underline)}
                 ></m.div>
               )}
             </LazyMotion>
-            {button.split("_").join(" ").toUpperCase()}
+            {button.label.toUpperCase()}
           </div>
         ))}
       </div>
@@ -57,6 +57,7 @@ const styles = stylex.create({
     backgroundColor: colors.primary,
     padding: "8px 8px",
     borderRadius: "25px",
+    border: `1px solid ${colors.secondary}`,
   },
   button: {
     position: "relative",
@@ -77,7 +78,7 @@ const styles = stylex.create({
     left: "0px",
     right: "0px",
     height: "120%",
-    border: `2px solid ${colors.tertiary}`,
+    border: `2px solid ${colors.loader}`,
     borderRadius: "16px",
   },
 });
