@@ -4,6 +4,7 @@ import { colors } from "../../tokens.stylex";
 import { useModal } from "../../context/modalContext";
 
 const PlayerContainer = ({ ign, rank, index, isLoading }) => {
+  console.log("index", index % 2 === 0);
   const { setModalState } = useModal();
   const [hover, setHover] = useState(false);
 
@@ -11,7 +12,10 @@ const PlayerContainer = ({ ign, rank, index, isLoading }) => {
 
   return (
     <span
-      {...stylex.props(styles.playerCell)}
+      {...stylex.props(
+        styles.playerCell,
+        index % 2 !== 0 && styles.alternateColor
+      )}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={() =>
@@ -96,6 +100,9 @@ const styles = stylex.create({
     fontFamily: "Poppins",
     fontSize: "28px",
     cursor: "pointer",
+  },
+  alternateColor: {
+    backgroundColor: "#27211F",
   },
   index: {
     display: "flex",
