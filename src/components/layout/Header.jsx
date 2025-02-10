@@ -46,15 +46,13 @@ const Header = () => {
           <div {...stylex.props(styles.center)}>
             <p {...stylex.props(styles.text)}>- Pakistan & India Tier List -</p>
           </div>
-          <NavLink
-            {...stylex.props(styles.right)}
-            to="https://discord.gg/dd8hDGZP"
-          >
+          <div {...stylex.props(styles.right)}>
             <img
               {...stylex.props(styles.dcIcon)}
               src="https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/636e0a69f118df70ad7828d4_icon_clyde_blurple_RGB.svg"
+              onClick={() => window.open("https://discord.gg/tZ4vxsnass")}
             />
-          </NavLink>
+          </div>
         </header>
         <GamemodeHeader />
         <Outlet />
