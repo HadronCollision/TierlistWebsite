@@ -49,7 +49,7 @@ const GamemodeHeader = () => {
       </div>
       <div {...stylex.props(styles.subhumanContainer)}>
         <GamemodeButton
-          isSelected={selectedMode[1] === "subhuman"}
+          isSelected={selectedMode === "/subhuman"}
           onClick={() => setSelectedMode("subhuman")}
           gamemode={{
             src: "https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48",
@@ -73,7 +73,6 @@ const styles = stylex.create({
     justifyContent: "center",
     flexDirection: "row",
     gap: "12px",
-    backgroundColor: colors.backgroundColor,
   },
   subhumanContainer: {
     display: "flex",
