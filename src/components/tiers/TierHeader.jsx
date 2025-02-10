@@ -25,7 +25,7 @@ const styles = stylex.create({
     justifyContent: "space-evenly",
     backgroundColor: colors.headerColor,
     padding: "12px 0",
-    cursor: "pointer",
+    border: `1px solid ${colors.secondary}`,
   },
 });
 
