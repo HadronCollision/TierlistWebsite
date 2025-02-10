@@ -35,11 +35,11 @@ createRoot(document.getElementById("root")).render(
                     <Route index element={<Navigate to="/" />} />
                     <Route path="overall" element={<OverallLb />} />
                     <Route
-                      path="pak_lb"
+                      path="paklb"
                       element={<GamemodeLeaderboard country="pak" />}
                     />
                     <Route
-                      path="ind_lb"
+                      path="indlb"
                       element={<GamemodeLeaderboard country="ind" />}
                     />
                   </Route>

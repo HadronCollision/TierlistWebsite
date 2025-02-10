@@ -18,8 +18,8 @@ const Leaderboard = () => {
       <Buttons
         buttons={[
           { label: "OVERALL", id: "overall" },
-          { label: "PAK LB", id: "pak_lb" },
-          { label: "IND LB", id: "ind_lb" },
+          { label: "PAK LB", id: "paklb" },
+          { label: "IND LB", id: "indlb" },
         ]}
         selectedButton={selectedButton}
         setSelectedButton={setSelectedButton}
