@@ -16,7 +16,11 @@ const Leaderboard = () => {
   return (
     <div>
       <Buttons
-        buttons={["overall", "pak_lb", "ind_lb"]}
+        buttons={[
+          { label: "OVERALL", id: "overall" },
+          { label: "PAK LB", id: "pak_lb" },
+          { label: "IND LB", id: "ind_lb" },
+        ]}
         selectedButton={selectedButton}
         setSelectedButton={setSelectedButton}
         onClick={(lb) => navigate(lb)}
