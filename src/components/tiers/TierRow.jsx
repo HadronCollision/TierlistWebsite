@@ -33,23 +33,28 @@ const styles = stylex.create({
     minWidth: "215px",
     margin: "4px 0",
     padding: "8px 10px",
-    borderRadius: "2px",
     cursor: "pointer",
     fontSize: "18px",
     listStyle: "none",
     color: "#ececec",
   },
   high: {
-    backgroundColor: colors.secondary,
+    backgroundColor: {
+      default: colors.secondary,
+      ":hover": "#302a28",
+    },
   },
   low: {
-    backgroundColor: colors.primary,
+    backgroundColor: {
+      default: colors.primary,
+      ":hover": "#23201e",
+    },
   },
   pk: {
-    borderLeft: `4px solid green`,
+    borderLeft: `3px solid green`,
   },
   in: {
-    borderLeft: `4px solid orange`,
+    borderLeft: `3px solid orange`,
   },
 });
 

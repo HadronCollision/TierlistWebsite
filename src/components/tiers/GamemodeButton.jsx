@@ -38,8 +38,9 @@ const styles = stylex.create({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: "24px",
+    borderRadius: "18px",
     fontSize: "18px",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
     cursor: "pointer",
   },
   buttonActive: {
@@ -55,8 +56,8 @@ const styles = stylex.create({
   },
   underline: {
     position: "absolute",
-    left: "20px",
-    right: "20px",
+    left: "16px",
+    right: "16px",
     bottom: 0,
     height: "2px",
     borderRadius: "1px",

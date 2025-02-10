@@ -74,6 +74,8 @@ const styles = stylex.create({
     color: colors.textColor,
     marginBottom: "32px",
     marginHorizontal: "48px",
+    border: `1px solid ${colors.secondary}`,
+    borderRadius: "32px",
   },
   subContainer: {
     backgroundColor: colors.primary,
@@ -82,10 +84,10 @@ const styles = stylex.create({
     width: "100%",
   },
   leftSubContainer: {
-    borderRadius: "48px 0 0 48px",
+    borderRadius: "32px 0 0 32px",
   },
   rightSubContainer: {
-    borderRadius: "0 48px 48px 0",
+    borderRadius: "0 32px 32px 0",
   },
   title: {
     display: "flex",
