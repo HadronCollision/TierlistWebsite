@@ -1,5 +1,4 @@
 import React from "react";
-import GamemodeHeader from "../components/tiers/GamemodeHeader";
 
 function Subhuman() {
   return (
