@@ -40,7 +40,7 @@ const styles = stylex.create({
     alignItems: "center",
     borderRadius: "18px",
     fontSize: "18px",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.3)",
+    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)",
     cursor: "pointer",
   },
   buttonActive: {
