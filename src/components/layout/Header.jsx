@@ -10,6 +10,14 @@ import * as stylex from "@stylexjs/stylex";
 import GamemodeHeader from "../tiers/GamemodeHeader";
 import { colors } from "../../tokens.stylex";
 
+const loadIcon = (src) =>
+  new Promise((resolve, reject) => {
+    const icon = new Image();
+    icon.src = src;
+    icon.onload = () => resolve(src);
+    icon.onerror = () => reject;
+  });
+
 const Header = () => {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
 
@@ -19,11 +27,22 @@ const Header = () => {
     const poppins = new FontFaceObserver("Poppins");
     const varelaRound = new FontFaceObserver("Varela Round");
 
+    const icons = [
+      "https://mctiers.com/tier_icons/sword.svg",
+      "https://mctiers.com/tier_icons/neth_pot.svg",
+      "https://mctiers.com/tier_icons/vanilla.svg",
+      "https://mctiers.com/tier_icons/pot.svg",
+      "https://mctiers.com/tier_icons/axe.svg",
+      "https://mctiers.com/tier_icons/uhc.svg",
+      "https://mctiers.com/tier_icons/smp.svg",
+    ];
+
     Promise.all([
       roboto.load(),
       russoOne.load(),
       poppins.load(),
       varelaRound.load(),
+      ...icons.map(loadIcon),
     ])
       .then(() => {
         setShowSplashScreen(false);
@@ -74,12 +93,17 @@ const styles = stylex.create({
     fontFamily: "Roboto",
     width: "100%",
     minWidth: "1100px",
+    backgroundImage:
+      "linear-gradient(to top,#0e0d0c 0%, #0e0d0c 85%, #322b27 100%)",
+    backgroundSize: "100vh 100vw",
   },
   header: {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    margin: "16px 20px",
+    marginHorizontal: "20px",
+    paddingVertical: "16px",
+    // marginBottom: "16px",
   },
   text: {
     fontFamily: "Russo One",
