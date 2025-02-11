@@ -44,7 +44,9 @@ const Header = () => {
         <header {...stylex.props(styles.header)}>
           <SearchBar style={styles.left} />
           <div {...stylex.props(styles.center)}>
-            <p {...stylex.props(styles.text)}>- Pakistan & India Tier List -</p>
+            <NavLink {...stylex.props(styles.text)} to="/">
+              - Pakistan & India Tier List -
+            </NavLink>
           </div>
           <div {...stylex.props(styles.right)}>
             <img
@@ -86,7 +88,7 @@ const styles = stylex.create({
     cursor: "pointer",
     userSelect: "none",
     textWrap: "nowrap",
-    margin: 0,
+    textDecoration: "none",
   },
   dcIcon: {
     height: "32px",
