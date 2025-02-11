@@ -11,8 +11,6 @@ function TierColumnContainer() {
   const { selectedMode } = useSelectedMode();
   const mode = selectedMode.split("/")[2];
 
-  if (!GamemodeList.includes(mode)) return;
-
   const { data: playerData, isLoading } = useQuery({
     queryFn: () => fetchTierData(mode),
     queryKey: ["players", mode],
