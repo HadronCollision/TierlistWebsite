@@ -108,7 +108,7 @@ const styles = stylex.create({
     justifyContent: "space-around",
     alignItems: "center",
     height: "100%",
-    width: "150px",
+    width: "160px",
     borderRadius: "24px",
     backgroundColor: colors.tertiary,
     fontFamily: "Russo One",
@@ -118,19 +118,19 @@ const styles = stylex.create({
     transition: "0.2s",
   },
   goldIndex: {
-    backgroundColor: " #c9a03c",
+    backgroundColor: colors.gold,
     border: "1px solid rgba(255, 255, 255, 0.3)",
   },
   silverIndex: {
-    backgroundColor: " #b5b5b5",
+    backgroundColor: colors.silver,
     border: "1px solid rgba(255, 255, 255, 0.3)",
   },
   bronzeIndex: {
-    backgroundColor: " #9c6b3f",
+    backgroundColor: colors.bronze,
     border: "1px solid rgba(255, 255, 255, 0.2)",
   },
   indexActive: {
-    width: "160px",
+    width: "170px",
   },
   skin: {
     height: "58px",
