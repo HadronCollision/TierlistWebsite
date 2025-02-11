@@ -4,7 +4,6 @@ import { colors } from "../../tokens.stylex";
 import { useModal } from "../../context/modalContext";
 
 const PlayerContainer = ({ ign, rank, index, isLoading }) => {
-  console.log("index", index % 2 === 0);
   const { setModalState } = useModal();
   const [hover, setHover] = useState(false);
 
