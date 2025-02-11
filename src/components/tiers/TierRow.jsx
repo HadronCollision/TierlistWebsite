@@ -22,21 +22,33 @@ const TierRow = ({ player }) => {
       onHoverStart={() => setHover(true)}
       onHoverEnd={() => setHover(false)}
     >
-      {ign}
+      <span
+        {...stylex.props(
+          styles.country,
+          hover && styles.countryHover,
+          country === "pk" ? styles.countryPk : styles.countryIn
+        )}
+      >
+        {country.toUpperCase()}
+      </span>
+      <span {...stylex.props(styles.ign)}>{ign}</span>
     </m.li>
   );
 };
 
 const styles = stylex.create({
   base: {
+    height: "5vh",
     width: "19vw",
     minWidth: "215px",
     margin: "4px 0",
-    padding: "8px 10px",
+    display: "flex",
+    alignItems: "center",
     cursor: "pointer",
     fontSize: "18px",
     listStyle: "none",
     color: "#ececec",
+    position: "relative",
   },
   high: {
     backgroundColor: {
@@ -55,6 +67,31 @@ const styles = stylex.create({
   },
   in: {
     borderLeft: `3px solid ${colors.orange}`,
+  },
+  ign: {
+    paddingHorizontal: "8px",
+  },
+  country: {
+    height: "5vh",
+    width: 0,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(95, 158, 110, 0.3)",
+    // borderRadius: "0 12px 12px 0",
+    transition: "0.2s",
+    overflow: "hidden",
+  },
+  countryHover: {
+    width: "4.5vh",
+    paddingRight: "2px",
+    fontWeight: "bold",
+  },
+  countryPk: {
+    backgroundColor: "rgba(95, 158, 110, 0.3)",
+  },
+  countryIn: {
+    backgroundColor: "rgb(217, 130, 59, 0.3)",
   },
 });
 
