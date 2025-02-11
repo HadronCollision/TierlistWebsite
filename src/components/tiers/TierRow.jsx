@@ -51,10 +51,10 @@ const styles = stylex.create({
     },
   },
   pk: {
-    borderLeft: `3px solid green`,
+    borderLeft: `3px solid ${colors.green}`,
   },
   in: {
-    borderLeft: `3px solid orange`,
+    borderLeft: `3px solid ${colors.orange}`,
   },
 });
 
