@@ -103,7 +103,6 @@ const styles = stylex.create({
     alignItems: "center",
     marginHorizontal: "20px",
     paddingVertical: "16px",
-    // marginBottom: "16px",
   },
   text: {
     fontFamily: "Russo One",
