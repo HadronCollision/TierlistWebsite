@@ -20,7 +20,7 @@ const SearchBar = ({ style }) => {
       return;
     }
 
-    if (isFetched) {
+    if (isFetched && data) {
       setModalState({
         show: true,
         player: {
