@@ -108,7 +108,7 @@ const styles = stylex.create({
     justifyContent: "space-around",
     alignItems: "center",
     height: "100%",
-    width: "160px",
+    width: "154px",
     borderRadius: "24px",
     backgroundColor: colors.tertiary,
     fontFamily: "Russo One",
@@ -130,7 +130,7 @@ const styles = stylex.create({
     border: "1px solid rgba(255, 255, 255, 0.2)",
   },
   indexActive: {
-    width: "170px",
+    width: "164px",
   },
   skin: {
     height: "58px",
