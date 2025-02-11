@@ -6,7 +6,7 @@ import { colors } from "../../tokens.stylex";
 function SplashScreen() {
   return (
     <div {...stylex.props(styles.base)}>
-      <BarLoader color={colors.loader} width="10vw" />
+      <BarLoader color={colors.loader} />
     </div>
   );
 }
@@ -21,7 +21,7 @@ const styles = stylex.create({
     alignItems: "center",
     height: "100vh",
     width: "100vw",
-    backgroundColor: "#322b27",
+    backgroundColor: colors.backgroundColor,
     zIndex: 1000,
   },
 });
