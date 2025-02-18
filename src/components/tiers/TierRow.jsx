@@ -26,7 +26,9 @@ const TierRow = ({ player }) => {
         {...stylex.props(
           styles.country,
           hover && styles.countryHover,
-          country === "pk" ? styles.countryPk : styles.countryIn
+          country === "pk" && styles.countryPk,
+          country === "in" && styles.countryIn,
+          country === "oth" && styles.countryOc
         )}
       >
         {country.toUpperCase()}
@@ -38,10 +40,10 @@ const TierRow = ({ player }) => {
 
 const styles = stylex.create({
   base: {
-    height: "5vh",
+    height: "34px",
     width: "19vw",
     minWidth: "215px",
-    margin: "4px 0",
+    margin: "2px 0",
     display: "flex",
     alignItems: "center",
     cursor: "pointer",
@@ -68,30 +70,36 @@ const styles = stylex.create({
   in: {
     borderLeft: `3px solid ${colors.orange}`,
   },
+  oth: {
+    borderLeft: `3px solid gray`,
+  },
   ign: {
     paddingHorizontal: "8px",
   },
   country: {
-    height: "5vh",
+    height: "34px",
     width: 0,
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(95, 158, 110, 0.3)",
-    // borderRadius: "0 12px 12px 0",
     transition: "0.2s",
     overflow: "hidden",
+    textWrap: "none",
   },
   countryHover: {
-    width: "4.5vh",
+    width: "5vh",
     paddingRight: "2px",
+    fontFamily: "Roboto Mono",
     fontWeight: "bold",
   },
   countryPk: {
     backgroundColor: "rgba(95, 158, 110, 0.3)",
   },
   countryIn: {
-    backgroundColor: "rgb(217, 130, 59, 0.3)",
+    backgroundColor: "rgba(217, 130, 59, 0.3)",
+  },
+  countryOc: {
+    backgroundColor: "rgba(121, 121, 121, 0.3)",
   },
 });
 
