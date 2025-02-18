@@ -8,7 +8,7 @@ import GamemodeButton from "./GamemodeButton";
 //prettier-ignore
 const gamemodes = [
   { src: "https://mctiers.com/tier_icons/sword.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
-  { src: "https://mctiers.com/tier_icons/neth_pot.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
+  { src: "https://mctiers.com/tier_icons/nethop.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
   { src: "https://mctiers.com/tier_icons/vanilla.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
   { src: "https://mctiers.com/tier_icons/pot.svg", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
   { src: "https://mctiers.com/tier_icons/axe.svg", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
