@@ -7,7 +7,7 @@ import { colors } from "../../tokens.stylex";
 
 const iconUrls = {
   sword: "https://mctiers.com/tier_icons/sword.svg",
-  nethpot: "https://mctiers.com/tier_icons/neth_pot.svg",
+  nethpot: "https://mctiers.com/tier_icons/nethop.svg",
   crystal: "https://mctiers.com/tier_icons/vanilla.svg",
   diapot: "https://mctiers.com/tier_icons/pot.svg",
   axe: "https://mctiers.com/tier_icons/axe.svg",
