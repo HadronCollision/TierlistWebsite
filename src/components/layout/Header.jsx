@@ -23,13 +23,14 @@ const Header = () => {
 
   useEffect(() => {
     const roboto = new FontFaceObserver("Roboto");
+    const robotoMono = new FontFaceObserver("Roboto Mono");
     const russoOne = new FontFaceObserver("Russo One");
     const poppins = new FontFaceObserver("Poppins");
     const varelaRound = new FontFaceObserver("Varela Round");
 
     const icons = [
       "https://mctiers.com/tier_icons/sword.svg",
-      "https://mctiers.com/tier_icons/neth_pot.svg",
+      "https://mctiers.com/tier_icons/nethop.svg",
       "https://mctiers.com/tier_icons/vanilla.svg",
       "https://mctiers.com/tier_icons/pot.svg",
       "https://mctiers.com/tier_icons/axe.svg",
@@ -39,6 +40,7 @@ const Header = () => {
 
     Promise.all([
       roboto.load(),
+      robotoMono.load(),
       russoOne.load(),
       poppins.load(),
       varelaRound.load(),
