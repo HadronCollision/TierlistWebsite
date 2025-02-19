@@ -8,7 +8,7 @@ export const useTierModal = () => {
   let countryTwo;
   if (country === "pk") countryTwo = "Pakistan";
   if (country === "in") countryTwo = "India";
-  if (country === "oth") countryTwo = "Other Country";
+  if (country === "oth") countryTwo = "Other";
   const closeModal = () => setModalState({ ...modalState, show: false });
 
   return {
