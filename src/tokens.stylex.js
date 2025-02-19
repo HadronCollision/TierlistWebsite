@@ -10,7 +10,7 @@ export const colors = stylex.defineVars({
   loader: " #8a7f78",
   green: " #5f9e6e",
   orange: " #d9823b",
-  gold: " #c9a03c",
+  gold: "#daaf41",
   silver: " #b5b5b5",
   bronze: " #9c6b3f",
 });
