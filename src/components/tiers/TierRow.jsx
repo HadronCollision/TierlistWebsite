@@ -71,7 +71,7 @@ const styles = stylex.create({
     borderLeft: `3px solid ${colors.orange}`,
   },
   oth: {
-    borderLeft: `3px solid gray`,
+    borderLeft: `3px solid ${colors.loader}`,
   },
   ign: {
     paddingHorizontal: "8px",
@@ -99,7 +99,7 @@ const styles = stylex.create({
     backgroundColor: "rgba(217, 130, 59, 0.3)",
   },
   countryOc: {
-    backgroundColor: "rgba(121, 121, 121, 0.3)",
+    backgroundColor: colors.tertiary,
   },
 });
 

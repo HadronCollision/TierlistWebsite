@@ -87,7 +87,7 @@ const styles = stylex.create({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    // boxShadow: `inset 0px 0px 50px ${colors.secondary}`,
+    boxShadow: `inset 0px 0px 50px ${colors.secondary}`,
     border: `4px solid ${colors.secondary}`,
   },
   skinImage: {
