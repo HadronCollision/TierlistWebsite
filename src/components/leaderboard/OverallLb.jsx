@@ -86,10 +86,10 @@ const styles = stylex.create({
     width: "100%",
   },
   leftSubContainer: {
-    borderRadius: "32px 0 0 32px",
+    borderRadius: "24px 0 0 24px",
   },
   rightSubContainer: {
-    borderRadius: "0 32px 32px 0",
+    borderRadius: "0 24px 24px 0",
   },
   title: {
     display: "flex",

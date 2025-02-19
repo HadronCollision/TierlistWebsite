@@ -87,9 +87,10 @@ const styles = stylex.create({
   },
   subContainer: {
     width: "80%",
+    minWidth: "1060px",
     backgroundColor: colors.primary,
     padding: "12px",
-    borderRadius: "48px",
+    borderRadius: "32px",
     border: `1px solid ${colors.secondary}`,
   },
   title: {

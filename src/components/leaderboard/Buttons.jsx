@@ -56,7 +56,7 @@ const styles = stylex.create({
     alignItems: "center",
     backgroundColor: colors.primary,
     padding: "8px 8px",
-    borderRadius: "25px",
+    borderRadius: "16px",
     border: `1px solid ${colors.secondary}`,
   },
   button: {
@@ -66,7 +66,7 @@ const styles = stylex.create({
     alignItems: "center",
     backgroundColor: "transparent",
     width: "10vw",
-    minWidth: "130px",
+    minWidth: "144px",
     padding: "2px 0",
     borderRadius: "8px",
     fontFamily: "Russo One",
