@@ -11,3 +11,10 @@ export const fetchPlayerData = async (ign) => {
   );
   return data;
 };
+
+export const fetchLeaderboardData = async (lb) => {
+  const { data } = await axios.get(
+    `http://localhost:6969/api/leaderboard/${lb}`
+  );
+  return data;
+};
