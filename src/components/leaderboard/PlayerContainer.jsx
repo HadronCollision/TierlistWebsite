@@ -3,7 +3,7 @@ import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 import { useModal } from "../../context/modalContext";
 
-const PlayerContainer = ({ ign, rank, index, isLoading }) => {
+const PlayerContainer = ({ ign, country, rank, index, isLoading }) => {
   const { setModalState } = useModal();
   const [hover, setHover] = useState(false);
 
@@ -20,7 +20,7 @@ const PlayerContainer = ({ ign, rank, index, isLoading }) => {
       onClick={() =>
         setModalState({
           show: true,
-          player: { ign, country: "pk" },
+          player: { ign, country: country === "pak" ? "pk" : "in" },
         })
       }
     >

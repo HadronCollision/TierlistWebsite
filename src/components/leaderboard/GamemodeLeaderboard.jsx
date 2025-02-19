@@ -62,6 +62,7 @@ const GamemodeLeaderboard = ({ country }) => {
             {players[selectedMode].map((player, i) => (
               <PlayerContainer
                 ign={player.ign}
+                country={country}
                 rank={player.rank}
                 index={i}
                 isLoading={isFetching}

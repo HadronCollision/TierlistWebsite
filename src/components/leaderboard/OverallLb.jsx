@@ -36,6 +36,7 @@ const OverallLb = () => {
           {players.pak.map((ign, i) => (
             <PlayerContainer
               ign={ign}
+              country="pak"
               index={i}
               isLoading={isFetching}
               key={i}
@@ -56,6 +57,7 @@ const OverallLb = () => {
           {players.ind.map((ign, i) => (
             <PlayerContainer
               ign={ign}
+              country="ind"
               index={i}
               isLoading={isFetching}
               key={i}
