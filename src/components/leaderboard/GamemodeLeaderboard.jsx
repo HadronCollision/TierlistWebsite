@@ -4,7 +4,7 @@ import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 import PlayerContainer from "./PlayerContainer";
 import { useQuery } from "@tanstack/react-query";
-import { fetchLeaderboardData } from "../../api/leaderboards";
+import { fetchLeaderboardData } from "../../api/API";
 
 const GamemodeLeaderboard = ({ country }) => {
   const [selectedMode, setSelectedMode] = useState("sword");

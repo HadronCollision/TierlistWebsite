@@ -3,7 +3,7 @@ import PlayerContainer from "./PlayerContainer";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 import { useQuery } from "@tanstack/react-query";
-import { fetchLeaderboardData } from "../../api/leaderboards";
+import { fetchLeaderboardData } from "../../api/API";
 
 const OverallLb = () => {
   const [players, setPlayers] = useState({

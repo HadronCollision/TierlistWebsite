@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchPlayerData } from "../api/players";
+import { fetchPlayerData } from "../api/API";
 
 export const useFetchPlayerData = (ign) => {
   return useQuery({

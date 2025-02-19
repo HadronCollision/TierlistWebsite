@@ -1,7 +1,7 @@
 import React from "react";
 import TierColumn from "./TierColumn";
 import { useQuery } from "@tanstack/react-query";
-import { fetchTierData } from "../../api/players";
+import { fetchTierData } from "../../api/API";
 import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 import { useSelectedMode } from "../../context/selectedModeContext";
