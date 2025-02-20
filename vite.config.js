@@ -5,7 +5,7 @@ import styleX from "vite-plugin-stylex";
 
 export default defineConfig({
   build: {
-    // sourcemap: false,
+    sourcemap: false,
   },
   plugins: [
     react(),
