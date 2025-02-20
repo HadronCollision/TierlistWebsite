@@ -5,11 +5,21 @@ import { colors } from "../../tokens.stylex";
 import { useQuery } from "@tanstack/react-query";
 import { fetchLeaderboardData } from "../../api/API";
 
+const loadImage = (src) =>
+  new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => resolve(src);
+    img.onerror = () => reject;
+  });
+
 const OverallLb = () => {
   const [players, setPlayers] = useState({
     pak: Array(10).fill(""),
     ind: Array(10).fill(""),
   });
+
+  const [imageLoading, setImageLoading] = useState(true);
 
   const { data, isFetching } = useQuery({
     queryFn: () => fetchLeaderboardData("overall"),
@@ -19,7 +29,24 @@ const OverallLb = () => {
   });
 
   useEffect(() => {
-    if (data) setPlayers(data);
+    if (data) {
+      setPlayers(data);
+
+      const images = [
+        ...data.pak.map((ign) => `https://render.crafty.gg/2d/head/${ign}`),
+        ...data.ind.map((ign) => `https://render.crafty.gg/2d/head/${ign}`),
+      ];
+
+      Promise.all([...images.map(loadImage)])
+        .then(() => {
+          setImageLoading(false);
+          console.log("loaded");
+        })
+        .catch(() => {
+          console.log("loaded with error");
+          setImageLoading(false);
+        });
+    }
   }, [data]);
 
   return (
@@ -38,7 +65,7 @@ const OverallLb = () => {
               ign={ign}
               country="pak"
               index={i}
-              isLoading={isFetching}
+              isLoading={isFetching || imageLoading}
               key={i}
             />
           ))}
@@ -59,7 +86,7 @@ const OverallLb = () => {
               ign={ign}
               country="ind"
               index={i}
-              isLoading={isFetching}
+              isLoading={isFetching || imageLoading}
               key={i}
             />
           ))}

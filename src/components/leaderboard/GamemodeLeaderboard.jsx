@@ -6,6 +6,14 @@ import PlayerContainer from "./PlayerContainer";
 import { useQuery } from "@tanstack/react-query";
 import { fetchLeaderboardData } from "../../api/API";
 
+const loadImage = (src) =>
+  new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => resolve(src);
+    img.onerror = () => reject;
+  });
+
 const GamemodeLeaderboard = ({ country }) => {
   const [selectedMode, setSelectedMode] = useState("sword");
   const [players, setPlayers] = useState({
@@ -17,6 +25,7 @@ const GamemodeLeaderboard = ({ country }) => {
     uhc: Array(10).fill(""),
     smp: Array(10).fill(""),
   });
+  const [imageLoading, setImageLoading] = useState(true);
 
   const { data, isFetching } = useQuery({
     queryFn: () => fetchLeaderboardData(`${country}lb`),
@@ -26,7 +35,29 @@ const GamemodeLeaderboard = ({ country }) => {
   });
 
   useEffect(() => {
-    if (data) setPlayers(data);
+    if (data) {
+      setPlayers(data);
+
+      const images = [
+        ...data.sword.map((p) => `https://render.crafty.gg/2d/head/${p.ign}`),
+        ...data.nethpot.map((p) => `https://render.crafty.gg/2d/head/${p.ign}`),
+        ...data.crystal.map((p) => `https://render.crafty.gg/2d/head/${p.ign}`),
+        ...data.diapot.map((p) => `https://render.crafty.gg/2d/head/${p.ign}`),
+        ...data.axe.map((p) => `https://render.crafty.gg/2d/head/${p.ign}`),
+        ...data.uhc.map((p) => `https://render.crafty.gg/2d/head/${p.ign}`),
+        ...data.smp.map((p) => `https://render.crafty.gg/2d/head/${p.ign}`),
+      ];
+
+      Promise.all(images.map(loadImage))
+        .then(() => {
+          setImageLoading(false);
+          console.log("loaded");
+        })
+        .catch(() => {
+          console.log("loaded with error");
+          setImageLoading(false);
+        });
+    }
   }, [data]);
 
   return (
