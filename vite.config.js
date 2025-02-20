@@ -4,6 +4,9 @@ import { ngrok } from "vite-plugin-ngrok";
 import styleX from "vite-plugin-stylex";
 
 export default defineConfig({
+  build: {
+    // sourcemap: false,
+  },
   plugins: [
     react(),
     styleX(),

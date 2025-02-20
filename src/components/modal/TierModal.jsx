@@ -48,6 +48,7 @@ function TierModal() {
             src={`https://render.crafty.gg/3d/full/${ign}`}
             {...stylex.props(skin)}
             onLoad={() => setImageLoading(false)}
+            crossOrigin="anonymous"
           />
 
           {isLoading && <Loader />}
