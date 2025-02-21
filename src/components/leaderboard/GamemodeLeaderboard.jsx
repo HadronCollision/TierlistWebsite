@@ -30,8 +30,8 @@ const GamemodeLeaderboard = ({ country }) => {
   const { data, isFetching } = useQuery({
     queryFn: () => fetchLeaderboardData(`${country}lb`),
     queryKey: ["leaderboard", country],
-    staleTime: 60_000,
-    gcTime: 60_000,
+    staleTime: 300_000,
+    gcTime: 300_000,
   });
 
   useEffect(() => {

@@ -5,8 +5,8 @@ export const useFetchPlayerData = (ign) => {
   return useQuery({
     queryFn: () => fetchPlayerData(ign),
     queryKey: ["player", ign?.toLowerCase()],
-    staleTime: 60_000,
-    gcTime: 60_000,
+    staleTime: 300_000,
+    gcTime: 300_000,
     enabled: !!ign,
   });
 };

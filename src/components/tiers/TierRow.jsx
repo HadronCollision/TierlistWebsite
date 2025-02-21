@@ -87,7 +87,7 @@ const styles = stylex.create({
     textWrap: "none",
   },
   countryHover: {
-    width: "5vh",
+    width: "36px",
     paddingRight: "2px",
     fontFamily: "Roboto Mono",
     fontWeight: "bold",
