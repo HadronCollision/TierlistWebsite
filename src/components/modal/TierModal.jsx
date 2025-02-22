@@ -12,8 +12,7 @@ function TierModal() {
   //prettier-ignore
   const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
   const { data, isFetching: tiersLoading } = useFetchPlayerData(ign);
-  const isLoading = imageLoading || tiersLoading;
-  const skin = isLoading ? styles.skinHidden : styles.skinImage;
+  const skin = imageLoading ? styles.skinHidden : styles.skinImage;
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -51,9 +50,9 @@ function TierModal() {
             crossOrigin="anonymous"
           />
 
-          {isLoading && <Loader />}
+          {imageLoading && <Loader />}
 
-          <TierDisplayBoxContainer rank={data?.rank} isLoading={isLoading} />
+          <TierDisplayBoxContainer rank={data?.rank} isLoading={tiersLoading} />
         </m.div>
       </m.div>
     </LazyMotion>
