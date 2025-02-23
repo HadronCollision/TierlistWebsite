@@ -23,15 +23,8 @@ const formatTier = (tier) => {
 const TierDisplayBox = ({ type, tier, isLoading }) => {
   if (isLoading)
     return (
-      <div
-        className={type}
-        style={{ ...cssStyles.container, backgroundColor: colors.secondary }}
-      >
-        <BeatLoader
-          color={colors.loader}
-          style={cssStyles.loader}
-          size="12px"
-        />
+      <div {...stylex.props(styles.container, styles[type.split("-")[1]])}>
+        <BeatLoader color={colors.loader} size="12px" />
       </div>
     );
 
@@ -43,8 +36,7 @@ const TierDisplayBox = ({ type, tier, isLoading }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.25 }}
-        className={type}
-        style={cssStyles.container}
+        {...stylex.props(styles.container, styles[type.split("-")[1]])}
       >
         <div {...stylex.props(styles.iconWrapper)}>
           <img src={iconUrl} {...stylex.props(styles.icon)} />
@@ -57,7 +49,7 @@ const TierDisplayBox = ({ type, tier, isLoading }) => {
   );
 };
 
-const cssStyles = {
+const styles = stylex.create({
   container: {
     position: "absolute",
     height: "80px",
@@ -69,14 +61,8 @@ const cssStyles = {
     borderRadius: "40px",
     overflow: "hidden",
     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.5)",
-  },
-  loader: {
     backgroundColor: colors.secondary,
-    display: "flex",
   },
-};
-
-const styles = stylex.create({
   iconWrapper: {
     height: "50%",
     width: "100%",
@@ -103,13 +89,30 @@ const styles = stylex.create({
     margin: 0,
   },
   icon: {
-    height: "100%",
-    width: "100%",
+    height: "85%",
+    width: "auto",
     backgroundColor: colors.tertiary,
   },
-  loader: {
-    backgroundColor: colors.secondary,
-    display: "flex",
+  sword: {
+    transform: "translate(200px, -120px)",
+  },
+  nethpot: {
+    transform: "translate(220px, 10px)",
+  },
+  crystal: {
+    transform: "translate(150px, 130px)",
+  },
+  diapot: {
+    transform: "translate(0px, 190px)",
+  },
+  axe: {
+    transform: "translate(-150px, 130px)",
+  },
+  uhc: {
+    transform: "translate(-220px, 10px)",
+  },
+  smp: {
+    transform: "translate(-200px, -120px)",
   },
 });
 
