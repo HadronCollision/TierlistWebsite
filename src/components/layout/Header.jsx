@@ -29,13 +29,14 @@ const Header = () => {
     const varelaRound = new FontFaceObserver("Varela Round");
 
     const icons = [
-      "https://mctiers.com/tier_icons/sword.svg",
-      "https://mctiers.com/tier_icons/nethop.svg",
-      "https://mctiers.com/tier_icons/vanilla.svg",
-      "https://mctiers.com/tier_icons/pot.svg",
-      "https://mctiers.com/tier_icons/axe.svg",
-      "https://mctiers.com/tier_icons/uhc.svg",
-      "https://mctiers.com/tier_icons/smp.svg",
+      "/icons/medal.png",
+      "/icons/sword.png",
+      "/icons/nethpot.png",
+      "/icons/crystal.png",
+      "/icons/diapot.png",
+      "/icons/axe.png",
+      "/icons/uhc.png",
+      "/icons/smp.png",
     ];
 
     Promise.all([

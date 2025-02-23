@@ -2,18 +2,17 @@ import React, { useCallback, useEffect } from "react";
 import { useLocation } from "react-router";
 import { useSelectedMode } from "../../context/selectedModeContext";
 import * as stylex from "@stylexjs/stylex";
-import { colors } from "../../tokens.stylex";
 import GamemodeButton from "./GamemodeButton";
 
 //prettier-ignore
 const gamemodes = [
-  { src: "https://mctiers.com/tier_icons/sword.svg", label: "Sword", id: "sword", route: "/tiers/sword" },
-  { src: "https://mctiers.com/tier_icons/nethop.svg", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
-  { src: "https://mctiers.com/tier_icons/vanilla.svg", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
-  { src: "https://mctiers.com/tier_icons/pot.svg", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
-  { src: "https://mctiers.com/tier_icons/axe.svg", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
-  { src: "https://mctiers.com/tier_icons/uhc.svg", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
-  { src: "https://mctiers.com/tier_icons/smp.svg", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
+  { src: "/icons/sword.png", label: "Sword", id: "sword", route: "/tiers/sword" },
+  { src: "/icons/nethpot.png", label: "Netherite Pot", id: "nethpot", route: "/tiers/nethpot"},
+  { src: "/icons/crystal.png", label: "Crystal", id: "crystal", route: "/tiers/crystal" },
+  { src: "/icons/diapot.png", label: "Diamond Pot", id: "diapot", route: "/tiers/diapot" },
+  { src: "/icons/axe.png", label: "Axe & Shield", id: "axe", route: "/tiers/axe" },
+  { src: "/icons/uhc.png", label: "UHC Kit", id: "uhc", route: "/tiers/uhc" },
+  { src: "/icons/smp.png", label: "SMP Kit", id: "smp", route: "/tiers/smp"},
 ];
 
 const GamemodeHeader = () => {
@@ -31,7 +30,7 @@ const GamemodeHeader = () => {
           isSelected={selectedMode.startsWith("/leaderboard/")}
           onClick={() => setSelectedMode("/leaderboard/overall")}
           gamemode={{
-            src: "https://mctiers.com/tier_icons/overall.svg",
+            src: "/icons/medal.png",
             id: "leaderboard",
             route: "/leaderboard/overall",
           }}

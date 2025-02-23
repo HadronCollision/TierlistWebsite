@@ -6,13 +6,13 @@ import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 
 const iconUrls = {
-  sword: "https://mctiers.com/tier_icons/sword.svg",
-  nethpot: "https://mctiers.com/tier_icons/nethop.svg",
-  crystal: "https://mctiers.com/tier_icons/vanilla.svg",
-  diapot: "https://mctiers.com/tier_icons/pot.svg",
-  axe: "https://mctiers.com/tier_icons/axe.svg",
-  uhc: "https://mctiers.com/tier_icons/uhc.svg",
-  smp: "https://mctiers.com/tier_icons/smp.svg",
+  sword: "/icons/sword.png",
+  nethpot: "/icons/nethpot.png",
+  crystal: "/icons/crystal.png",
+  diapot: "/icons/diapot.png",
+  axe: "/icons/axe.png",
+  uhc: "/icons/uhc.png",
+  smp: "/icons/smp.png",
 };
 
 const formatTier = (tier) => {
