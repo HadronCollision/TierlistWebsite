@@ -15,8 +15,8 @@ const loadImage = (src) =>
 
 const OverallLb = () => {
   const [players, setPlayers] = useState({
-    pak: Array(10).fill(""),
-    ind: Array(10).fill(""),
+    pak: Array(10).fill({ ign: "", points: "" }),
+    ind: Array(10).fill({ ign: "", points: "" }),
   });
 
   const [imageLoading, setImageLoading] = useState(true);
@@ -30,20 +30,23 @@ const OverallLb = () => {
 
   useEffect(() => {
     if (data) {
+      data.pak.map((player) => console.log(player.ign));
       setPlayers(data);
 
       const images = [
-        ...data.pak.map((ign) => `https://render.crafty.gg/2d/head/${ign}`),
-        ...data.ind.map((ign) => `https://render.crafty.gg/2d/head/${ign}`),
+        ...data.pak.map(
+          (player) => `https://render.crafty.gg/2d/head/${player.ign}`
+        ),
+        ...data.ind.map(
+          (player) => `https://render.crafty.gg/2d/head/${player.ign}`
+        ),
       ];
 
       Promise.all([...images.map(loadImage)])
         .then(() => {
           setImageLoading(false);
-          console.log("loaded");
         })
         .catch(() => {
-          console.log("loaded with error");
           setImageLoading(false);
         });
     }
@@ -60,10 +63,11 @@ const OverallLb = () => {
           TOP 10 BEST PLAYERS FROM PAKISTAN
         </div>
         <div {...stylex.props(styles.playerContainer)}>
-          {players.pak.map((ign, i) => (
+          {players.pak.map((player, i) => (
             <PlayerContainer
-              ign={ign}
+              ign={player.ign}
               country="pak"
+              points={player.points}
               index={i}
               isLoading={isFetching || imageLoading}
               key={i}
@@ -81,10 +85,11 @@ const OverallLb = () => {
           TOP 10 BEST PLAYERS FROM INDIA
         </div>
         <div {...stylex.props(styles.playerContainer)}>
-          {players.ind.map((ign, i) => (
+          {players.ind.map((player, i) => (
             <PlayerContainer
-              ign={ign}
+              ign={player.ign}
               country="ind"
+              points={player.points}
               index={i}
               isLoading={isFetching || imageLoading}
               key={i}

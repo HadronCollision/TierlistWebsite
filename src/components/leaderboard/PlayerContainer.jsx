@@ -3,7 +3,7 @@ import * as stylex from "@stylexjs/stylex";
 import { colors } from "../../tokens.stylex";
 import { useModal } from "../../context/modalContext";
 
-const PlayerContainer = ({ ign, country, rank, index, isLoading }) => {
+const PlayerContainer = ({ ign, country, rank, points, index, isLoading }) => {
   const { setModalState } = useModal();
   const [hover, setHover] = useState(false);
 
@@ -41,6 +41,14 @@ const PlayerContainer = ({ ign, country, rank, index, isLoading }) => {
       <span {...stylex.props(styles.playerTextContainer)}>
         {ign}
         {rank && <span {...stylex.props(styles.rankText)}>{rank}</span>}
+        {points && (
+          <span {...stylex.props(styles.pointsBox)}>
+            <span {...stylex.props(styles.pointsTextBox)}>
+              {points}
+              <span {...stylex.props(styles.pointsText)}> pts.</span>
+            </span>
+          </span>
+        )}
       </span>
     </span>
   );
@@ -95,7 +103,7 @@ const styles = stylex.create({
     alignItems: "center",
     backgroundColor: colors.secondary,
     margin: "4px 0px",
-    borderRadius: "18px",
+    borderRadius: "16px",
     fontFamily: "Poppins",
     fontSize: "28px",
     cursor: "pointer",
@@ -109,7 +117,7 @@ const styles = stylex.create({
     alignItems: "center",
     height: "100%",
     width: "154px",
-    borderRadius: "18px",
+    borderRadius: "16px",
     backgroundColor: colors.tertiary,
     fontFamily: "Russo One",
     fontSize: "32px",
@@ -153,6 +161,26 @@ const styles = stylex.create({
     borderRadius: "16px",
     width: "100px",
     height: "50px",
+  },
+  pointsBox: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    marginHorizontal: "18px",
+    backgroundColor: colors.primary,
+    borderRadius: "16px",
+    width: "100px",
+    height: "50px",
+  },
+  pointsTextBox: {
+    display: "flex",
+    alignItems: "flex-end",
+  },
+  pointsText: {
+    color: colors.loader,
+    fontSize: "12px",
+    marginBottom: "8px",
+    marginLeft: "4px",
   },
 });
 
