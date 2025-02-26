@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useTierModal } from "../../hooks/useTierModal";
 import { BeatLoader } from "react-spinners";
 import { domAnimation, LazyMotion } from "motion/react";
@@ -7,14 +7,36 @@ import * as m from "motion/react-m";
 import { colors } from "../../tokens.stylex";
 import * as stylex from "@stylexjs/stylex";
 import { useFetchPlayerData } from "../../hooks/useFetchPlayerData";
+const ImportedSkinViewer = () =>
+  import("../../skinView3d").then((res) => res.default);
 
 function TierModal() {
   //prettier-ignore
   const { ign, country, imageLoading, setImageLoading, closeModal } = useTierModal();
   const { data, isFetching: tiersLoading } = useFetchPlayerData(ign);
   const skin = imageLoading ? styles.skinHidden : styles.skinImage;
+  const canvas = useRef(null);
 
   useEffect(() => {
+    setTimeout(async () => {
+      //prettier-ignore
+      const SkinViewer = await import("../../skinView3d").then((res) => res.default);
+      const skinViewer = new SkinViewer({
+        canvas: canvas.current,
+        width: 120,
+        height: 256,
+      });
+
+      await skinViewer.loadSkin(`https://mineskin.eu/skin/${ign}`);
+      skinViewer.controls.minPolarAngle = Math.PI / 2;
+      skinViewer.controls.maxPolarAngle = Math.PI / 2;
+      skinViewer.controls.enableDamping = true;
+      skinViewer.controls.dampingFactor = 0.25;
+      skinViewer.controls.enableZoom = false;
+      skinViewer.controls.enablePan = false;
+      setImageLoading(false);
+    }, 150);
+
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         closeModal();
@@ -22,6 +44,8 @@ function TierModal() {
     };
     window.addEventListener("keydown", handleKeyDown);
   }, []);
+
+  useEffect(() => {}, [imageLoading]);
 
   return (
     <LazyMotion features={domAnimation}>
@@ -43,12 +67,13 @@ function TierModal() {
         >
           <p {...stylex.props(styles.ignText)}>{ign}</p>
           <p {...stylex.props(styles.countryText)}>Country: {country}</p>
-          <img
+          {/* <img
             src={`https://render.crafty.gg/3d/full/${ign}`}
             {...stylex.props(skin)}
             onLoad={() => setImageLoading(false)}
             crossOrigin="anonymous"
-          />
+          /> */}
+          <canvas ref={canvas} {...stylex.props(skin)} />
 
           {imageLoading && <Loader />}
 
@@ -92,7 +117,7 @@ const styles = stylex.create({
   },
   skinImage: {
     backgroundColor: colors.primary,
-    width: "158px",
+    width: "14px",
     height: "256px",
   },
   skinHidden: {
@@ -114,7 +139,7 @@ const styles = stylex.create({
   },
   loaderWrapper: {
     height: "256px",
-    width: "158px",
+    width: "140px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
