@@ -34,6 +34,7 @@ function TierModal() {
       skinViewer.controls.dampingFactor = 0.25;
       skinViewer.controls.enableZoom = false;
       skinViewer.controls.enablePan = false;
+      skinViewer.playerObject.rotation.y = 0.25;
       setImageLoading(false);
     }, 150);
 
@@ -51,7 +52,7 @@ function TierModal() {
     <LazyMotion features={domAnimation}>
       <m.div
         {...stylex.props(styles.modalOverlay)}
-        onClick={() => closeModal()}
+        onMouseDown={() => closeModal()}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -59,7 +60,7 @@ function TierModal() {
       >
         <m.div
           {...stylex.props(styles.modalBody)}
-          onClick={(e) => e.stopPropagation()}
+          onMouseDown={(e) => e.stopPropagation()}
           initial={{ opacity: 0.5, y: "5px" }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0.5, y: "-5px" }}
