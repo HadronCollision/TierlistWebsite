@@ -10,7 +10,7 @@ export const colors = stylex.defineVars({
   loader: " #8a7f78",
   green: " #5f9e6e",
   orange: " #d9823b",
-  gold: "#daaf41",
-  silver: " #b5b5b5",
-  bronze: " #9c6b3f",
+  gold: "rgba(239, 186, 57, 0.7)",
+  silver: "rgba(134, 158, 163, 0.7)",
+  bronze: "rgba(180, 99, 40, 0.7)",
 });

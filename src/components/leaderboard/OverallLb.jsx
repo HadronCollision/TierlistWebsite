@@ -30,7 +30,6 @@ const OverallLb = () => {
 
   useEffect(() => {
     if (data) {
-      data.pak.map((player) => console.log(player.ign));
       setPlayers(data);
 
       const images = [

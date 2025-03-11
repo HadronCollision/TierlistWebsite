@@ -45,7 +45,7 @@ const PlayerContainer = ({ ign, country, rank, points, index, isLoading }) => {
           <span {...stylex.props(styles.pointsBox)}>
             <span {...stylex.props(styles.pointsTextBox)}>
               {points}
-              <span {...stylex.props(styles.pointsText)}> pts.</span>
+              <span {...stylex.props(styles.pointsText)}>pts.</span>
             </span>
           </span>
         )}
@@ -180,7 +180,7 @@ const styles = stylex.create({
     color: colors.loader,
     fontSize: "12px",
     marginBottom: "8px",
-    marginLeft: "4px",
+    marginLeft: "2px",
   },
 });
 

@@ -51,7 +51,7 @@ const GamemodeHeader = () => {
           isSelected={selectedMode === "/subhuman"}
           onClick={() => setSelectedMode("subhuman")}
           gamemode={{
-            src: "https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=48",
+            src: "https://cdn.discordapp.com/emojis/1330875974526697482.webp?size=64",
             id: "subhuman",
             route: "/subhuman",
           }}

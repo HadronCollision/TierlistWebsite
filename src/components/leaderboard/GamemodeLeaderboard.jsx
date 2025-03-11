@@ -51,10 +51,8 @@ const GamemodeLeaderboard = ({ country }) => {
       Promise.all(images.map(loadImage))
         .then(() => {
           setImageLoading(false);
-          console.log("loaded");
         })
         .catch(() => {
-          console.log("loaded with error");
           setImageLoading(false);
         });
     }

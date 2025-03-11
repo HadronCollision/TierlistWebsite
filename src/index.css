@@ -1,2 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&family=Roboto+Mono&family=Russo+One&family=Varela+Round&display=swap");
 @stylex stylesheet;
+
+/* .wiggle {
+  display: block;
+  width: 200px;
+  animation: wiggle 0.5s ease-in-out infinite;
+  position: relative;
+}
+
+.stick {
+  height: 10px;
+  width: 100px;
+  background-color: #917147;
+  border-radius: 4px;
+  position: absolute;
+  top: 160px;
+  left: 85px;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: translateX(40px);
+  }
+  50% {
+    transform: translateX(80px);
+  }
+  100% {
+    transform: translateX(40px);
+  }
+} */

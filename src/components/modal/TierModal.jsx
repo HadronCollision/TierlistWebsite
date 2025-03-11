@@ -7,8 +7,6 @@ import * as m from "motion/react-m";
 import { colors } from "../../tokens.stylex";
 import * as stylex from "@stylexjs/stylex";
 import { useFetchPlayerData } from "../../hooks/useFetchPlayerData";
-const ImportedSkinViewer = () =>
-  import("../../skinView3d").then((res) => res.default);
 
 function TierModal() {
   //prettier-ignore
@@ -68,12 +66,6 @@ function TierModal() {
         >
           <p {...stylex.props(styles.ignText)}>{ign}</p>
           <p {...stylex.props(styles.countryText)}>Country: {country}</p>
-          {/* <img
-            src={`https://render.crafty.gg/3d/full/${ign}`}
-            {...stylex.props(skin)}
-            onLoad={() => setImageLoading(false)}
-            crossOrigin="anonymous"
-          /> */}
           <canvas ref={canvas} {...stylex.props(skin)} />
 
           {imageLoading && <Loader />}
